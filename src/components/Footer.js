@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import logo from '../img/DRUMLogo.png'
 import facebook from '../img/social/facebook.svg'
@@ -11,11 +10,13 @@ const Footer = class extends React.Component {
     return (
       <footer>
         <div className="social">
-          <img
-            src={logo}
-            alt="DRUM Logo"
-            className="logo"
-          />
+          <a href="https://drumnyc.org" target="_blank" rel="noopener noreferrer">
+            <img
+              src={logo}
+              alt="DRUM Logo"
+              className="logo"
+            />
+          </a>
           <a title="facebook" href="https://facebook.com">
             <img
               src={facebook}
