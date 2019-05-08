@@ -1,18 +1,26 @@
 // Config vars
-$page-margin: 20px
+$page-margin: 75px
+$container-width: 80%
 $header-font: "arvo"
 $body-font: 'Open Sans'
+$yellow: #EDE7BF
+$red: #AD1500
+
+body
+  margin: 0px
 
 p, a
   font-family: $body-font
 p
   font-size: 1em
 
-h1
+h1, h2
   font-family: $header-font
 
 .header
-  padding: $page-margin
+  width: $container-width
+  margin: auto
+  padding: 20px 0px
   display: flex
   align-items: center
   justify-content: space-between
@@ -54,7 +62,7 @@ footer
   display: flex
   align-items: center
   justify-content: space-between
-  padding: $page-margin
+  padding: 20px 70px
   & .logo
     height: 100%
 
@@ -70,8 +78,8 @@ footer
     height: 100%
 
 .container
-  background: #EDE7BF
-  width: 80%
+  background: $yellow
+  width: $container-width
   height: 400px
   margin: auto
   padding: 70px 25px
@@ -87,23 +95,36 @@ footer
     display: block
   .container
     margin-top: -200px
-    padding: 70px 45px 70px 25px
+    padding: 70px 45px 0px 25px
+    height: auto
+    margin-bottom: 80px
   .subtitle
     width: 80%
   .read-more
     width: 100px
     height: 40px
-    display: block
     background: black
-    text-align: center
     padding: 12px
-    box-sizing: border-box
-    text-decoration: none
-    color: white
     font-size: .8em
+  .btn
+    display: block
+    text-align: center
+    box-sizing: border-box
+    color: white
   a
     text-decoration: none
   .flex-container
     display: flex
     align-items: center
     justify-content: space-between
+    &.cta-container
+      width: 118%
+      margin-left: -8%
+      padding-top: 25px
+  .cta
+    background: $red
+    width: 32%
+    height: 300px
+    font-size: 2.3em
+    text-align: left
+    padding: 20px 35px 20px 25px

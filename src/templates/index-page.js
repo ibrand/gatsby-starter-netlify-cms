@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import BlogRoll from '../components/BlogRoll'
 import header from '../img/protest-2.png'
 
 export const IndexPageTemplate = ({
@@ -15,15 +14,16 @@ export const IndexPageTemplate = ({
       <h1 className="title">{mainpitch.title}</h1>
       <div className="flex-container">
         <p className="subtitle">{mainpitch.description}</p>
-        <Link className="btn" to="/about">
-          <a className="read-more">Read More</a>
+        <Link className="read-more btn" to="/about">
+          <div>Read More</div>
         </Link>
       </div>
+      <div className="flex-container cta-container">
+        <Link className="cta btn" to="/read-stories"><div><h2>read<br/>stories</h2></div></Link>
+        <Link className="cta btn" to="/write-stories"><div><h2>write<br/>stories</h2></div></Link>
+        <Link className="cta btn" to="/gallery"><div><h2>view<br/>gallery</h2></div></Link>
+      </div>
     </div>
-    <BlogRoll />
-    <Link className="btn" to="/blog">
-      Read more
-    </Link>
   </div>
 )
 
