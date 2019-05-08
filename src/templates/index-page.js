@@ -6,14 +6,15 @@ import Layout from '../components/Layout'
 import header from '../img/protest-2.png'
 
 export const IndexPageTemplate = ({
-  mainpitch,
+  heading,
+  description
 }) => (
   <div className="homepage">
     <img src={header} alt="Banner with drawing of protestors in it" className="banner"/>
     <div className="container">
-      <h1 className="title">{mainpitch.title}</h1>
+      <h1 className="title">{heading}</h1>
       <div className="flex-container">
-        <p className="subtitle">{mainpitch.description}</p>
+        <p className="subtitle">{description}</p>
         <Link className="read-more btn" to="/about">
           <div>Read More</div>
         </Link>
@@ -28,7 +29,8 @@ export const IndexPageTemplate = ({
 )
 
 IndexPageTemplate.propTypes = {
-  mainpitch: PropTypes.object,
+  heading: PropTypes.string,
+  description: PropTypes.string
 }
 
 const IndexPage = ({ data }) => {
@@ -37,7 +39,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        mainpitch={frontmatter.mainpitch}
+        heading={frontmatter.heading}
+        description={frontmatter.description}
       />
     </Layout>
   )
@@ -57,10 +60,8 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        mainpitch {
-          title
-          description
-        }
+        heading
+        description
       }
     }
   }
