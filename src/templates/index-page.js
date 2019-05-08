@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
-import header from '../img/protest.svg'
+import header from '../img/protest-2.png'
 
 export const IndexPageTemplate = ({
   heading,
@@ -14,15 +13,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div className="homepage">
-    <img src={header} alt="Banner with drawing of protestors in it"
-         style={{
-           width: `100%`,
-           margin: `auto`,
-           height: `400px`,
-           marginTop: `-30px`,
-           background: `transparent`
-         }}
-    />
+    <img src={header} alt="Banner with drawing of protestors in it" className="banner"/>
     <div className="container">
       <h1 className="title">{mainpitch.title}</h1>
       <h3 className="subtitle">{mainpitch.description}</h3>
