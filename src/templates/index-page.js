@@ -7,16 +7,18 @@ import BlogRoll from '../components/BlogRoll'
 import header from '../img/protest-2.png'
 
 export const IndexPageTemplate = ({
-  heading,
   mainpitch,
-  description,
-  intro,
 }) => (
   <div className="homepage">
     <img src={header} alt="Banner with drawing of protestors in it" className="banner"/>
     <div className="container">
       <h1 className="title">{mainpitch.title}</h1>
-      <h3 className="subtitle">{mainpitch.description}</h3>
+      <div className="flex-container">
+        <p className="subtitle">{mainpitch.description}</p>
+        <Link className="btn" to="/about">
+          <a className="read-more">Read More</a>
+        </Link>
+      </div>
     </div>
     <BlogRoll />
     <Link className="btn" to="/blog">
@@ -26,12 +28,7 @@ export const IndexPageTemplate = ({
 )
 
 IndexPageTemplate.propTypes = {
-  heading: PropTypes.string,
   mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 }
 
 const IndexPage = ({ data }) => {
@@ -40,10 +37,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        heading={frontmatter.heading}
         mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   )
@@ -63,25 +57,8 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        heading
-        subheading
         mainpitch {
           title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
           description
         }
       }

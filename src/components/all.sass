@@ -1,7 +1,15 @@
 // Config vars
 $page-margin: 20px
 $header-font: "arvo"
-$body-font: "open-sans"
+$body-font: 'Open Sans'
+
+p, a
+  font-family: $body-font
+p
+  font-size: 1em
+
+h1
+  font-family: $header-font
 
 .header
   padding: $page-margin
@@ -79,3 +87,23 @@ footer
     display: block
   .container
     margin-top: -200px
+    padding: 70px 45px 70px 25px
+  .subtitle
+    width: 80%
+  .read-more
+    width: 100px
+    height: 40px
+    display: block
+    background: black
+    text-align: center
+    padding: 12px
+    box-sizing: border-box
+    text-decoration: none
+    color: white
+    font-size: .8em
+  a
+    text-decoration: none
+  .flex-container
+    display: flex
+    align-items: center
+    justify-content: space-between
