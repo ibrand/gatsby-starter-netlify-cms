@@ -6,8 +6,20 @@ $body-font: 'Open Sans'
 $yellow: #EDE7BF
 $red: #AD1500
 
-body
+html, body
   margin: 0px
+  padding: 0px
+  height: 100%
+
+// Handle the footer
+.site
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  overflow: hidden // make sure there's no side scroll even though the footer is full width
+
+.site-content
+  flex-grow: 1
 
 p, a
   font-family: $body-font
@@ -16,9 +28,6 @@ p
 
 h1, h2
   font-family: $header-font
-
-.page-wrapper
-  overflow: hidden // make sure there's no side scroll even though the footer is full width
 
 .header
   width: $container-width
@@ -65,7 +74,9 @@ footer
   display: flex
   align-items: center
   justify-content: space-between
-  padding: 20px 70px
+  padding: 20px 10px
+  height: 15px
+
   & .logo
     height: 100%
 
@@ -83,10 +94,20 @@ footer
 .container
   background: $yellow
   width: $container-width
-  height: 400px
+  height: auto
   margin: auto
   padding: 70px 25px
   box-sizing: border-box
+  position: relative
+  z-index: -1
+
+.page-title
+  background: $red
+  color: white
+  padding: 10px 50% 10px 15px
+  position: absolute
+  top: 0px
+  left: -15px
 
 .homepage
   .banner
@@ -96,10 +117,10 @@ footer
     background: transparent
     margin-top: -130px
     display: block
+    z-index: 1
   .container
     margin-top: -200px
     padding: 70px 45px 0px 25px
-    height: auto
     margin-bottom: 80px
   .subtitle
     width: 80%
