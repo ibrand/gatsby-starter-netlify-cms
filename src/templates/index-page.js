@@ -4,13 +4,20 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import header from '../img/protestors.png'
-console.log('HEADER ', header)
+import Img from "gatsby-image";
+
 export const IndexPageTemplate = ({
   heading,
-  description
+  description,
+  bannerImgSizes
 }) => (
   <div className="homepage">
-    <img src={header} alt="Banner with drawing of protestors in it" className="banner"/>
+    <div className="banner-wrapper">
+      <Img
+        sizes={bannerImgSizes}
+        alt="Banner with drawing of protestors in it"
+      />
+    </div>
     <div className="container">
       <h1 className="title">{heading}</h1>
       <div className="flex-container">
@@ -30,17 +37,21 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  bannerImgSizes: PropTypes.object
 }
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  const { sizes: bannerImgSizes } = data.bannerImg.childImageSharp
+  console.log('bannerImgSizes ', bannerImgSizes)
 
   return (
     <Layout>
       <IndexPageTemplate
         heading={frontmatter.heading}
         description={frontmatter.description}
+        bannerImgSizes={bannerImgSizes}
       />
     </Layout>
   )
@@ -51,6 +62,7 @@ IndexPage.propTypes = {
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
     }),
+    bannerImgSizes: PropTypes.object
   }),
 }
 
@@ -63,6 +75,13 @@ export const pageQuery = graphql`
         heading
         description
       }
+    },
+     bannerImg: file(relativePath: { eq: "protestors.png" }) {
+        childImageSharp {
+          sizes(maxHeight: 750) {
+            ...GatsbyImageSharpSizes
+          }
+        }
+      }
     }
-  }
 `
