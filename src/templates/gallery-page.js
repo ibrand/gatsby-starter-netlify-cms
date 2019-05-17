@@ -1,21 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {graphql, Link} from 'gatsby'
-import Img from "gatsby-image"
-import Layout from "../components/Layout";
-
-export const GalleryPageTemplate = ({
-  images
-}) => (
-  <div className="columns is-multiline">
-    {images &&
-    images.map(({ node: image }) => (
-      <div className="is-parent column is-6" key={image.id}>
-        <Img fluid={image.childImageSharp.fluid} />
-      </div>
-    ))}
-  </div>
-)
+import Layout from "../components/Layout"
+import GalleryImages from "../components/GalleryImages"
 
 // GalleryPageTemplate.propTypes = {
   // image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -25,12 +12,18 @@ export const GalleryPageTemplate = ({
 // }
 
 const GalleryPage = ({ data }) => {
-  console.log(data.protestors.childImageSharp.fluid)
+  const { edges: galleryImgData } = data.GalleryImgs
+  console.log(galleryImgData)
   return (
     <Layout>
-      <GalleryPageTemplate
-        images={data.protestors.childImageSharp.fluid}
-      />
+      <div className="gallery">
+        <div className="container">
+          <h2 className="page-title">
+            Gallery
+          </h2>
+          <GalleryImages galleryImgData={galleryImgData} />
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -45,15 +38,25 @@ const GalleryPage = ({ data }) => {
 
 export default GalleryPage
 
-export const galleryPageQuery = graphql`{
-  protestors: file(relativePath: {eq: "protestors.PNG"}) {
-    childImageSharp {
-      fluid(maxWidth: 1000) {
-        ...GatsbyImageSharpFluid
+export const query = graphql`
+  query GalleryPageTemplate {
+    GalleryImgs: allFile(
+      sort: { order: ASC, fields: [absolutePath] }
+      filter: { relativePath: { regex: "/gallery/.*.(jpg|JPG|png|PNG)/" } }
+    ) {
+      edges {
+        node {
+          relativePath
+          name
+          childImageSharp {
+            sizes(maxWidth: 350, maxHeight: 350) {
+              ...GatsbyImageSharpSizes
+            } 
+          }
+        }
       }
     }
   }
-}
-`
+`;
 
 
