@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import header from '../img/protest-2.png'
-
+import header from '../img/protestors.png'
+console.log('HEADER ', header)
 export const IndexPageTemplate = ({
   heading,
   description

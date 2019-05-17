@@ -1,40 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql, Link} from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from "../components/Layout"
-import GalleryImages from "../components/GalleryImages"
+import Img from "gatsby-image";
 
-// GalleryPageTemplate.propTypes = {
-  // image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  // intro: PropTypes.shape({
-  //   blurbs: PropTypes.array,
-  // })
-// }
+export const GalleryPageTemplate = ({
+  galleryImgData
+}) => (
+  <div className="gallery">
+    <div className="container">
+      <h2 className="page-title">
+        Gallery
+      </h2>
+      <div className="grid">
+        {galleryImgData.map(( image, i ) => {
+          const imageSizes = image.node.childImageSharp.sizes;
+          return (
+            <div className="gallery-img" key={i}>
+              <Img
+                alt="End institutional bullying gallery image"
+                sizes={imageSizes}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+)
+
+GalleryPageTemplate.propTypes = {
+  data: PropTypes.shape({
+    edges: PropTypes.object
+  }),
+}
 
 const GalleryPage = ({ data }) => {
   const { edges: galleryImgData } = data.GalleryImgs
-  console.log(galleryImgData)
   return (
     <Layout>
-      <div className="gallery">
-        <div className="container">
-          <h2 className="page-title">
-            Gallery
-          </h2>
-          <GalleryImages galleryImgData={galleryImgData} />
-        </div>
-      </div>
+      <GalleryPageTemplate galleryImgData={galleryImgData} />
     </Layout>
   )
 }
 
-// GalleryPage.propTypes = {
-//   data: PropTypes.shape({
-//     markdownRemark: PropTypes.shape({
-//       frontmatter: PropTypes.object,
-//     }),
-//   }),
-// }
+GalleryPage.propTypes = {
+  data: PropTypes.shape({
+    edges: PropTypes.object
+  }),
+}
 
 export default GalleryPage
 
