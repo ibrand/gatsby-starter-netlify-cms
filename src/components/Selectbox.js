@@ -7,7 +7,7 @@ const Selectbox = ({ label, name, onChange, type }) => (
     <input
       className="input"
       type={type}
-      name={name}
+      name={name ? name : label}
       onChange={onChange}
       required={false}
     />
@@ -18,6 +18,10 @@ Selectbox.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func
+}
+
+Selectbox.defaultProps = {
+  name: null
 }
 
 export default Selectbox

@@ -59,9 +59,9 @@ export default class Index extends React.Component {
                 </div>
                 <div className="field">
                   <label>1) I am a... </label><br/>
-                  <Selectbox label={"Student"} name={'identity'} onChange={this.handleChange} type={'radio'} />
-                  <Selectbox label={"Parent"} name={'identity'} onChange={this.handleChange} type={'radio'} />
-                  <Selectbox label={"Teacher"} name={'identity'} onChange={this.handleChange} type={'radio'} />
+                  <Selectbox label={"Student"} onChange={this.handleChange} type={'radio'} />
+                  <Selectbox label={"Parent"} onChange={this.handleChange} type={'radio'} />
+                  <Selectbox label={"Teacher"} onChange={this.handleChange} type={'radio'} />
                 </div>
                 <div className="field">
                   <label className="label">
@@ -69,55 +69,47 @@ export default class Index extends React.Component {
                   </label><br/>
                   <Selectbox
                     label={"School Security Personnel (SSAs, SROs, etc.)"}
-                    name={'bulliedBy[]'}
+                    name={'School Security Personnel'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Police"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Teacher"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Principle"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Dean"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Guidance Counselor"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Supervisor"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Superintendent"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Other"}
-                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
@@ -128,55 +120,46 @@ export default class Index extends React.Component {
                   </label>
                   <Selectbox
                     label={"Made me feel like I was worthless/they didn’t care or didn’t want to help me"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Increased my level of fear and anxiety being in school"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Made me feel ashamed and uncomfortable"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Made me not want to go to/be in school"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"I was punished (Suspended, detention, expelled, given more work, etc.)"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"I could not focus and by grades/work suffered"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Felt depressed and hopeless"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Afraid to speak out and or ask for help"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"Afraid to be your full self in school"}
-                    name={'impacts[]'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
@@ -187,13 +170,13 @@ export default class Index extends React.Component {
                   </label><br/>
                   <Selectbox
                     label={"Yes"}
-                    name={'resolved'}
+                    name={'was able to resolve the situation'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
                   <Selectbox
                     label={"No"}
-                    name={'unresolved'}
+                    name={'was not able to resolve the situation'}
                     onChange={this.handleChange}
                     type={'checkbox'}
                   />
@@ -203,7 +186,7 @@ export default class Index extends React.Component {
                   <input
                     className="input"
                     type={'text'}
-                    name={'resolution'}
+                    name={'how situation was resolved'}
                     onChange={this.handleChange}
                     required={false}
                   />
