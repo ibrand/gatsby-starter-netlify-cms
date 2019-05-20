@@ -1,5 +1,6 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
+import Selectbox from '../../components/Selectbox'
 import Layout from '../../components/Layout'
 
 function encode(data) {
@@ -57,68 +58,155 @@ export default class Index extends React.Component {
                   </label>
                 </div>
                 <div className="field">
-                  <label>I am a... </label><br/>
-                  <label className="label" htmlFor={'student'}>
-                    Student
-                  </label>
-                  <input
-                    type={'checkbox'}
-                    name={'student'}
+                  <label>1) I am a... </label><br/>
+                  <Selectbox label={"Student"} name={'identity'} onChange={this.handleChange} type={'radio'} />
+                  <Selectbox label={"Parent"} name={'identity'} onChange={this.handleChange} type={'radio'} />
+                  <Selectbox label={"Teacher"} name={'identity'} onChange={this.handleChange} type={'radio'} />
+                </div>
+                <div className="field">
+                  <label className="label">
+                    2)  Have you, your child, your student ever been harassed/bullied in school by (check all that apply)
+                  </label><br/>
+                  <Selectbox
+                    label={"School Security Personnel (SSAs, SROs, etc.)"}
+                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
-                    id={'student'}
-                    required={true}
+                    type={'checkbox'}
                   />
-                  <label className="label" htmlFor={'parent'}>
-                    Parent
-                  </label>
-                  <input
-                    type={'checkbox'}
-                    name={'parent'}
+                  <Selectbox
+                    label={"Police"}
+                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
-                    id={'parent'}
-                    required={true}
+                    type={'checkbox'}
                   />
-                  <label className="label" htmlFor={'teacher'}>
-                    Teacher
-                  </label>
-                  <input
-                    type={'checkbox'}
-                    name={'teacher'}
+                  <Selectbox
+                    label={"Teacher"}
+                    name={'bulliedBy[]'}
                     onChange={this.handleChange}
-                    id={'teacher'}
-                    required={true}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Principle"}
+                    name={'bulliedBy[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Dean"}
+                    name={'bulliedBy[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Guidance Counselor"}
+                    name={'bulliedBy[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Supervisor"}
+                    name={'bulliedBy[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Superintendent"}
+                    name={'bulliedBy[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Other"}
+                    name={'bulliedBy[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
                   />
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Email
+                  <label className="label">
+                    4) What were the impacts of the experience you faced? (Check all that apply)
                   </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
-                  </div>
+                  <Selectbox
+                    label={"Made me feel like I was worthless/they didn’t care or didn’t want to help me"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Increased my level of fear and anxiety being in school"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Made me feel ashamed and uncomfortable"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Made me not want to go to/be in school"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"I was punished (Suspended, detention, expelled, given more work, etc.)"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"I could not focus and by grades/work suffered"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Felt depressed and hopeless"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Afraid to speak out and or ask for help"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"Afraid to be your full self in school"}
+                    name={'impacts[]'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'message'}>
-                    Message
+                  <label className="label">
+                    5) Were you able to resolve the situation?
+                  </label><br/>
+                  <Selectbox
+                    label={"Yes"}
+                    name={'resolved'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <Selectbox
+                    label={"No"}
+                    name={'unresolved'}
+                    onChange={this.handleChange}
+                    type={'checkbox'}
+                  />
+                  <label className="label">
+                    If yes, how?
                   </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={'message'}
-                      onChange={this.handleChange}
-                      id={'message'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
+                  <input
+                    className="input"
+                    type={'text'}
+                    name={'resolution'}
+                    onChange={this.handleChange}
+                    required={false}
+                  />
                   <button className="button is-link" type="submit">
                     Send
                   </button>
