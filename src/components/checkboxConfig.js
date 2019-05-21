@@ -1,6 +1,20 @@
 import React from "react";
 
 const checkboxes = {
+  'I am a' : [
+    {
+      name: 'Student',
+      key: 1
+    },
+    {
+      name: 'Parent',
+      key: 2
+    },
+    {
+      name: 'Teacher',
+      key: 3
+    }
+  ],
   'Have you, your child, your student ever been harassed/bullied in school': [
         {
           name: 'School Security Personnel (SSAs, SROs, etc.)',
@@ -75,6 +89,16 @@ const checkboxes = {
     {
       name: 'Afraid to be your full self in school',
       key: 9
+    },
+  ],
+  'Tell us what happened' : [
+    {
+      name: 'I experienced this',
+      key: 1
+    },
+    {
+      name: 'I saw this happen',
+      key: 2
     },
   ]
 }
