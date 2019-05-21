@@ -67,14 +67,13 @@ export default class Index extends React.Component {
                   <label className="label">
                     2)  Have you, your child, your student ever been harassed/bullied in school by (check all that apply)
                   </label><br/>
-                  TEST <input label={"TEST"} name={"TEST"} onChange={this.handleChange} type={'checkbox'} />
-                  <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} />
+                  <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleChange} />
                 </div>
                 <div className="field">
                   <label className="label">
                     4) What were the impacts of the experience you faced? (Check all that apply)
                   </label><br/>
-                  <CheckboxContainer section={'What were the impacts of the experience you faced'} />
+                  <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleChange} />
                 </div>
                 <div className="field">
                   <label className="label">
