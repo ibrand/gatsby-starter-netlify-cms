@@ -21,7 +21,7 @@ export const IndexPageTemplate = ({
     <div className="container">
       <h1 className="title">{heading}</h1>
       <div className="flex-container">
-        <p className="subtitle">{description}</p>
+        <span className="subtitle" dangerouslySetInnerHTML={{__html: description}}></span>
         <Link className="read-more btn" to="/about">
           <div>Read More</div>
         </Link>
@@ -42,15 +42,16 @@ IndexPageTemplate.propTypes = {
 }
 
 const IndexPage = ({ data }) => {
+  console.log('data ', data)
   const { frontmatter } = data.markdownRemark
+  const { html: description} = data.markdownRemark
   const { sizes: bannerImgSizes } = data.bannerImg.childImageSharp
-  console.log('bannerImgSizes ', bannerImgSizes)
 
   return (
     <Layout>
       <IndexPageTemplate
         heading={frontmatter.heading}
-        description={frontmatter.description}
+        description={description}
         bannerImgSizes={bannerImgSizes}
       />
     </Layout>
@@ -60,6 +61,7 @@ const IndexPage = ({ data }) => {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
+      html: PropTypes.string,
       frontmatter: PropTypes.object,
     }),
     bannerImgSizes: PropTypes.object
@@ -69,11 +71,11 @@ IndexPage.propTypes = {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+  query IndexPageTemplate($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         heading
-        description
       }
     },
      bannerImg: file(relativePath: { eq: "protestors.png" }) {

@@ -1,6 +1,7 @@
 ---
 templateKey: index-page
 heading: What is Institutional Bullying?
-description: >
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
 ---
+When most people hear of the term “bullying” they think about several things at once: school, a classmate, school fights, name-calling, relentless harassment, and many other unpleasant memories. However, how many people think about why the bullying behavior exists and continues in the first place?
+
+Institutional bullying is a framework to expand the definition of bullying in schools beyond student to student interactions. It refers to the way the bullying of young people, parents, and even teachers are perpetrated, reinforced, and or normalized by the education system and those in positions of power in our schools. This can happen either by being complicit through inaction or explicitly engaging in harmful and exclusionary practices. Students, parents, and teachers can be bullied by School Resource Officers/School Safety Agents, Police, Principals, Deans, and other Teachers but these interactions are rarely addressed even though it can have the same or even worse impacts on those being bullied.
