@@ -18,7 +18,6 @@ class CheckboxContainer extends React.Component {
   handleChange(e) {
     const item = e.target.name;
     const isChecked = e.target.checked;
-    console.log(this.state.checkedItems.get(e.target.name))
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
 
@@ -27,10 +26,12 @@ class CheckboxContainer extends React.Component {
       <React.Fragment>
         {
           checkboxes[this.props.section].map(item => (
-            <label key={item.key}>
-              {item.name}
+            <React.Fragment>
+              <p key={item.key}>
+                {item.name}
+              </p>
               <Checkbox name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleChange} />
-            </label>
+          </React.Fragment>
           ))
         }
       </React.Fragment>
