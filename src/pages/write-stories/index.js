@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
-import Selectbox from '../../components/Selectbox'
 import Layout from '../../components/Layout'
+import CheckboxContainer from "../../components/CheckboxContainer"
 
 function encode(data) {
   return Object.keys(data)
@@ -59,137 +59,32 @@ export default class Index extends React.Component {
                 </div>
                 <div className="field">
                   <label>1) I am a... </label><br/>
-                  <Selectbox label={"Student"} onChange={this.handleChange} type={'radio'} />
-                  <Selectbox label={"Parent"} onChange={this.handleChange} type={'radio'} />
-                  <Selectbox label={"Teacher"} onChange={this.handleChange} type={'radio'} />
+                  Student <input label={"Student"} name={"Student"} onChange={this.handleChange} type={'radio'} />
+                  Parent <input label={"Parent"} name={"Parent"} onChange={this.handleChange} type={'radio'} />
+                  Teacher <input label={"Teacher"} name={"Teacher"} onChange={this.handleChange} type={'radio'} />
                 </div>
                 <div className="field">
                   <label className="label">
                     2)  Have you, your child, your student ever been harassed/bullied in school by (check all that apply)
                   </label><br/>
-                  <Selectbox
-                    label={"School Security Personnel (SSAs, SROs, etc.)"}
-                    name={'School Security Personnel'}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Police"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Teacher"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Principle"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Dean"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Guidance Counselor"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Supervisor"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Superintendent"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Other"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
+                  <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} />
                 </div>
                 <div className="field">
                   <label className="label">
                     4) What were the impacts of the experience you faced? (Check all that apply)
-                  </label>
-                  <Selectbox
-                    label={"Made me feel like I was worthless/they didn’t care or didn’t want to help me"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Increased my level of fear and anxiety being in school"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Made me feel ashamed and uncomfortable"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Made me not want to go to/be in school"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"I was punished (Suspended, detention, expelled, given more work, etc.)"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"I could not focus and by grades/work suffered"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Felt depressed and hopeless"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Afraid to speak out and or ask for help"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"Afraid to be your full self in school"}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
+                  </label><br/>
+                  <CheckboxContainer section={'What were the impacts of the experience you faced'} />
                 </div>
                 <div className="field">
                   <label className="label">
                     5) Were you able to resolve the situation?
                   </label><br/>
-                  <Selectbox
-                    label={"Yes"}
-                    name={'was able to resolve the situation'}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
-                  <Selectbox
-                    label={"No"}
-                    name={'was not able to resolve the situation'}
-                    onChange={this.handleChange}
-                    type={'checkbox'}
-                  />
+                  Yes <input label={"Yes"} name={"was able to resolve the situation"} onChange={this.handleChange} type={'radio'} />
+                  No <input label={"No"} name={"was not able to resolve the situation"} onChange={this.handleChange} type={'radio'} />
                   <label className="label">
                     If yes, how?
                   </label>
-                  <input
-                    className="input"
-                    type={'text'}
-                    name={'how situation was resolved'}
-                    onChange={this.handleChange}
-                    required={false}
-                  />
+                  <input className="input" type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
                   <button className="button is-link" type="submit">
                     Send
                   </button>
