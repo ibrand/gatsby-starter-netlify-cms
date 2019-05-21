@@ -41,7 +41,7 @@ const checkboxes = {
    ],
   'What were the impacts of the experience you faced': [
     {
-      name: '"Made me feel like I was worthless/they didn’t care or didn’t want to help me',
+      name: 'Made me feel like I was worthless/they didn’t care or didn’t want to help me',
       key: 1
     },
     {
