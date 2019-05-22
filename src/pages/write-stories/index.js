@@ -59,53 +59,45 @@ export default class Index extends React.Component {
               <input name="bot-field" onChange={this.handleChange} />
             </label>
           </div>
-          <div className="field">
-            <label>1) I am a... </label><br/>
+          <fieldset>
+            <legend>1) I am a... </legend>
             <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
-          </div>
-          <div className="field">
-            <label className="label">
-              2)  Have you, your child, your student ever been harassed/bullied in school by (check all that apply)
-            </label><br/>
+          </fieldset>
+          <fieldset>
+            <legend>2)  Have you, your child, your student ever been harassed/bullied in school by</legend>
             <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} />
-          </div>
-          <div className="field">
-            <label className="label">
-              4) What were the impacts of the experience you faced? (Check all that apply)
-            </label><br/>
+          </fieldset>
+          <fieldset>
+            <legend>4) What were the impacts of the experience you faced?</legend>
             <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
-          </div>
-          <div className="field">
-            <label className="label">
-              5) Were you able to resolve the situation?
-            </label><br/>
+          </fieldset>
+          <fieldset>
+            <legend>5) Were you able to resolve the situation?</legend>
             Yes <input label={"Yes"} name={"was able to resolve the situation"} onChange={this.handleCheck} type={'checkbox'} />
             <label className={couldResolveTheSituation ? "label show" : "hide" }>
               If yes, how?
             </label>
             <input className={couldResolveTheSituation ? "input show" : "hide" } type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
-            <div className="field">
-              <label className="label">
-                Tell us your story
-              </label>
-              <CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/>
-              <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
-
-              <label>Name</label>
-              <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
-              <label>Email</label>
-              <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
-              <label>Phone #</label>
-              <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
-              <label>School where incident occurred</label>
-              <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
-              <label>Zipcode where incident occurred</label>
-              <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
-              <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
-              <input label={"Image upload"} name={"Image upload"} onChange={this.handleChange} type={'file'} />
-
-            </div>
-          </div>
+          </fieldset>
+          <fieldset>
+            <legend>Tell us your story</legend>
+            <CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/>
+            <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
+          </fieldset>
+          <fieldset>
+            <label>Name</label>
+            <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
+            <label>Email</label>
+            <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
+            <label>Phone #</label>
+            <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
+            <label>School where incident occurred</label>
+            <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
+            <label>Zipcode where incident occurred</label>
+            <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
+            <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
+            <input label={"Image upload"} name={"Image upload"} onChange={this.handleChange} type={'file'} />
+          </fieldset>
         </form>
       </div>
     )
