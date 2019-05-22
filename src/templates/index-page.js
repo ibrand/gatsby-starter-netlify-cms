@@ -42,7 +42,6 @@ IndexPageTemplate.propTypes = {
 }
 
 const IndexPage = ({ data }) => {
-  console.log('data ', data)
   const { frontmatter } = data.markdownRemark
   const { html: description} = data.markdownRemark
   const { sizes: bannerImgSizes } = data.bannerImg.childImageSharp

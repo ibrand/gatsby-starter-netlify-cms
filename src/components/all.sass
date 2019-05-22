@@ -11,6 +11,12 @@ html, body
   padding: 0px
   height: 100%
 
+button
+  cursor: pointer
+  &:disabled
+    opacity: .6
+    cursor: not-allowed
+
 // Handle the footer
 .site
   display: flex
@@ -26,7 +32,7 @@ p, a
 p
   font-size: 1em
 
-h1, h2
+h1, h2, h3
   font-family: $header-font
   margin-bottom: 0px
 
@@ -151,7 +157,7 @@ footer
     text-align: left
     padding: 20px 35px 20px 25px
 
-.about, .gallery
+.about, .gallery, .write-stories
   .container
     position: relative
 
@@ -169,7 +175,32 @@ footer
     margin-bottom: 15px
 
 .write-stories
+  .container
+    padding: 70px 25px 15px 25px
+  .subtitle
+    font-size: .9em
+    margin: 0px
+  .form-container
+    width: 116%
+    background: white
+    margin-left: -8%
+    border: 1px solid black
+    padding: 15px 35px
+    box-sizing: border-box
+    border-radius: 20px
+    margin-top: 20px
   .show
     display: block
   .hide
     display: none
+  button
+    width: 140px
+    height: 40px
+    background: $red
+    color: white
+    padding: 0
+    font-family: $header-font
+    font-size: 1.2em
+    display: block
+    margin: auto
+    margin-top: 15px
