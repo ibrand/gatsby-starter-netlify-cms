@@ -7,9 +7,9 @@ const CheckboxContainer = ({ section, onChange }) => (
     {
       checkboxes[section].map(item => (
         <React.Fragment key={item.key}>
-          <p>
+          <label>
             {item.name}
-          </p>
+          </label>
           <input label={item.name} name={item.name} onChange={onChange} type={'checkbox'} />
       </React.Fragment>
       ))

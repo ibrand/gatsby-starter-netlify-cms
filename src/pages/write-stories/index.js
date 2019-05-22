@@ -40,9 +40,16 @@ export default class Index extends React.Component {
   }
 
   render() {
-    const { Student, Parent, Teacher, email, 'was able to resolve the situation': couldResolveTheSituation } = this.state
-    const identityIsFilledOut = Student | Parent | Teacher
-    console.log(couldResolveTheSituation)
+    const {
+      Student, Parent, Teacher,
+      Email,
+      'was able to resolve the situation': couldResolveTheSituation,
+      Story
+    } = this.state
+    const identityIsFilledOut = Student || Parent || Teacher
+    console.log('indentityIsFilledOut ', identityIsFilledOut)
+    console.log('story ', Story)
+    console.log('email ', Email)
     return (
       <Layout>
         <section className="section">
@@ -95,10 +102,24 @@ export default class Index extends React.Component {
                       Tell us your story
                     </label>
                     <CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/>
-                    <textarea className="input" type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
+                    <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
+
+                    <label>Name</label>
+                    <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
+                    <label>Email</label>
+                    <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
+                    <label>Phone #</label>
+                    <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
+                    <label>School where incident occurred</label>
+                    <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
+                    <label>Zipcode where incident occurred</label>
+                    <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
+                    <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
+                    <input label={"Image upload"} name={"Image upload"} onChange={this.handleChange} type={'file'} />
+
                   </div>
                   <button
-                    disabled={!identityIsFilledOut}
+                    disabled={!identityIsFilledOut || !Story || !Email}
                     className="button is-link"
                     type="submit"
                   >
