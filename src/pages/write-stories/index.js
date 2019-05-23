@@ -24,6 +24,10 @@ export default class Index extends React.Component {
     this.setState({ [e.target.name]: e.target.checked })
   }
 
+  handleAttachment = e => {
+    this.setState({ [e.target.name]: e.target.files[0] })
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -88,7 +92,7 @@ export default class Index extends React.Component {
           <label>Zipcode where incident occurred</label>
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
           <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
-          <input label={"Image upload"} name={"Image upload"} onChange={this.handleChange} type={'file'} />
+          <input label={"Image upload"} name={"Image upload"} onChange={this.handleAttachment} type={'file'} />
         </fieldset>
       </React.Fragment>
     )
