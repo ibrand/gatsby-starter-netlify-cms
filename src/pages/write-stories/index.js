@@ -33,6 +33,7 @@ export default class Index extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    this.setState({ isSubmitting: true })
     const form = e.target
     fetch('/', {
       method: 'POST',
@@ -41,8 +42,14 @@ export default class Index extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch(error => alert(error))
+      .then(() => {
+        navigate(form.getAttribute('action'))
+        this.setState({ isSubmitting: false })
+      })
+      .catch(error => {
+        this.setState({ isSubmitting: false })
+        alert(error)
+      })
   }
 
   form() {
@@ -104,9 +111,10 @@ export default class Index extends React.Component {
     const {
       Student, Parent, Teacher,
       Email,
-      Story
+      Story,
+      isSubmitting
     } = this.state
-    const identityIsFilledOut = Student || Parent || Teacher
+    const identityIsFilledOut = Student || Parent || Teacher || isSubmitting
     return (
       <Layout>
         <section className="write-stories">
@@ -126,11 +134,11 @@ export default class Index extends React.Component {
                 {this.form()}
               </div>
               <button
-                disabled={!identityIsFilledOut || !Story || !Email}
+                disabled={!identityIsFilledOut || !Story || !Email || isSubmitting}
                 className="button is-link"
                 type="submit"
               >
-                Submit Story
+                { isSubmitting ? "Submitting..." : "Submit Story" }
               </button>
             </form>
           </div>
