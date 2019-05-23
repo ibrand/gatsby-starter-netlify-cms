@@ -24,6 +24,7 @@ export default class Contact extends React.Component {
 
   handleAttachment = e => {
     this.setState({ [e.target.name]: e.target.files[0] })
+    console.log('this.state ', this.state)
   }
 
   handleSubmit = e => {
