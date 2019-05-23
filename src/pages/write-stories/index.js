@@ -122,7 +122,7 @@ export default class Index extends React.Component {
       Story,
       isSubmitting
     } = this.state
-    const identityIsFilledOut = Student || Parent || Teacher || isSubmitting
+    const identityIsFilledOut = Student || Parent || Teacher
     return (
       <Layout>
         <section className="write-stories">
@@ -148,6 +148,13 @@ export default class Index extends React.Component {
               >
                 { isSubmitting ? "Submitting..." : "Submit Story" }
               </button>
+              {
+                !identityIsFilledOut ||
+                !Story ||
+                !Email ?
+                <span className="required-text">There are still required fields to fill out</span> :
+                null
+              }
             </form>
           </div>
         </section>
