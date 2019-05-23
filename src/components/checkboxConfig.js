@@ -110,6 +110,12 @@ const checkboxes = {
       name: 'I do not consent',
       key: 2
     },
+  ],
+  'was able to resolve situation' : [
+    {
+      name: 'Yes',
+      key: 1
+    }
   ]
 }
 

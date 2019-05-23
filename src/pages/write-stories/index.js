@@ -79,9 +79,7 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend>5) Were you able to resolve the situation?</legend>
-          <label>
-            <input label={"Yes"} name={"was able to resolve the situation"} onChange={this.handleCheck} type={'checkbox'} /> Yes
-          </label>
+          <CheckboxContainer onChange={this.handleCheck} section="was able to resolve situation" />
           <label className={couldResolveTheSituation ? "show" : "hide" }>
             If yes, how?
           </label>
