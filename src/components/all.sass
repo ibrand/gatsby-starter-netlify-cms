@@ -51,6 +51,9 @@ h1, h2, h3
   font-family: $header-font
   margin-bottom: 0px
 
+.flex-container
+  display: flex
+
 .header
   width: $container-width
   margin: auto
@@ -157,7 +160,6 @@ footer
   a
     text-decoration: none
   .flex-container
-    display: flex
     align-items: center
     justify-content: space-between
     &.cta-container
@@ -208,6 +210,12 @@ footer
     display: block
   .hide
     display: none
+  .flex-container
+    flex-wrap: wrap
+    .flex-full
+      width: 100%
+    .flex-half
+      width: 50%
   label
     font-size: .8em
   legend
