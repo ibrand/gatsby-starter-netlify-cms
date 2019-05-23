@@ -64,8 +64,9 @@ export default class Index extends React.Component {
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </div>
+        <p className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</p>
         <fieldset className="fieldset">
-          <legend>1) I am a... </legend>
+          <legend><span className="required-asterix">*</span> 1) I am a...</legend>
           <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
         </fieldset>
         <fieldset className="fieldset">
@@ -87,14 +88,14 @@ export default class Index extends React.Component {
           <input className={couldResolveTheSituation ? "input show" : "hide" } type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
         </fieldset>
         <fieldset className="fieldset">
-          <legend>Tell us your story</legend>
+          <legend><span className="required-asterix">*</span> Tell us your story</legend>
           <CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/>
           <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
         </fieldset>
         <fieldset className="fieldset">
           <label>Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
-          <label>Email</label>
+          <label><span className="required-asterix">*</span> Email</label>
           <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
           <label>Phone #</label>
           <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
