@@ -64,32 +64,34 @@ export default class Index extends React.Component {
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </div>
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>1) I am a... </legend>
           <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
         </fieldset>
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>2)  Have you, your child, your student ever been harassed/bullied in school by</legend>
           <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} />
         </fieldset>
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>4) What were the impacts of the experience you faced?</legend>
           <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
         </fieldset>
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>5) Were you able to resolve the situation?</legend>
-          Yes <input label={"Yes"} name={"was able to resolve the situation"} onChange={this.handleCheck} type={'checkbox'} />
-          <label className={couldResolveTheSituation ? "label show" : "hide" }>
+          <label>
+            <input label={"Yes"} name={"was able to resolve the situation"} onChange={this.handleCheck} type={'checkbox'} /> Yes
+          </label>
+          <label className={couldResolveTheSituation ? "show" : "hide" }>
             If yes, how?
           </label>
           <input className={couldResolveTheSituation ? "input show" : "hide" } type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
         </fieldset>
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>Tell us your story</legend>
           <CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/>
           <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
         </fieldset>
-        <fieldset>
+        <fieldset className="fieldset">
           <label>Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
           <label>Email</label>
@@ -100,9 +102,18 @@ export default class Index extends React.Component {
           <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
           <label>Zipcode where incident occurred</label>
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
+        </fieldset>
+        <div className="fieldset">
           <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
           <input label={"Image upload"} name={"Image upload"} onChange={this.handleAttachment} type={'file'} />
-        </fieldset>
+        </div>
+        <div className="fieldset">
+          <p className="subtext">
+            We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
+            In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
+          </p>
+          <CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/>
+        </div>
       </React.Fragment>
     )
   }

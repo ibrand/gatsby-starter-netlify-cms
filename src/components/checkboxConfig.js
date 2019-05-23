@@ -100,6 +100,16 @@ const checkboxes = {
       name: 'I saw this happen',
       key: 2
     },
+  ],
+  'consent agreement' : [
+    {
+      name: 'I consent for my submission to be used/shared',
+      key: 1
+    },
+    {
+      name: 'I do not consent',
+      key: 2
+    },
   ]
 }
 

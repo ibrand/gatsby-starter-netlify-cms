@@ -7,7 +7,6 @@ export default () => (
       <div className="container">
         <div className="content">
           <h1>Thank you for sharing your story</h1>
-          <p></p>
         </div>
       </div>
     </section>
