@@ -113,7 +113,7 @@ const checkboxes = {
   ],
   'was able to resolve situation' : [
     {
-      name: 'Yes',
+      name: 'I was able to resolve the situation',
       key: 1
     }
   ]

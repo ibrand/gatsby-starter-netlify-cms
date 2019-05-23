@@ -53,7 +53,7 @@ export default class Index extends React.Component {
   }
 
   form() {
-    const { 'was able to resolve the situation': couldResolveTheSituation } = this.state
+    const { 'I was able to resolve the situation': couldResolveTheSituation } = this.state
     return(
       <React.Fragment>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
@@ -80,10 +80,8 @@ export default class Index extends React.Component {
         <fieldset className="fieldset">
           <legend>5) Were you able to resolve the situation?</legend>
           <CheckboxContainer onChange={this.handleCheck} section="was able to resolve situation" />
-          <label className={couldResolveTheSituation ? "show" : "hide" }>
-            If yes, how?
-          </label>
-          <input className={couldResolveTheSituation ? "input show" : "hide" } type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
+          <label>If so, how?</label>
+          <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> Tell us your story</legend>
