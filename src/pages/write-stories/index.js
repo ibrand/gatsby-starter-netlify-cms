@@ -139,10 +139,12 @@ export default class Index extends React.Component {
       'i-am-student' : iAmStudent, 'i-am-parent' : iAmParent, 'i-am-teacher' : iAmTeacher,
       Email,
       Story,
+      'does-consent-to-information-sharing' : doesConsentToInformationSharing,
+      'does-not-consent-to-information-sharing' : doesNotConsentToInformationSharing,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
-    console.log(this.state)
+    const consentIsFilledOut = doesConsentToInformationSharing || doesNotConsentToInformationSharing
     return (
       <Layout>
         <section className="write-stories">
@@ -162,13 +164,14 @@ export default class Index extends React.Component {
                 {this.form()}
               </div>
               <button
-                disabled={!identityIsFilledOut || !Story || !Email || isSubmitting}
+                disabled={!consentIsFilledOut || !identityIsFilledOut || !Story || !Email || isSubmitting}
                 className="button is-link"
                 type="submit"
               >
                 { isSubmitting ? "Submitting..." : "Submit Story" }
               </button>
               {
+                !consentIsFilledOut ||
                 !identityIsFilledOut ||
                 !Story ||
                 !Email ?

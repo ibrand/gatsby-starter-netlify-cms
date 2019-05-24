@@ -116,10 +116,12 @@ const checkboxes = {
   'consent agreement' : [
     {
       name: 'I consent for my submission to be used/shared',
+      label: 'does-consent-to-information-sharing',
       key: 1
     },
     {
       name: 'I do not consent',
+      label: 'does-not-consent-to-information-sharing',
       key: 2
     },
   ],
