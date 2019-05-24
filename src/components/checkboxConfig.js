@@ -51,12 +51,6 @@ const checkboxes = {
           name: 'Superintendent',
           key: 8
         },
-        {
-          name: 'Other:',
-          label: 'other-bullied-by',
-          other: 'Bullied by',
-          key: 9
-        },
    ],
   'What were the impacts of the experience you faced': [
     {
@@ -133,12 +127,6 @@ const checkboxes = {
       name: 'Age',
       key: 9
     },
-    {
-      name: 'Other:',
-      label: 'other-reason-for-the-bullying',
-      other: 'Reason for the bullying',
-      key: 10
-    }
   ]
 }
 

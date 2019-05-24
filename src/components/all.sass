@@ -255,6 +255,16 @@ footer
     label
       display: block
     // Hide original checkbox
+    .other-label
+      display: inline-block
+    .other-input
+      display: inline-block
+      margin: 4px 0px 0px 5px
+      width: 150px
+      height: 16px
+      clip: auto // to override the checkbox input styling
+      border: none
+      border-bottom: 1px solid black
     .checkbox-container
       input
         position: absolute
@@ -263,14 +273,6 @@ footer
         overflow: hidden
         clip: rect(1px 1px 1px 1px) /* IE6, IE7 */
         clip: rect(1px, 1px, 1px, 1px)
-      .other-input
-        display: inline-block
-        margin: 4px 0px 0px 5px
-        width: 150px
-        height: 16px
-        clip: auto // to override the checkbox input styling
-        border: none
-        border-bottom: 1px solid black
       label
         position: relative
         display: inline-block

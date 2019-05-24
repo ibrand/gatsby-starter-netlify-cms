@@ -116,6 +116,8 @@ export default class Index extends React.Component {
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} />
           </div>
+          <label className='other-label'>Other:</label>
+          <input className='other-input' label={"Other: Bullied by"} name={"Other: Bullied by"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> Tell us your story</legend>
@@ -149,6 +151,8 @@ export default class Index extends React.Component {
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
           </div>
+          <label className='other-label'>Other:</label>
+          <input className='other-input' label={"Other: Reason for bullying"} name={"Other: Reason for bullying"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
           <legend>What were the impacts of the experience you faced?</legend>
@@ -215,6 +219,7 @@ export default class Index extends React.Component {
       'Who Experienced This': whoExperiencedThis,
       isSubmitting
     } = this.state
+    console.log(this.state)
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
     const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
     return (
