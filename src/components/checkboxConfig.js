@@ -103,34 +103,6 @@ const checkboxes = {
       key: 9
     },
   ],
-  'Tell us what happened' : [
-    {
-      name: 'I experienced this',
-      key: 1
-    },
-    {
-      name: 'I saw this happen',
-      key: 2
-    },
-  ],
-  'consent agreement' : [
-    {
-      name: 'I consent for my submission to be used/shared',
-      label: 'consents-to-information-sharing',
-      key: 1
-    },
-    {
-      name: 'I do not consent',
-      label: 'does-not-consent-to-information-sharing',
-      key: 2
-    },
-  ],
-  'was able to resolve situation' : [
-    {
-      name: 'I was able to resolve the situation',
-      key: 1
-    }
-  ],
   'I believe the reason for the Harassment/bullying was due to my/their...' : [
     {
       name: 'Race',
