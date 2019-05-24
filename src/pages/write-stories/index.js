@@ -212,10 +212,11 @@ export default class Index extends React.Component {
       Email,
       Story,
       'Privacy Information' : privacyInformation,
+      'Who Experienced This': whoExperiencedThis,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
-    const consentIsFilledOut = privacyInformation
+    const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
     return (
       <Layout>
         <section className="write-stories">
@@ -235,14 +236,14 @@ export default class Index extends React.Component {
                 {this.form()}
               </div>
               <button
-                disabled={!consentIsFilledOut || !identityIsFilledOut || !Story || !Email || isSubmitting}
+                disabled={!radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || isSubmitting}
                 className="button is-link"
                 type="submit"
               >
                 { isSubmitting ? "Submitting..." : "Submit Story" }
               </button>
               {
-                !consentIsFilledOut ||
+                !radioButtonsAreFilledOut ||
                 !identityIsFilledOut ||
                 !Story ||
                 !Email ?
