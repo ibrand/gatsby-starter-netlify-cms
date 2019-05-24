@@ -64,7 +64,6 @@ export default class Index extends React.Component {
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </div>
-        <p className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</p>
         <div className="fieldset">
           <p className="subtext">
             We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
@@ -72,12 +71,16 @@ export default class Index extends React.Component {
           </p>
           <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/></span>
         </div>
+        <p>
+          <em>Check all square boxes that apply</em><br/>
+          <span className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</span>
+        </p>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> 1) I am a...</legend>
           <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
         </fieldset>
         <fieldset className="fieldset field-container">
-          <legend>2)  Have you, your child, your student ever been harassed/bullied in school by</legend>
+          <legend>Have you, your child, your student ever been harassed/bullied in school by</legend>
           <span className="two-column-checkboxes"><CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} /></span>
         </fieldset>
         <fieldset className="fieldset">
@@ -90,16 +93,17 @@ export default class Index extends React.Component {
           <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
         </fieldset>
         <fieldset className="fieldset">
-          <legend>4) What were the impacts of the experience you faced?</legend>
+          <legend>What were the impacts of the experience you faced?</legend>
           <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
         </fieldset>
         <fieldset className="fieldset">
-          <legend>5) Were you able to resolve the situation?</legend>
+          <legend>Were you able to resolve the situation?</legend>
           <CheckboxContainer onChange={this.handleCheck} section="was able to resolve situation" />
           <label>If so, how?</label>
           <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
         </fieldset>
         <fieldset className="fieldset">
+          <legend>Contact Information</legend>
           <label>Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
           <label><span className="required-asterix">*</span> Email</label>
@@ -111,22 +115,24 @@ export default class Index extends React.Component {
           <label>Zipcode where incident occurred</label>
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
         </fieldset>
-        <div className="fieldset">
+        <fieldset className="fieldset">
+          <legend>Upload a photo</legend>
           <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
           <input label={"Image upload"} name={"Image upload"} onChange={this.handleAttachment} type={'file'} />
-        </div>
+        </fieldset>
       </React.Fragment>
     )
   }
 
   render() {
     const {
-      Student, Parent, Teacher,
+      'i-am-student' : iAmStudent, 'i-am-parent' : iAmParent, 'i-am-teacher' : iAmTeacher,
       Email,
       Story,
       isSubmitting
     } = this.state
-    const identityIsFilledOut = Student || Parent || Teacher
+    const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
+    console.log(this.state)
     return (
       <Layout>
         <section className="write-stories">

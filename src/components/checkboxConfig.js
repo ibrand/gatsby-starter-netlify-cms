@@ -4,52 +4,64 @@ const checkboxes = {
   'I am a' : [
     {
       name: 'Student',
+      label: 'i-am-student',
       key: 1
     },
     {
       name: 'Parent',
+      label: 'i-am-parent',
       key: 2
     },
     {
       name: 'Teacher',
+      label: 'i-am-teacher',
       key: 3
     }
   ],
   'Have you, your child, your student ever been harassed/bullied in school': [
         {
           name: 'School Security Personnel (SSAs, SROs, etc.)',
+          label: 'bullied-by-school-security-personnel',
           key: 1
         },
         {
           name: 'Police',
+          label: 'bullied-by-police',
           key: 2
         },
         {
           name: 'Teacher',
+          label: 'bullied-by-teacher',
           key: 3
         },
         {
           name: 'Principle',
+          label: 'bullied-by-principle',
           key: 4
         },
         {
           name: 'Dean',
+          label: 'bullied-by-dean',
           key: 5
         },
         {
           name: 'Guidance Counselor',
+          label: 'bullied-by-guidance-counselor',
           key: 6
         },
         {
           name: 'Supervisor',
+          label: 'bullied-by-supervisor',
           key: 7
         },
         {
           name: 'Superintendent',
+          label: 'bullied-by-superintendent',
           key: 8
         },
         {
           name: 'Other',
+          label: 'bullied-by-other',
           key: 9
         },
    ],
