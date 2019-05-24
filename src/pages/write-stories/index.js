@@ -79,7 +79,7 @@ export default class Index extends React.Component {
           <div className="radio-buttons">
             <div className="radio-container">
               <input
-                name='Consent'
+                name='Consent[]'
                 onChange={e => this.handleRadio('does-not-consent-to-information-sharing', e)}
                 type={'radio'}
                 value='consents-to-information-sharing'
@@ -89,7 +89,7 @@ export default class Index extends React.Component {
             </div>
             <div className="radio-container">
               <input
-                name='Consent'
+                name='Consent[]'
                 onChange={e => this.handleRadio('consents-to-information-sharing', e)}
                 type={'radio'}
                 value={'does-not-consent-to-information-sharing'}
