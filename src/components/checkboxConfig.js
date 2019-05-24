@@ -53,6 +53,7 @@ const checkboxes = {
         },
         {
           name: 'Other:',
+          label: 'other-bullied-by',
           other: 'Bullied by',
           key: 9
         },
@@ -134,6 +135,7 @@ const checkboxes = {
     },
     {
       name: 'Other:',
+      label: 'other-reason-for-the-bullying',
       other: 'Reason for the bullying',
       key: 10
     }
