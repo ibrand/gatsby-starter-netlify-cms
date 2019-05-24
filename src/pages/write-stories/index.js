@@ -64,19 +64,21 @@ export default class Index extends React.Component {
             <input name="bot-field" onChange={this.handleChange} />
           </label>
         </div>
-        <div className="fieldset">
+        <h2>Submit your story</h2>
+        <fieldset className="fieldset">
+          <legend><span className="required-asterix">*</span> Privacy information</legend>
           <p className="subtext">
             We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
             In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
           </p>
           <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/></span>
-        </div>
+        </fieldset>
         <p>
           <em>Check all square boxes that apply</em><br/>
           <span className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</span>
         </p>
         <fieldset className="fieldset">
-          <legend><span className="required-asterix">*</span> 1) I am a...</legend>
+          <legend><span className="required-asterix">*</span> I am a...</legend>
           <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
         </fieldset>
         <fieldset className="fieldset">
