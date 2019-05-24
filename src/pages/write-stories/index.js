@@ -29,7 +29,6 @@ export default class Index extends React.Component {
 
   handleRadio  = (e) => {
     this.setState({ [e.target.name]: e.target.value })
-    // this.setState({ [otherRadioId]: false })
   }
 
   handleAttachment = e => {
@@ -58,7 +57,8 @@ export default class Index extends React.Component {
   }
 
   form() {
-    const { 'did-resolve-situation': couldResolveTheSituation } = this.state
+    const { 'Situation Resolution': wasSituationResolved } = this.state
+    const couldResolveTheSituation = wasSituationResolved === "Resolved situation"
     return(
       <React.Fragment>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
@@ -182,7 +182,7 @@ export default class Index extends React.Component {
           </div>
           <span className={couldResolveTheSituation ? 'show' : 'hide'}>
             <label>How?</label>
-            <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
+            <textarea name={'how situation was resolved'} onChange={this.handleChange} required={false} />
           </span>
         </fieldset>
         <em>The following information is optional. If you consented to sharing your story, your information will remain anonymous.</em><br/>
