@@ -15,6 +15,11 @@ const CheckboxContainer = ({ section, onChange }) => (
               id={item.label ? item.label : item.name}
             />
             <label htmlFor={item.label ? item.label : item.name}>{item.name}</label>
+            {
+              item.other ?
+              <input className='other-input' name={item.other} onChange={onChange} type='text' /> :
+              null
+            }
           </div>
       </React.Fragment>
       ))
