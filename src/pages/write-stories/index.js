@@ -27,9 +27,9 @@ export default class Index extends React.Component {
     this.setState({ [e.target.name]: e.target.checked })
   }
 
-  handleRadio  = (otherRadioId, e) => {
-    this.setState({ [e.target.id]: e.target.checked })
-    this.setState({ [otherRadioId]: false })
+  handleRadio  = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+    // this.setState({ [otherRadioId]: false })
   }
 
   handleAttachment = e => {
@@ -79,21 +79,19 @@ export default class Index extends React.Component {
           <div className="radio-buttons">
             <div className="radio-container">
               <input
-                name='Consent[]'
-                onChange={e => this.handleRadio('does-not-consent-to-information-sharing', e)}
+                name='Consent-input'
+                onChange={this.handleRadio}
                 type={'radio'}
                 value='consents-to-information-sharing'
-                id={'consents-to-information-sharing'}
               />
               <label htmlFor={'consents-to-information-sharing'}>I consent for my submission to be used/shared</label>
             </div>
             <div className="radio-container">
               <input
-                name='Consent[]'
-                onChange={e => this.handleRadio('consents-to-information-sharing', e)}
+                name='Consent-input'
+                onChange={this.handleRadio}
                 type={'radio'}
                 value={'does-not-consent-to-information-sharing'}
-                id={'does-not-consent-to-information-sharing'}
               />
               <label htmlFor={'does-not-consent-to-information-sharing'}>I do not consent</label>
             </div>
