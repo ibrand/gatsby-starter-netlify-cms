@@ -32,9 +32,6 @@ button
     opacity: .6
     cursor: not-allowed
 
-i
-  font-weight: normal
-
 // Handle the footer
 .site
   display: flex
@@ -217,11 +214,11 @@ footer
   // The margin and padding are -8 and 8 respectively
   // because the width protrudes an extra 16% from the container and 8 is half of 16 keeping the container centered
   .form-container
-    width: 116%
+    width: 114%
     background: white
-    margin-left: -8%
+    margin-left: -7%
     border: 1px solid black
-    padding: 15px 8%
+    padding: 5px 8%
     box-sizing: border-box
     border-radius: 20px
     margin-top: 20px
@@ -323,8 +320,16 @@ footer
     width: 95%
     height: 200px
     margin-top: 7px
+    border: 1px solid black
 
 @media only screen and (max-width: 600px)
-  body
-    .two-column-checkboxes .checkbox-container
-      flex: 1 100%
+  body .site
+    .container
+      width: 90%
+    .write-stories
+      .form-container
+        width: 120%
+        margin-left: -10%
+      .two-column-checkboxes, .single-line-checkboxes
+        .checkbox-container
+          flex: 1 100%

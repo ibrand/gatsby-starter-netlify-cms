@@ -73,6 +73,10 @@ export default class Index extends React.Component {
           </p>
           <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/></span>
         </fieldset>
+        <fieldset className="fieldset">
+          <legend><span className="required-asterix">*</span> What is your email?</legend>
+          <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
+        </fieldset>
         <p>
           <em>Check all square boxes that apply</em><br/>
           <span className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</span>
@@ -114,8 +118,6 @@ export default class Index extends React.Component {
           <legend>Contact Information</legend>
           <label>Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
-          <label><span className="required-asterix">*</span> Email</label>
-          <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
           <label>Phone #</label>
           <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
           <label>School where incident occurred</label>
