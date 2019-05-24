@@ -27,6 +27,11 @@ export default class Index extends React.Component {
     this.setState({ [e.target.name]: e.target.checked })
   }
 
+  handleRadio  = (otherRadioId, e) => {
+    this.setState({ [e.target.id]: e.target.checked })
+    this.setState({ [otherRadioId]: false })
+  }
+
   handleAttachment = e => {
     this.setState({ [e.target.name]: e.target.files[0] })
   }
@@ -53,7 +58,7 @@ export default class Index extends React.Component {
   }
 
   form() {
-    const { 'I was able to resolve the situation': couldResolveTheSituation } = this.state
+    const { 'did-resolve-situation': couldResolveTheSituation } = this.state
     return(
       <React.Fragment>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
@@ -71,12 +76,26 @@ export default class Index extends React.Component {
             We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
             In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
           </p>
-          <span className="single-line-checkboxes">
-            <CheckboxContainer
-              onChange={this.handleCheck}
-              section={"consent agreement"}
-            />
-          </span>
+          <div className="radio-buttons">
+            <div className="radio-container">
+              <input
+                name='Consent'
+                onChange={e => this.handleRadio('does-not-consent-to-information-sharing', e)}
+                type={'radio'}
+                id={'consents-to-information-sharing'}
+              />
+              <label htmlFor={'consents-to-information-sharing'}>I consent for my submission to be used/shared</label>
+            </div>
+            <div className="radio-container">
+              <input
+                name='Consent'
+                onChange={e => this.handleRadio('consents-to-information-sharing', e)}
+                type={'radio'}
+                id={'does-not-consent-to-information-sharing'}
+              />
+              <label htmlFor={'does-not-consent-to-information-sharing'}>I do not consent</label>
+            </div>
+          </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> What is your email?</legend>
@@ -98,7 +117,26 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> Tell us your story</legend>
-          <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/></span>
+          <div className="radio-buttons">
+            <div className="radio-container">
+              <input
+                name='who-experienced-this'
+                onChange={e => this.handleRadio('i-saw-this-happen', e)}
+                type={'radio'}
+                id={'i-experienced-this'}
+              />
+              <label htmlFor={'i-experienced-this'}>I experienced this</label>
+            </div>
+            <div className="radio-container">
+              <input
+                name='who-experienced-this'
+                onChange={e => this.handleRadio('i-experienced-this', e)}
+                type={'radio'}
+                id={'i-saw-this-happen'}
+              />
+              <label htmlFor={'i-saw-this-happen'}>I saw this happen</label>
+            </div>
+          </div>
           <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
         </fieldset>
         <em>The following information is optional.</em><br/>
@@ -116,9 +154,30 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend>Were you able to resolve the situation?</legend>
-          <CheckboxContainer onChange={this.handleCheck} section="was able to resolve situation" />
-          <label>If so, how?</label>
-          <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
+          <div className="radio-buttons">
+            <div className="radio-container">
+              <input
+                name='could-resolve-the-situation'
+                onChange={e => this.handleRadio('couldnt-resolve-situation', e)}
+                type={'radio'}
+                id={'did-resolve-situation'}
+              />
+              <label htmlFor={'did-resolve-situation'}>Yes</label>
+            </div>
+            <div className="radio-container">
+              <input
+                name='could-resolve-the-situation'
+                onChange={e => this.handleRadio('did-resolve-situation', e)}
+                type={'radio'}
+                id={'couldnt-resolve-situation'}
+              />
+              <label htmlFor={'couldnt-resolve-situation'}>No</label>
+            </div>
+          </div>
+          <span className={couldResolveTheSituation ? 'show' : 'hide'}>
+            <label>How?</label>
+            <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
+          </span>
         </fieldset>
         <em>The following information is optional. If you consented to sharing your story, your information will remain anonymous.</em><br/>
         <fieldset className="fieldset">

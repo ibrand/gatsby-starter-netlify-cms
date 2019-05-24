@@ -225,7 +225,7 @@ footer
   .show
     display: block
   .hide
-    display: none
+    display: none !important
   .flex-container
     flex-wrap: wrap
     .flex-full
@@ -298,14 +298,17 @@ footer
     font-size: .9em
     line-height: 1.4
     margin: 0px 0px 10px 0px
-  .single-line-checkboxes
+  .radio-buttons
     display: flex
     flex-direction: row
     flex-wrap: wrap
     width: 100%
     justify-content: space-between
-    .checkbox-container
+    .radio-container
       flex: 1 50%
+      label
+        display: inline
+        padding-left: 10px
   .two-column-checkboxes
     display: flex
     flex-direction: row
@@ -330,6 +333,6 @@ footer
       .form-container
         width: 120%
         margin-left: -10%
-      .two-column-checkboxes, .single-line-checkboxes
-        .checkbox-container
+      .two-column-checkboxes, .radio-buttons
+        .checkbox-container, .radio-container
           flex: 1 100%
