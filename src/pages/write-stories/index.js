@@ -101,7 +101,7 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> What is your email?</legend>
-          <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'text'} />
+          <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'email'} />
         </fieldset>
         <p>
           <em>Check all square boxes that apply</em><br/>
