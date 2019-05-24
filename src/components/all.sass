@@ -253,7 +253,7 @@ footer
     margin-top: 15px
   .fieldset
     margin: 20px 0px
-    line-height: 2
+    line-height: 1.6
     label
       display: block
     // Hide original checkbox
@@ -297,4 +297,21 @@ footer
     .checkbox-container input[type="checkbox"]:focus + label::before
       outline: rgb(59, 153, 252) auto 5px
   .subtext
-    font-size: .8em
+    font-size: .9em
+    line-height: 1.4
+  .single-line-checkboxes .checkbox-container
+    display: inline-block
+    &:last-child
+      padding-left: 20px
+  .field-container
+    display: table
+    margin-bottom: 12px
+    vertical-align: top
+    width: 100%
+    .checkbox-container
+      display: table-cell
+    .two-column-checkboxes .checkbox-container
+      display: table
+      width: 50%
+      flex-basis: 50%
+      flex-flow: row wrap;

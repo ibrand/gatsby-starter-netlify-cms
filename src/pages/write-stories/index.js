@@ -65,13 +65,20 @@ export default class Index extends React.Component {
           </label>
         </div>
         <p className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</p>
+        <div className="fieldset">
+          <p className="subtext">
+            We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
+            In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
+          </p>
+          <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/></span>
+        </div>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> 1) I am a...</legend>
           <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
         </fieldset>
-        <fieldset className="fieldset">
+        <fieldset className="fieldset field-container">
           <legend>2)  Have you, your child, your student ever been harassed/bullied in school by</legend>
-          <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} />
+          <span className="two-column-checkboxes"><CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} /></span>
         </fieldset>
         <fieldset className="fieldset">
           <legend>4) What were the impacts of the experience you faced?</legend>
@@ -103,13 +110,6 @@ export default class Index extends React.Component {
         <div className="fieldset">
           <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
           <input label={"Image upload"} name={"Image upload"} onChange={this.handleAttachment} type={'file'} />
-        </div>
-        <div className="fieldset">
-          <p className="subtext">
-            We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
-            In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
-          </p>
-          <CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/>
         </div>
       </React.Fragment>
     )
