@@ -96,6 +96,7 @@ export default class Index extends React.Component {
           <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/></span>
           <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
         </fieldset>
+        <em>The following information is optional.</em><br/>
         <fieldset className="fieldset">
           <legend>I believe the reason for the Harassment/bullying was due to my/their...</legend>
           <div className="two-column-checkboxes">
@@ -114,6 +115,7 @@ export default class Index extends React.Component {
           <label>If so, how?</label>
           <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
         </fieldset>
+        <em>The following information is optional. If you consented to sharing your story, your information will remain anonymous.</em><br/>
         <fieldset className="fieldset">
           <legend>Contact Information</legend>
           <label>Name</label>
