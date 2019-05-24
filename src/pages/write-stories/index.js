@@ -81,6 +81,15 @@ export default class Index extends React.Component {
           <span className="two-column-checkboxes"><CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} /></span>
         </fieldset>
         <fieldset className="fieldset">
+          <legend><span className="required-asterix">*</span> Tell us your story</legend>
+          <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/></span>
+          <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
+        </fieldset>
+        <fieldset className="fieldset">
+          <legend>I believe the reason for the Harassment/bullying was due to my/their...</legend>
+          <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
+        </fieldset>
+        <fieldset className="fieldset">
           <legend>4) What were the impacts of the experience you faced?</legend>
           <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
         </fieldset>
@@ -89,11 +98,6 @@ export default class Index extends React.Component {
           <CheckboxContainer onChange={this.handleCheck} section="was able to resolve situation" />
           <label>If so, how?</label>
           <input type={'text'} name={'how situation was resolved'} onChange={this.handleChange} required={false} />
-        </fieldset>
-        <fieldset className="fieldset">
-          <legend><span className="required-asterix">*</span> Tell us your story</legend>
-          <CheckboxContainer onChange={this.handleCheck} section={'Tell us what happened'}/>
-          <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
         </fieldset>
         <fieldset className="fieldset">
           <label>Name</label>

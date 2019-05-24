@@ -116,6 +116,48 @@ const checkboxes = {
       name: 'I was able to resolve the situation',
       key: 1
     }
+  ],
+  'I believe the reason for the Harassment/bullying was due to my/their...' : [
+    {
+      name: 'Race',
+      key: 1
+    },
+    {
+      name: 'Sexual Orientation',
+      key: 2
+    },
+    {
+      name: 'Language ability',
+      key: 3
+    },
+    {
+      name: 'Ethnicity',
+      key: 4
+    },
+    {
+      name: 'Immigration',
+      key: 5
+    },
+    {
+      name: 'Disability',
+      key: 6
+    },
+    {
+      name: 'Gender',
+      key: 7
+    },
+    {
+      name: 'Religion',
+      key: 8
+    },
+    {
+      name: 'Age',
+      key: 9
+    },
+    {
+      name: 'Other',
+      key: 10
+    }
   ]
 }
 
