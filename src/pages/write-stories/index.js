@@ -79,9 +79,11 @@ export default class Index extends React.Component {
           <legend><span className="required-asterix">*</span> 1) I am a...</legend>
           <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
         </fieldset>
-        <fieldset className="fieldset field-container">
+        <fieldset className="fieldset">
           <legend>Have you, your child, your student ever been harassed/bullied in school by</legend>
-          <span className="two-column-checkboxes"><CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} /></span>
+          <div className="two-column-checkboxes">
+            <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} />
+          </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> Tell us your story</legend>
@@ -90,11 +92,15 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend>I believe the reason for the Harassment/bullying was due to my/their...</legend>
-          <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
+          <div className="two-column-checkboxes">
+            <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
+          </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend>What were the impacts of the experience you faced?</legend>
-          <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
+          <div className="two-column-checkboxes">
+            <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
+          </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend>Were you able to resolve the situation?</legend>
