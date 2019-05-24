@@ -71,7 +71,12 @@ export default class Index extends React.Component {
             We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
             In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
           </p>
-          <span className="single-line-checkboxes"><CheckboxContainer onChange={this.handleCheck} section={"consent agreement"}/></span>
+          <span className="single-line-checkboxes">
+            <CheckboxContainer
+              onChange={this.handleCheck}
+              section={"consent agreement"}
+            />
+          </span>
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> What is your email?</legend>
@@ -141,12 +146,12 @@ export default class Index extends React.Component {
       'i-am-student' : iAmStudent, 'i-am-parent' : iAmParent, 'i-am-teacher' : iAmTeacher,
       Email,
       Story,
-      'does-consent-to-information-sharing' : doesConsentToInformationSharing,
+      'consents-to-information-sharing' : consentsToInformationSharing,
       'does-not-consent-to-information-sharing' : doesNotConsentToInformationSharing,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
-    const consentIsFilledOut = doesConsentToInformationSharing || doesNotConsentToInformationSharing
+    const consentIsFilledOut = consentsToInformationSharing || doesNotConsentToInformationSharing
     return (
       <Layout>
         <section className="write-stories">
