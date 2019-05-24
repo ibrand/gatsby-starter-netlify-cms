@@ -79,19 +79,21 @@ export default class Index extends React.Component {
           <div className="radio-buttons">
             <div className="radio-container">
               <input
-                name='Consent-input'
+                name='Privacy Information'
                 onChange={this.handleRadio}
                 type={'radio'}
-                value='consents-to-information-sharing'
+                value='Consents to information sharing'
+                id='consents-to-information-sharing'
               />
               <label htmlFor={'consents-to-information-sharing'}>I consent for my submission to be used/shared</label>
             </div>
             <div className="radio-container">
               <input
-                name='Consent-input'
+                name='Privacy Information'
                 onChange={this.handleRadio}
                 type={'radio'}
-                value={'does-not-consent-to-information-sharing'}
+                value='Does not consent to information sharing'
+                id='does-not-consent-to-information-sharing'
               />
               <label htmlFor={'does-not-consent-to-information-sharing'}>I do not consent</label>
             </div>
@@ -120,21 +122,21 @@ export default class Index extends React.Component {
           <div className="radio-buttons">
             <div className="radio-container">
               <input
-                name='who-experienced-this'
-                onChange={e => this.handleRadio('i-saw-this-happen', e)}
+                name='Who Experienced This'
+                onChange={this.handleRadio}
                 type={'radio'}
-                value='i-experienced-this'
-                id={'i-experienced-this'}
+                value='I experienced this'
+                id='i-experienced-this'
               />
               <label htmlFor={'i-experienced-this'}>I experienced this</label>
             </div>
             <div className="radio-container">
               <input
-                name='who-experienced-this'
-                onChange={e => this.handleRadio('i-experienced-this', e)}
+                name='Who Experienced This'
+                onChange={this.handleRadio}
                 type={'radio'}
-                value='i-saw-this-happen'
-                id={'i-saw-this-happen'}
+                value='I saw this happen'
+                id='i-saw-this-happen'
               />
               <label htmlFor={'i-saw-this-happen'}>I saw this happen</label>
             </div>
@@ -159,21 +161,21 @@ export default class Index extends React.Component {
           <div className="radio-buttons">
             <div className="radio-container">
               <input
-                name='could-resolve-the-situation'
-                onChange={e => this.handleRadio('couldnt-resolve-situation', e)}
+                name='Situation Resolution'
+                onChange={this.handleRadio}
                 type={'radio'}
-                value='did-resolve-situation'
-                id={'did-resolve-situation'}
+                value='Resolved situation'
+                id='did-resolve-situation'
               />
               <label htmlFor={'did-resolve-situation'}>Yes</label>
             </div>
             <div className="radio-container">
               <input
-                name='could-resolve-the-situation'
-                onChange={e => this.handleRadio('did-resolve-situation', e)}
+                name='Situation Resolution'
+                onChange={this.handleRadio}
                 type={'radio'}
-                value='couldnt-resolve-situation'
-                id={'couldnt-resolve-situation'}
+                value="Couldn't resolve situation"
+                id='couldnt-resolve-situation'
               />
               <label htmlFor={'couldnt-resolve-situation'}>No</label>
             </div>
@@ -209,10 +211,11 @@ export default class Index extends React.Component {
       'i-am-student' : iAmStudent, 'i-am-parent' : iAmParent, 'i-am-teacher' : iAmTeacher,
       Email,
       Story,
+      'Privacy Information' : privacyInformation,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
-    const consentIsFilledOut = true
+    const consentIsFilledOut = privacyInformation
     return (
       <Layout>
         <section className="write-stories">
