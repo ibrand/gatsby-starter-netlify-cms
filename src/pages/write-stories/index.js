@@ -82,6 +82,7 @@ export default class Index extends React.Component {
                 name='Consent'
                 onChange={e => this.handleRadio('does-not-consent-to-information-sharing', e)}
                 type={'radio'}
+                value='consents-to-information-sharing'
                 id={'consents-to-information-sharing'}
               />
               <label htmlFor={'consents-to-information-sharing'}>I consent for my submission to be used/shared</label>
@@ -91,6 +92,7 @@ export default class Index extends React.Component {
                 name='Consent'
                 onChange={e => this.handleRadio('consents-to-information-sharing', e)}
                 type={'radio'}
+                value={'does-not-consent-to-information-sharing'}
                 id={'does-not-consent-to-information-sharing'}
               />
               <label htmlFor={'does-not-consent-to-information-sharing'}>I do not consent</label>
@@ -123,6 +125,7 @@ export default class Index extends React.Component {
                 name='who-experienced-this'
                 onChange={e => this.handleRadio('i-saw-this-happen', e)}
                 type={'radio'}
+                value='i-experienced-this'
                 id={'i-experienced-this'}
               />
               <label htmlFor={'i-experienced-this'}>I experienced this</label>
@@ -132,6 +135,7 @@ export default class Index extends React.Component {
                 name='who-experienced-this'
                 onChange={e => this.handleRadio('i-experienced-this', e)}
                 type={'radio'}
+                value='i-saw-this-happen'
                 id={'i-saw-this-happen'}
               />
               <label htmlFor={'i-saw-this-happen'}>I saw this happen</label>
@@ -160,6 +164,7 @@ export default class Index extends React.Component {
                 name='could-resolve-the-situation'
                 onChange={e => this.handleRadio('couldnt-resolve-situation', e)}
                 type={'radio'}
+                value='did-resolve-situation'
                 id={'did-resolve-situation'}
               />
               <label htmlFor={'did-resolve-situation'}>Yes</label>
@@ -169,6 +174,7 @@ export default class Index extends React.Component {
                 name='could-resolve-the-situation'
                 onChange={e => this.handleRadio('did-resolve-situation', e)}
                 type={'radio'}
+                value='couldnt-resolve-situation'
                 id={'couldnt-resolve-situation'}
               />
               <label htmlFor={'couldnt-resolve-situation'}>No</label>
