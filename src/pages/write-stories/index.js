@@ -209,12 +209,10 @@ export default class Index extends React.Component {
       'i-am-student' : iAmStudent, 'i-am-parent' : iAmParent, 'i-am-teacher' : iAmTeacher,
       Email,
       Story,
-      'consents-to-information-sharing' : consentsToInformationSharing,
-      'does-not-consent-to-information-sharing' : doesNotConsentToInformationSharing,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
-    const consentIsFilledOut = consentsToInformationSharing || doesNotConsentToInformationSharing
+    const consentIsFilledOut = true
     return (
       <Layout>
         <section className="write-stories">
