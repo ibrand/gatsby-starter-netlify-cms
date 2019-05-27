@@ -26,7 +26,8 @@ export const IndexPageTemplate = ({
         </Link>
       </div>
       <div className="flex-container cta-container">
-        <Link className="cta btn flex-item flex-container" to="/read-stories"><h2>read<br/>stories</h2></Link>
+        {/*<Link className="cta btn flex-item flex-container" to="/read-stories"><h2>read<br/>stories</h2></Link>*/}
+        <div className="cta btn flex-item flex-container disabled"><h2>read<br/>stories</h2></div>
         <Link className="cta btn flex-item flex-container" to="/write-stories"><h2>write<br/>stories</h2></Link>
         <Link className="cta btn flex-item flex-container" to="/gallery"><h2>view<br/>gallery</h2></Link>
       </div>
