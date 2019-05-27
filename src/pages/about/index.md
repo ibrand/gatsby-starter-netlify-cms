@@ -1,6 +1,8 @@
 ---
 templateKey: 'about-page'
 path: /about
-title: About Us
+title: About the Campaign
 ---
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+The Institutional Bullying Campaign grew out of anecdotal accounts from members who were being bullied by school administration and staff but were unable to address the harm being done to them. Some of our members ended up getting suspended from school when they were the ones being bullied or the school didn’t address or normalized the behavior resulting in escalating interactions between students and or staff. Even when the school knows about the situations, nothing is done. How many suspensions were a result of unaddressed bulling behavior? Parents have also encountered behavior from school administration that tries to silence or disempower them and prevents their full participation in their child's school. This can be look like not having access to interpretation for immigrant parents and dismissing their concerns due to language access. It can also look like parents being discriminated by school staff and treated with disrespect or like they are not capable or their child is beyond the schools help.  
+
+We have developed a workshop that delves into this issue of Institutional bullying and have used the framework to expand what bullying looks like in our schools. We are currently in a Story collection phase of the campaign to document and share experiences of students, parents and teachers being bullied in the education system, its impacts, and best practices.  The hope is to utilize these stories to develop a grassroots policy level campaign to address Institutional Bullying.  
