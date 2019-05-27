@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import header from '../img/protestors.png'
 import Img from "gatsby-image";
 
 export const IndexPageTemplate = ({
@@ -77,7 +76,7 @@ export const pageQuery = graphql`
         heading
       }
     },
-     bannerImg: file(relativePath: { eq: "protestors.png" }) {
+     bannerImg: file(relativePath: { eq: "homepage-banner.png" }) {
         childImageSharp {
           sizes(maxHeight: 750) {
             ...GatsbyImageSharpSizes
