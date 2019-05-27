@@ -21,15 +21,15 @@ export const IndexPageTemplate = ({
     <div className="container">
       <h1 className="title">{heading}</h1>
       <div className="flex-container">
-        <span className="subtitle" dangerouslySetInnerHTML={{__html: description}}></span>
-        <Link className="read-more btn" to="/about">
+        <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: description}}></span>
+        <Link className="read-more btn flex-item" to="/about">
           <div>Read More</div>
         </Link>
       </div>
       <div className="flex-container cta-container">
-        <Link className="cta btn" to="/read-stories"><div><h2>read<br/>stories</h2></div></Link>
-        <Link className="cta btn" to="/write-stories"><div><h2>write<br/>stories</h2></div></Link>
-        <Link className="cta btn" to="/gallery"><div><h2>view<br/>gallery</h2></div></Link>
+        <Link className="cta btn flex-item flex-container" to="/read-stories"><h2>read<br/>stories</h2></Link>
+        <Link className="cta btn flex-item flex-container" to="/write-stories"><h2>write<br/>stories</h2></Link>
+        <Link className="cta btn flex-item flex-container" to="/gallery"><h2>view<br/>gallery</h2></Link>
       </div>
     </div>
   </div>

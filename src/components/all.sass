@@ -1,6 +1,7 @@
 // Config vars
 $page-margin: 75px
 $container-width: 75%
+$container-width-mobile: 90%
 $header-font: "arvo"
 $body-font: 'Open Sans'
 $yellow: #EDE7BF
@@ -47,6 +48,9 @@ p, a
 p
   font-size: 1em
 
+h1
+  font-size: 1.9em
+
 h1, h2, h3
   font-family: $header-font
   margin-bottom: 0px
@@ -56,6 +60,7 @@ h3
 
 .flex-container
   display: flex
+  flex-wrap: wrap
 
 .header
   width: $container-width
@@ -139,13 +144,13 @@ footer
 .homepage
   .banner-wrapper
     width: 70%
-    margin: -110px auto 45px auto
+    margin: -7% auto 45px auto
     height: auto
     background: transparent
     display: block
   .container
-    margin-top: -200px
-    padding: 70px 45px 0px 25px
+    margin-top: -15%
+    padding: 6% 45px 0px 25px
     margin-bottom: 80px
   .subtitle
     width: 80%
@@ -173,9 +178,15 @@ footer
     background: $red
     width: 32%
     height: 300px
-    font-size: 2.3em
-    text-align: left
-    padding: 20px 35px 20px 25px
+    font-size: 2.2em
+    h2
+      margin-top: 0px
+    &.flex-container
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-direction: column
+      text-align: left
 
 .about, .gallery, .write-stories
   .container
@@ -338,8 +349,21 @@ footer
 
 @media only screen and (max-width: 600px)
   body .site
-    .container
-      width: 90%
+    .flex-item
+      flex: 1 100%
+    .header, .container
+      width: $container-width-mobile
+    .homepage
+      .banner-wrapper
+        margin-top: -15%
+        width: $container-width-mobile
+      .container
+        margin-top: -27%
+      .cta-container
+        margin: auto
+        width: 100% // 100% of the parent container which is currently $container-width-mobile
+      .cta
+        margin-bottom: 15px
     .write-stories
       .form-container
         width: 120%
