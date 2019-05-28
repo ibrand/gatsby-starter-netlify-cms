@@ -1,62 +1,80 @@
-$yellow: #EDE7BF
-
-.bubble
-  position: relative
-  width: 50%
-  padding: 50px 15px
-  margin: 1em 0 3em
-  border: 5px solid black
-  text-align: center
-  color: black
-  background: #fff
-  -webkit-border-radius: 20px
-  -moz-border-radius: 20px
-  border-radius: 20px
-  &:before, &:after
-    content: ""
-    position: absolute
-    height: 30px
-    z-index: 10
-    border-style: solid
-    border-color: black
-    background: transparent
-    display: block
-  &:before
-    bottom: -35px
-    width: 50px
-    background: white
-  &:after
-    bottom: -40px
-    width: 15px
-    background: $yellow
-  &.left
+.read-stories
+  .page-title
+    z-index: 1
+  .container
+    height: 500px
+    padding-left: 0px
+    padding-right: 0px
+  .bubble-container
+    height: 130%
+    width: 106%
+    margin-left: -3%
+    margin-top: -70px // amount of padding-top on the container so bubbles fade away when you scroll
+    padding-bottom: 70px // so that it's always easy to see and click the last story
+    overflow: scroll
+    display: flex
+    flex-wrap: wrap
+    align-content: space-between
+  .bubble
+    position: relative
+    width: 50%
+    padding: 50px 15px
+    margin: 5em 0 3em
+    border: 5px solid black
+    text-align: center
+    color: black
+    background: #fff
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border-radius: 20px
     &:before, &:after
-      left: 50px
+      content: ""
+      position: absolute
+      height: 30px
+      border-style: solid
+      border-color: black
+      background: transparent
+      display: block
     &:before
-      border-width: 0 5px 5px 0
-      -webkit-border-bottom-right-radius: 80px 50px
-      -moz-border-radius-bottomright: 80px 50px
-      border-bottom-right-radius: 80px 50px
+      bottom: -35px
+      width: 50px
+      background: white
     &:after
-      border-width: 5px 5px 5px 0
-      -webkit-border-bottom-right-radius: 40px 50px
-      -moz-border-radius-bottomright: 40px 50px
-      border-bottom-right-radius: 40px 50px
-      -webkit-clip-path: polygon(100% 0, 100% 86%, -2% 85%, 0 66%, 0 57%, 0 0)
-      clip-path: polygon(100% 0, 100% 86%, -2% 85%, 0 66%, 0 57%, 0 0)
-  &.right
-    &:before, &:after
-      right: 50px
-    &:before
-      border-width: 0 0px 5px 5px
-      -webkit-border-bottom-left-radius: 80px 50px
-      -moz-border-radius-bottomleft: 80px 50px
-      border-bottom-left-radius: 80px 50px
-    &:after
-      border-width: 5px 0px 5px 5px
-      -webkit-border-bottom-left-radius: 40px 50px
-      -moz-border-radius-bottomleft: 40px 50px
-      border-bottom-left-radius: 40px 50px
-      -webkit-clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
-      clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
+      bottom: -40px
+      width: 15px
+      background: $yellow
+    &.left
+      align-self: flex-start
+      margin-right: auto
+      &:before, &:after
+        left: 50px
+      &:before
+        border-width: 0 5px 5px 0
+        -webkit-border-bottom-right-radius: 80px 50px
+        -moz-border-radius-bottomright: 80px 50px
+        border-bottom-right-radius: 80px 50px
+      &:after
+        border-width: 5px 5px 5px 0
+        -webkit-border-bottom-right-radius: 40px 50px
+        -moz-border-radius-bottomright: 40px 50px
+        border-bottom-right-radius: 40px 50px
+        -webkit-clip-path: polygon(100% 0, 100% 86%, -2% 85%, 0 66%, 0 57%, 0 0)
+        clip-path: polygon(100% 0, 100% 86%, -2% 85%, 0 66%, 0 57%, 0 0)
+    &.right
+      align-self: flex-end
+      margin-left: auto
+      &:before, &:after
+        right: 50px
+      &:before
+        border-width: 0 0px 5px 5px
+        -webkit-border-bottom-left-radius: 80px 50px
+        -moz-border-radius-bottomleft: 80px 50px
+        border-bottom-left-radius: 80px 50px
+      &:after
+        border-width: 5px 0px 5px 5px
+        -webkit-border-bottom-left-radius: 40px 50px
+        -moz-border-radius-bottomleft: 40px 50px
+        border-bottom-left-radius: 40px 50px
+        -webkit-clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
+        clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
 
