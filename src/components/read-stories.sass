@@ -15,55 +15,48 @@ $yellow: #EDE7BF
   &:before, &:after
     content: ""
     position: absolute
+    height: 30px
     z-index: 10
     border-style: solid
     border-color: black
     background: transparent
     display: block
+  &:before
+    bottom: -35px
+    width: 50px
+    background: white
+  &:after
+    bottom: -40px
+    width: 15px
+    background: $yellow
   &.left
     &:before, &:after
       left: 50px
     &:before
-      bottom: -35px
-      width: 50px
-      height: 30px
       border-width: 0 5px 5px 0
       -webkit-border-bottom-right-radius: 80px 50px
       -moz-border-radius-bottomright: 80px 50px
       border-bottom-right-radius: 80px 50px
-      background: white
     &:after
-      bottom: -40px
-      width: 20px
-      height: 30px
       border-width: 5px 5px 5px 0
       -webkit-border-bottom-right-radius: 40px 50px
       -moz-border-radius-bottomright: 40px 50px
       border-bottom-right-radius: 40px 50px
-      background: $yellow
       -webkit-clip-path: polygon(100% 0, 100% 86%, -2% 85%, 0 66%, 0 57%, 0 0)
       clip-path: polygon(100% 0, 100% 86%, -2% 85%, 0 66%, 0 57%, 0 0)
   &.right
     &:before, &:after
       right: 50px
     &:before
-      bottom: -35px
-      width: 50px
-      height: 30px
       border-width: 0 0px 5px 5px
       -webkit-border-bottom-left-radius: 80px 50px
       -moz-border-radius-bottomleft: 80px 50px
       border-bottom-left-radius: 80px 50px
-      background: white
     &:after
-      bottom: -40px
-      width: 20px
-      height: 30px
       border-width: 5px 0px 5px 5px
       -webkit-border-bottom-left-radius: 40px 50px
       -moz-border-radius-bottomleft: 40px 50px
       border-bottom-left-radius: 40px 50px
-      background: $yellow
       -webkit-clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
       clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
 
