@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo|Open+Sans&display=swap')
 
 // page style sheets
-@import './read-stories'
+@import './read-stories.sass'
 
 // Config vars
 $page-margin: 75px
@@ -396,45 +396,3 @@ footer
       .two-column-checkboxes, .radio-buttons
         .checkbox-container, .radio-container
           flex: 1 100%
-
-.bubble
-  position: relative
-  width: 250px
-  height: 120px
-  padding: 0px
-  background: #FFFFFF
-  -webkit-border-radius: 10px
-  -moz-border-radius: 10px
-  border-radius: 10px
-  border: #000 solid 4px
-
-.bubble:after
-    content: ''
-    position: absolute
-    border-style: solid
-    border-width: 13px 21px 13px 0
-    border-color: transparent #FFFFFF
-    display: block
-    width: 0
-    z-index: 1
-    margin-top: -12px
-    left: -19px
-    top: 81%
-
-.bubble:before
-  content: ''
-  position: absolute
-  border-style: solid
-  border-width: 16px 24px 16px 0
-  border-color: transparent #000
-  display: block
-  width: 0
-  z-index: 0
-  margin-top: -15px
-  left: -24px
-  top: 81%
-
-.right
-  transform: scale(-1, 1)
-  p
-    transform: scale(-1, 1)
