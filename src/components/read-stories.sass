@@ -2,11 +2,11 @@
   .page-title
     z-index: 1
   .container
-    height: 500px
+    height: 620px
     padding-left: 0px
     padding-right: 0px
-  .bubble-container
-    height: 131%
+  .scroll-container
+    height: 101.5%
     width: 106%
     margin-left: -3%
     margin-top: -70px // amount of padding-top on the container so bubbles fade away when you scroll
@@ -15,9 +15,11 @@
     display: flex
     flex-wrap: wrap
     align-content: space-between
+  .bubble-container
+    width: 100%
   .bubble
     position: relative
-    width: 50%
+    width: 35%
     padding: 50px 15px
     margin: 5em 0 3em
     border: 5px solid black
@@ -78,8 +80,7 @@
         -webkit-clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
         clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
 
-@media only screen and (max-width: 600px)
-  body .site
-    .bubble-container
-      height: 102%
+//@media only screen and (max-width: 600px)
+//  body .site
+// for eventual mobile styling
 

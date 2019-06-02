@@ -9,11 +9,11 @@ export default class ReadStoriesPage extends React.Component {
       <section className="read-stories">
         <div className="container">
           <h2 className="page-title">Read Stories</h2>
-          <div className="bubble-container">
-            <div className="left bubble">hello</div>
-            <div className="right bubble">hello</div>
-            <div className="left bubble">hello</div>
-            <div className="right bubble">hello</div>
+          <div className="scroll-container">
+            <div className="bubble-container"><div className="left bubble">hello</div></div>
+            <div className="bubble-container"><div className="right bubble">hello</div></div>
+            <div className="bubble-container"><div className="left bubble">hello</div></div>
+            <div className="bubble-container"><div className="right bubble">hello</div></div>
           </div>
         </div>
       </section>
