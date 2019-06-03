@@ -29,7 +29,7 @@ class Stories extends React.Component {
   }
 
   chooseBubbleSide(index) {
-    return index % 2 === 0 ? 'right bubble' : 'left bubble'
+    return index % 2 === 0 ? 'left bubble' : 'right bubble'
   }
 }
 

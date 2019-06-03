@@ -5,6 +5,21 @@
     position: relative
     height: 620px
     padding: 70px 0px 10px 0px
+  .image-container
+    position: absolute
+    z-index: 1
+    &.img1
+      width: 12%
+      top: 150px
+      left: 15px
+    &.img2
+      width: 18%
+      top: 230px
+      right: 10px
+    &.img3
+      width: 23%
+      bottom: 0px
+      left: -30px
   .scroll-container
     height: 101.5%
     width: 106%
@@ -80,10 +95,24 @@
         border-bottom-left-radius: 40px 50px
         -webkit-clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
         clip-path: polygon(105% 0, 105% 90%, 0% 70%, 0 0%, 0 0%, 0 0)
+footer
+  z-index: 2
 
 @media only screen and (max-width: 650px)
   body .site
     .bubble
       width: 70%
+    .image-container
+      &.img1
+        display: none
+      &.img2
+        width: 35%
+        top: 250px
+        right: -30px
+      &.img3
+        //display: none
+        width: 40%
+        bottom: 0px
+        left: -30px
 
 
