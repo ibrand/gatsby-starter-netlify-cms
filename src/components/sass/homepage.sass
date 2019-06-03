@@ -1,0 +1,61 @@
+.homepage
+  .banner-wrapper
+    width: 70%
+    margin: -7% auto 45px auto
+    height: auto
+    background: transparent
+    display: block
+  .container
+    margin-top: -15%
+    padding: 6% 25px 0px 25px
+    margin-bottom: 80px
+  .subtitle
+    width: 80%
+  .read-more
+    width: 100px
+    height: 40px
+    background: black
+    padding: 12px
+    font-size: .8em
+  .btn
+    display: block
+    text-align: center
+    box-sizing: border-box
+    color: white
+  a
+    text-decoration: none
+  .flex-container
+    align-items: center
+    justify-content: space-between
+    &.cta-container
+      width: 118%
+      margin-left: -8%
+      padding-top: 25px
+  .cta
+    background: $red
+    width: 32%
+    height: 300px
+    font-size: 2.2em
+    h2
+      margin-top: 0px
+    &.flex-container
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-direction: column
+      text-align: left
+
+@media only screen and (max-width: 600px)
+  body .site
+    .homepage
+      .banner-wrapper
+        margin-top: -15%
+        width: $container-width-mobile
+      .container
+        margin-top: -35%
+        padding-top: 75px
+      .cta-container
+        margin: auto
+        width: 100% // 100% of the parent container which is currently $container-width-mobile
+      .cta
+        margin-bottom: 15px
