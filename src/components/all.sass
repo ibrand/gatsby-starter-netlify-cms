@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo|Open+Sans&display=swap')
 @import 'sass/variables'
 
+// Header and footer
+@import 'sass/header'
+@import 'sass/footer'
+
 // page style sheets
 @import 'sass/homepage'
 @import 'sass/about'
@@ -14,6 +18,17 @@ html, body
   padding: 0px
   height: 100%
   font-family: $body-font
+
+/* Site container to keep the footer at the bottom of the page */
+.site
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  overflow: hidden // make sure there's no side scroll even though the footer is full width
+
+.site-content
+  flex-grow: 1
+/* End of site container */
 
 /* Fieldset reset */
 fieldset
@@ -28,26 +43,13 @@ legend
 
 body:not(:-moz-handler-blocked) fieldset
   display: table-cell
-
-.disabled
-  opacity: .6
-  cursor: not-allowed
+/* End of fieldset reset */
 
 button
   cursor: pointer
   &:disabled
     opacity: .6
     cursor: not-allowed
-
-// Handle the footer
-.site
-  display: flex
-  min-height: 100vh
-  flex-direction: column
-  overflow: hidden // make sure there's no side scroll even though the footer is full width
-
-.site-content
-  flex-grow: 1
 
 p, a
   font-family: $body-font
@@ -64,72 +66,13 @@ h1, h2, h3
 h3
   font-size: 1.7em
 
+.disabled
+  opacity: .6
+  cursor: not-allowed
+
 .flex-container
   display: flex
   flex-wrap: wrap
-
-.header
-  width: $container-width
-  margin: auto
-  padding: 20px 0px
-  display: flex
-  align-items: center
-  justify-content: space-between
-  & a
-    text-decoration: none
-  & p
-    font-family: $header-font
-    color: black
-    display: inline-block
-
-.hamburger-menu
-  display: inline-block
-  cursor: pointer
-  z-index: 1
-
-.bar1, .bar2, .bar3
-  width: 40px
-  height: 4px
-  background-color: #333
-  margin: 6px 0
-  transition: 0.4s
-
-/* Rotate first bar */
-.is-active .bar1
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px)
-  transform: rotate(-45deg) translate(-9px, 6px)
-
-/* Fade out the second bar */
-.is-active .bar2
-  opacity: 0
-
-/* Rotate last bar */
-.is-active .bar3
-  -webkit-transform: rotate(45deg) translate(-8px, -8px)
-  transform: rotate(45deg) translate(-8px, -8px)
-
-footer
-  width: 100%
-  background: black
-  display: flex
-  align-items: center
-  justify-content: space-between
-  padding: 20px 10px
-  height: 15px
-
-  & .logo
-    height: 100%
-
-.social
-  height: 20px
-  & a
-    padding: .2em .2em .2em .2em
-    border-radius: 1em
-    margin: .5em
-    vertical-align: middle
-    display: inline
-  & img
-    height: 100%
 
 .container
   background: $yellow
@@ -151,7 +94,7 @@ footer
   body .site
     .flex-item
       flex: 1 100%
-    .header, .container
+    .container
       width: $container-width-mobile
     .page-title
       padding-right: 25%

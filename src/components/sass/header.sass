@@ -1,0 +1,44 @@
+.header
+  width: $container-width
+  margin: auto
+  padding: 20px 0px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  & a
+    text-decoration: none
+  & p
+    font-family: $header-font
+    color: black
+    display: inline-block
+
+.hamburger-menu
+  display: inline-block
+  cursor: pointer
+  z-index: 1
+
+.bar1, .bar2, .bar3
+  width: 40px
+  height: 4px
+  background-color: #333
+  margin: 6px 0
+  transition: 0.4s
+
+/* Rotate first bar */
+.is-active .bar1
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px)
+  transform: rotate(-45deg) translate(-9px, 6px)
+
+/* Fade out the second bar */
+.is-active .bar2
+  opacity: 0
+
+/* Rotate last bar */
+.is-active .bar3
+  -webkit-transform: rotate(45deg) translate(-8px, -8px)
+  transform: rotate(45deg) translate(-8px, -8px)
+
+@media only screen and (max-width: 600px)
+  body .site
+    .header
+      width: $container-width-mobile
