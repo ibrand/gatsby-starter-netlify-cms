@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
+import Stories from '../../components/Stories'
 
 export default class ReadStoriesPage extends React.Component {
   render() {
@@ -10,10 +11,7 @@ export default class ReadStoriesPage extends React.Component {
         <div className="container">
           <h2 className="page-title">Read Stories</h2>
           <div className="scroll-container">
-            <div className="bubble-container"><div className="left bubble">hello</div></div>
-            <div className="bubble-container"><div className="right bubble">hello</div></div>
-            <div className="bubble-container"><div className="left bubble">hello</div></div>
-            <div className="bubble-container"><div className="right bubble">hello</div></div>
+            <Stories />
           </div>
         </div>
       </section>
