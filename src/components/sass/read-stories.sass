@@ -8,6 +8,7 @@
   .image-container
     position: absolute
     z-index: 1
+    overflow-x: hidden
     &.img1
       width: 12%
       top: 150px
@@ -99,7 +100,8 @@ footer
   z-index: 2
 
 @media only screen and (max-width: 650px)
-  body .site
+  body .site .read-stories
+    overflow: hidden
     .container
       height: 480px
     .bubble
@@ -111,6 +113,7 @@ footer
         width: 35%
         top: 230px
         right: -30px
+        clip-path: polygon(0 0, 65% 0, 65% 100%, 0% 100%)
       &.img3
         width: 45%
         bottom: 0px
