@@ -1,0 +1,49 @@
+.news
+  .page-title
+    z-index: 1
+  .container
+    position: relative
+    height: 600px
+    padding: 70px 0px 10px 0px
+  .scroll-container
+    height: 101.5%
+    width: 106%
+    margin-left: -3%
+    margin-top: -70px // amount of padding-top on the container so bubbles fade away when you scroll
+    padding-bottom: 70px // so that it's always easy to see and click the last story
+    overflow: scroll
+    display: flex
+    flex-wrap: wrap
+    align-content: space-between
+    .news-container
+      width: 100%
+      height: auto // to allow the bubble's margin to control its distance from it's neighboring bubbles
+  .bubble
+    position: relative
+    width: 40%
+    padding: 50px 15px
+    margin: 5em 0 3em
+    border: 5px solid black
+    text-align: center
+    color: black
+    background: #fff
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border-radius: 20px
+    &.left
+      align-self: flex-start
+      margin-right: auto
+    &.right
+      align-self: flex-end
+      margin-left: auto
+footer
+  z-index: 2
+
+@media only screen and (max-width: 650px)
+  body .site .news
+    .container
+      height: 400px
+    .bubble
+      width: 70%
+
+
