@@ -7,49 +7,35 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
 export const StoryTemplate = ({
-  content,
-  contentComponent,
-  description,
+  html,
   tags,
-  title,
   helmet,
 }) => {
-  const PostContent = contentComponent || Content
-
   return (
-    <section className="section">
+    <section className="story">
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
+      <div className="container">
+        <h2 className="page-title">Institutional Bullying is...</h2>
+          <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
+          {tags && tags.length ? (
+            <div style={{ marginTop: `4rem` }}>
+              <h4>Tags</h4>
+              <ul className="taglist">
+                {tags.map(tag => (
+                  <li key={tag + `tag`}>
+                    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
       </div>
     </section>
   )
 }
 
 StoryTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
+  html: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
@@ -60,9 +46,7 @@ const Story = ({ data }) => {
   return (
     <Layout>
       <StoryTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        html={post.html}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -73,7 +57,6 @@ const Story = ({ data }) => {
           </Helmet>
         }
         tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
       />
     </Layout>
   )
@@ -94,8 +77,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        title
-        description
         tags
       }
     }
