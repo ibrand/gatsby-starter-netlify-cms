@@ -20,6 +20,7 @@ export default class Index extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    this.setState({ isSubmitting: true })
     const form = e.target
     fetch('/', {
       method: 'POST',
@@ -29,17 +30,33 @@ export default class Index extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch(error => alert(error))
+      .then(() => {
+        navigate(form.getAttribute('action'))
+        this.setState({ isSubmitting: false })
+      })
+      .catch(error => {
+        this.setState({ isSubmitting: false })
+        alert(error)
+      })
   }
 
   render() {
+    console.log(this.state)
+    const {
+      name,
+      phoneNumber,
+      email,
+      description,
+      isSubmitting
+    } = this.state
     return (
       <Layout>
-        <section className="section">
+        <section className="contact">
           <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
+            <h2 className="page-title">Contact Us</h2>
+            <p>
+              If you want more information about the campaign or want to conduct a training on Institutional Bullying please submit the contact form below.
+            </p>
               <form
                 name="contact"
                 method="post"
@@ -48,19 +65,19 @@ export default class Index extends React.Component {
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <label>
-                    Don’t fill this out:{' '}
-                    <input name="bot-field" onChange={this.handleChange} />
-                  </label>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'name'}>
-                    Your name
-                  </label>
-                  <div className="control">
+                <div className="form-container">
+                  {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div hidden>
+                    <label>
+                      Don’t fill this out:{' '}
+                      <input name="bot-field" onChange={this.handleChange} />
+                    </label>
+                  </div>
+                  <div className="fieldset">
+                    <label className="label" htmlFor={'name'}>
+                      Name
+                    </label>
                     <input
                       className="input"
                       type={'text'}
@@ -70,12 +87,25 @@ export default class Index extends React.Component {
                       required={true}
                     />
                   </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Email
-                  </label>
-                  <div className="control">
+                  <div className="fieldset">
+                    <label className="label" htmlFor={'phone-number'}>
+                      Phone #
+                    </label>
+                    <input
+                      className="input"
+                      type={'tel'}
+                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      name={'phoneNumber'}
+                      onChange={this.handleChange}
+                      id={'phoneNumber'}
+                      required={true}
+                    />
+                    <span className="note">(Format: 123-456-7890)</span>
+                  </div>
+                  <div className="fieldset">
+                    <label className="label" htmlFor={'email'}>
+                      Email
+                    </label>
                     <input
                       className="input"
                       type={'email'}
@@ -85,28 +115,35 @@ export default class Index extends React.Component {
                       required={true}
                     />
                   </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'message'}>
-                    Message
-                  </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={'message'}
-                      onChange={this.handleChange}
-                      id={'message'}
-                      required={true}
-                    />
+                  <div className="fieldset">
+                    <label className="label" htmlFor={'description'}>
+                      Description (What is the purpose of your inquiry)
+                    </label>
+                      <textarea
+                        className="textarea"
+                        name={'description'}
+                        onChange={this.handleChange}
+                        id={'description'}
+                        required={true}
+                      />
                   </div>
                 </div>
-                <div className="field">
-                  <button className="button is-link" type="submit">
-                    Send
-                  </button>
-                </div>
+                <button
+                  disabled={!name || !phoneNumber || !email || !description || isSubmitting}
+                  className="button is-link"
+                  type="submit"
+                >
+                  { isSubmitting ? "Sending..." : "Send" }
+                </button>
+                {
+                  !name ||
+                  !phoneNumber ||
+                  !email ||
+                  !description ?
+                    <span className="required-text">There are still required fields to fill out</span> :
+                    null
+                }
               </form>
-            </div>
           </div>
         </section>
       </Layout>

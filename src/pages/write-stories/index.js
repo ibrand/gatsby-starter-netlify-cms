@@ -219,7 +219,6 @@ export default class Index extends React.Component {
       'Who Experienced This': whoExperiencedThis,
       isSubmitting
     } = this.state
-    console.log(this.state)
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
     const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
     return (
