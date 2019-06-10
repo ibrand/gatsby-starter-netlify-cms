@@ -8,7 +8,6 @@ import Layout from '../components/Layout'
 export const NewsTemplate = ({
   html,
   title,
-  tags,
   helmet,
 }) => {
   return (
@@ -17,18 +16,6 @@ export const NewsTemplate = ({
       <div className="container">
         <h2 className="page-title">{title}</h2>
         <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
-        {tags && tags.length ? (
-          <div style={{ marginTop: `4rem` }}>
-            <h4>Tags</h4>
-            <ul className="taglist">
-              {tags.map(tag => (
-                <li key={tag + `tag`}>
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
       </div>
     </section>
   )
@@ -57,7 +44,6 @@ const news = ({ data }) => {
           </Helmet>
         }
         title={post.frontmatter.title}
-        tags={post.frontmatter.tags}
       />
     </Layout>
   )
@@ -78,7 +64,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        tags
         title
       }
     }
