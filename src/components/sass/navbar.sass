@@ -5,5 +5,38 @@
     height: 100%
     position: absolute
     right: 0px
-    background: red
+    background: $red
     margin: 0px
+    z-index: 1
+    width: 33%
+    padding-top: 26px // align list with the header text
+  ul
+    margin: 0px // css reset
+    padding: 0px 50px
+  li
+    list-style: none
+  a
+    text-decoration: none
+    color: white
+    font-size: 1.3em
+  p
+    font-size: 0.8em
+    color: white
+    margin-top: 0px
+  .list-header
+    font-size: 2.1em
+  .donate-button
+    border: 3px solid white
+    padding: 8px
+    text-align: center
+    width: 150px
+    bottom: 100px
+    position: fixed
+
+@media only screen and (max-width: 850px)
+  body .site .navbar
+    width: 50%
+
+@media only screen and (max-width: 600px)
+  body .site .navbar
+      width: 100%

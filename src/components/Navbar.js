@@ -7,23 +7,40 @@ const Navbar = ({ navbarActiveClass }) => (
     role="navigation"
     aria-label="main-navigation"
   >
-  <div className="navbar-start has-text-centered">
-    <Link className="navbar-item" to="/about">
-      About
-    </Link>
-    <Link className="navbar-item" to="/products">
-      Products
-    </Link>
-    <Link className="navbar-item" to="/blog">
-      Blog
-    </Link>
-    <Link className="navbar-item" to="/contact">
-      Contact
-    </Link>
-    <Link className="navbar-item" to="/contact/examples">
-      Form Examples
-    </Link>
-  </div>
+    <ul>
+      <li>
+        <Link className="list-header" to="/">
+          DRUM
+        </Link>
+        <p>End Institutional Bullying</p>
+      </li>
+      <li>
+        <Link to="/about">
+          About
+        </Link>
+      </li>
+      <li>
+        <Link to="/read-stories">
+          Read Stories
+        </Link>
+      </li>
+      <li>
+        <Link to="/write-stories">
+          Write Stories
+        </Link>
+      </li>
+      <li>
+        <Link to="/news">
+          Media Coverage
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact">
+          Contact
+        </Link>
+      </li>
+      <a href="https://drum.ourpowerbase.net/civicrm/contribute/transact?reset=1&id=13" className="donate-button">Donate</a>
+    </ul>
   </nav>
 );
 
