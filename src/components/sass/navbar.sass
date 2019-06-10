@@ -1,15 +1,15 @@
 .navbar
-  display: none
+  width: 0
+  position: fixed
+  height: 100%
+  right: 0px
+  padding-top: 26px // align list with the header text
+  margin: 0px
+  background: $red
+  z-index: 1
+  transition: 0.5s /* 0.5 second transition effect to slide in the navbar */
   &.is-active
-    display: block
-    height: 100%
-    position: absolute
-    right: 0px
-    background: $red
-    margin: 0px
-    z-index: 1
-    width: 33%
-    padding-top: 26px // align list with the header text
+    width: 400px
   ul
     margin: 0px // css reset
     padding: 0px 50px
@@ -33,10 +33,6 @@
     bottom: 100px
     position: fixed
 
-@media only screen and (max-width: 850px)
-  body .site .navbar
-    width: 50%
-
 @media only screen and (max-width: 600px)
-  body .site .navbar
+  body .site .navbar.is-active
       width: 100%

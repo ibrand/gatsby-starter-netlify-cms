@@ -16,9 +16,9 @@
   display: inline-block
   cursor: pointer
   z-index: 1
+  transition: 0.5s /* 0.5 second transition effect to slide in the navbar */
   &.is-active
-    position: absolute
-    right: 20px
+    margin-right: 300px
 
 .bar1, .bar2, .bar3
   width: 40px
@@ -26,10 +26,6 @@
   background: #333
   margin: 6px 0
   transition: 0.4s
-
-.is-active
-  .bar1, .bar2, .bar3
-    background: white
 
 /* Rotate first bar */
 .is-active .bar1
@@ -49,3 +45,8 @@
   body .site
     .header
       width: $container-width-mobile
+      .hamburger-menu.is-active
+        margin-right: 0px
+      .is-active
+        .bar1, .bar2, .bar3
+          background: white
