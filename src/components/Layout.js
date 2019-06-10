@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Footer from '../components/Footer'
+import Navbar from "./Navbar";
 import Header from './Header'
+import Footer from '../components/Footer'
 import './all.sass'
 import {graphql, StaticQuery} from "gatsby";
 
@@ -15,9 +16,28 @@ const Layout = class extends React.Component {
     };
   }
 
+  toggleHamburger = () => {
+    // toggle the active boolean in the state
+    this.setState(
+      {
+        active: !this.state.active
+      },
+      // after state has been updated,
+      () => {
+        // set the class in state for the header accordingly
+        this.state.active
+          ? this.setState({
+            navbarActiveClass: "is-active"
+          })
+          : this.setState({
+            navbarActiveClass: ""
+          });
+      }
+    );
+  };
+
   render() {
     const children = this.props.children
-    console.log(children)
     return (
       <StaticQuery
         query={graphql`
@@ -69,7 +89,8 @@ const Layout = class extends React.Component {
             <meta property="og:image" content="/img/og-image.jpg"/>
           </Helmet>
           <div className="site">
-            <Header/>
+            <Navbar navbarActiveClass={this.state.navbarActiveClass} />
+            <Header navbarActiveClass={this.state.navbarActiveClass} toggleHamburger={this.toggleHamburger} />
             <div className="site-content">{children}</div>
             <Footer/>
           </div>
