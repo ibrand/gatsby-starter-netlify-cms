@@ -4,65 +4,49 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
 
 export const NewsTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
+  html,
   title,
+  tags,
   helmet,
 }) => {
-  const PostContent = contentComponent || Content
-
   return (
-    <section className="section">
+    <section className="post">
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+      <div className="container">
+        <h2 className="page-title">{title}</h2>
+        <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
+        {tags && tags.length ? (
+          <div style={{ marginTop: `4rem` }}>
+            <h4>Tags</h4>
+            <ul className="taglist">
+              {tags.map(tag => (
+                <li key={tag + `tag`}>
+                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ) : null}
       </div>
     </section>
   )
 }
 
 NewsTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
+  html: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
 
-const News = ({ data }) => {
+const news = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
       <NewsTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        html={post.html}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -72,20 +56,20 @@ const News = ({ data }) => {
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        tags={post.frontmatter.tags}
       />
     </Layout>
   )
 }
 
-News.propTypes = {
+news.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default News
+export default news
 
 export const pageQuery = graphql`
   query NewsByID($id: String!) {
@@ -94,9 +78,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        title
-        description
         tags
+        title
       }
     }
   }

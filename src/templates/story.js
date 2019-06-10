@@ -4,7 +4,6 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
 
 export const StoryTemplate = ({
   html,
@@ -12,7 +11,7 @@ export const StoryTemplate = ({
   helmet,
 }) => {
   return (
-    <section className="story">
+    <section className="post">
       {helmet || ''}
       <div className="container">
         <h2 className="page-title">Institutional Bullying is...</h2>
