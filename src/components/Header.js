@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./Navbar";
 import { Link } from "gatsby";
 
 const Header = class extends React.Component {
@@ -6,7 +7,7 @@ const Header = class extends React.Component {
     super(props);
     this.state = {
       active: false,
-      headerActiveClass: ""
+      navbarActiveClass: ""
     };
   }
 
@@ -21,10 +22,10 @@ const Header = class extends React.Component {
         // set the class in state for the header accordingly
         this.state.active
           ? this.setState({
-              headerActiveClass: "is-active"
+              navbarActiveClass: "is-active"
             })
           : this.setState({
-              headerActiveClass: ""
+              navbarActiveClass: ""
             });
       }
     );
@@ -32,17 +33,13 @@ const Header = class extends React.Component {
 
   render() {
     return (
-      <nav
-        className="header is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
+      <header className="header">
         <Link to="/" title="Logo">
           <p>End Institutional Bullying</p>
         </Link>
         {/* Hamburger menu */}
         <div
-          className={`hamburger-menu ${this.state.headerActiveClass}`}
+          className={`hamburger-menu ${this.state.navbarActiveClass}`}
           data-target="navMenu"
           onClick={() => this.toggleHamburger()}
         >
@@ -50,7 +47,8 @@ const Header = class extends React.Component {
           <div className={`bar2`} />
           <div className={`bar3`} />
         </div>
-      </nav>
+        <Navbar navbarActiveClass={this.state.navbarActiveClass} />
+      </header>
     );
   }
 };
