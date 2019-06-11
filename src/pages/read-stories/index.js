@@ -10,22 +10,16 @@ export const ReadStoriesPageTemplate = ({
   readStoriesImgData
 }) => (
   <section className="read-stories">
-    <div className="image-container img1">
+    <div className="image-container img-right">
       <Img
         alt="End institutional bullying gallery image"
         sizes={readStoriesImgData[0].node.childImageSharp.sizes}
       />
     </div>
-    <div className="image-container img2">
+    <div className="image-container img-left">
       <Img
         alt="End institutional bullying gallery image"
         sizes={readStoriesImgData[1].node.childImageSharp.sizes}
-      />
-    </div>
-    <div className="image-container img3">
-      <Img
-        alt="End institutional bullying gallery image"
-        sizes={readStoriesImgData[2].node.childImageSharp.sizes}
       />
     </div>
     <div className="container">
