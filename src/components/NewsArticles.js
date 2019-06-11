@@ -1,25 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
 class NewsArticles extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
-
     return (
       <React.Fragment>
         {posts &&
           posts.map(({ node: post }, index) => (
             <div className="news-container" key={post.id}>
               <div className={ this.chooseBubbleSide(index) }>
-                  <Link
-                    className="title has-text-primary is-size-4"
-                    to={post.fields.slug}
-                  >
+                  <a href={post.frontmatter.url} target="_blank" rel="noopener noreferrer">
                     <h2>{post.frontmatter.title}</h2>
-                    <p>{post.excerpt}</p>
-                  </Link>
+                    {post.frontmatter.description && <p>{post.frontmatter.description}</p>}
+                  </a>
               </div>
             </div>
           ))
@@ -36,7 +32,17 @@ class NewsArticles extends React.Component {
 NewsArticles.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
+      edges: PropTypes.arrayOf(PropTypes.shape({
+        node: PropTypes.shape({
+          id: PropTypes.string,
+          frontmatter: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            url: PropTypes.string.isRequired,
+            date: PropTypes.string.isRequired,
+          }),
+        }),
+      })),
     }),
   }),
 }
@@ -51,14 +57,11 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 100)
               id
-              fields {
-                slug
-              }
               frontmatter {
                 title
-                templateKey
+                description
+                url
                 date(formatString: "MMMM DD, YYYY")
               }
             }

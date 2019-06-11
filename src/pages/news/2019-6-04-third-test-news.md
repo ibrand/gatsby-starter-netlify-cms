@@ -1,9 +1,7 @@
 ---
 templateKey: news
-title: My third news article
+title: "A Clock is not a clock in the hands of Ahmed: Exposing the policies of Islamophobia, School to prison pipeline, and Institutional Bullying."
 date: 2019-6-04T15:04:10.000Z
-description: news subtitle 3
-tags:
+description:
+url: http://www.drumnyc.org/justiceforahmed/
 ---
-
-This is my third news article test

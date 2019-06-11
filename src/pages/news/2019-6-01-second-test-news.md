@@ -1,9 +1,7 @@
 ---
 templateKey: news
-title: My second news article
+title: "Students rip de Blasio for ignoring their concerns on school safety during town hall"
 date: 2019-6-01T15:04:10.000Z
-description: news subtitle 2
-tags:
+description:
+url: https://www.nydailynews.com/new-york/education/de-blasio-deaf-students-raise-concerns-school-safety-article-1.3864047
 ---
-
-This is my second news article test
