@@ -1,5 +1,3 @@
-import React from "react";
-
 const checkboxes = {
   'I am a' : [
     {
