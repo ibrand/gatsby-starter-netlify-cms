@@ -30,6 +30,11 @@ const Navbar = ({ navbarActiveClass }) => (
         </Link>
       </li>
       <li>
+        <Link to="/gallery">
+          Gallery
+        </Link>
+      </li>
+      <li>
         <Link to="/news">
           Media Coverage
         </Link>

@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import '@reach/dialog/styles.css';
 
-export default class Index extends React.Component {
+export default class GalleryPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +30,7 @@ export default class Index extends React.Component {
                   relativePath
                   name
                   childImageSharp {
-                    sizes(maxWidth: 350, maxHeight: 350) {
+                    sizes(maxWidth: 850, maxHeight: 1024) {
                       ...GatsbyImageSharpSizes
                     } 
                   }
@@ -84,8 +84,12 @@ export default class Index extends React.Component {
   }
 }
 
-Index.propTypes = {
+GalleryPage.propTypes = {
   data: PropTypes.shape({
-    edges: PropTypes.object
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({
+        node: PropTypes.shape(),
+      })),
+    }),
   }),
 }
