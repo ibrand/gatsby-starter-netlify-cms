@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import Layout from "../components/Layout"
 import Img from "gatsby-image";
-import { Dialog } from '@reach/dialog';
+import { DialogOverlay, DialogContent } from '@reach/dialog';
 import '@reach/dialog/styles.css';
 
 export default class GalleryPageTemplate extends React.Component {
@@ -63,12 +63,16 @@ export default class GalleryPageTemplate extends React.Component {
                 })}
               </div>
               {showLightbox && (
-                <Dialog>
-                  <Img sizes={selectedImageSizes} />
-                  <button type="button" onClick={() => this.setState({ showLightbox: false })}>
-                    Close
-                  </button>
-                </Dialog>
+                <DialogOverlay
+                  onDismiss={() => this.setState({ showLightbox: false })}
+                  style={{ background: "hsla(0, 0%, 0%, 0.80)" }}
+                >
+                  <DialogContent
+                    style={{ padding: "0px", width: "70vh" }}
+                  >
+                    <Img sizes={selectedImageSizes} />
+                  </DialogContent>
+                </DialogOverlay>
               )}
             </div>
           </div>
