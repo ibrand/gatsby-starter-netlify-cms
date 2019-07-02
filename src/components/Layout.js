@@ -10,7 +10,6 @@ import {graphql, StaticQuery} from "gatsby";
 const Layout = class extends React.Component {
   constructor(props) {
     super(props);
-    this.navRef = React.createRef();
     this.state = {
       active: false,
       navbarActiveClass: "",
@@ -36,6 +35,15 @@ const Layout = class extends React.Component {
       }
     );
   };
+
+  handleClickOutsideOfNav = (e) => {
+    let clickIsOutsideNav = e.target.tagName !== 'NAV';
+    let navIsOpen = this.state.navbarActiveClass;
+    if (clickIsOutsideNav && navIsOpen) {
+        // close nav
+        this.toggleNav();
+    }
+  }
 
   render() {
     const children = this.props.children
@@ -89,8 +97,8 @@ const Layout = class extends React.Component {
             <meta property="og:url" content="/"/>
             <meta property="og:image" content="/img/og-image.jpg"/>
           </Helmet>
-          <div className="site">
-            <span ref={this.navRef}><Navbar navbarActiveClass={this.state.navbarActiveClass} navRef={this.navRef} toggleNav={this.toggleNav} /></span>
+          <div className="site" onClick={this.handleClickOutsideOfNav}>
+            <Navbar navbarActiveClass={this.state.navbarActiveClass} />
             <Header navbarActiveClass={this.state.navbarActiveClass} toggleNav={this.toggleNav} />
             <div className="site-content">{children}</div>
             <Footer/>
