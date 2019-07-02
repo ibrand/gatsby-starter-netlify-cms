@@ -109,7 +109,24 @@ export default class Index extends React.Component {
         </p>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> I am a...</legend>
-          <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
+          <div className="single-line-checkboxes">
+            <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
+          </div>
+        </fieldset>
+        <fieldset className="fieldset">
+          <legend>Have you ever seen or experienced any of the following in your school</legend>
+          <strong>Youth</strong>
+          <div className="two-column-checkboxes">
+            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Youth'} onChange={this.handleCheck} />
+          </div>
+          <strong>Parents</strong>
+          <div className="two-column-checkboxes">
+            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Parents'} onChange={this.handleCheck} />
+          </div>
+          <strong>Teachers</strong>
+          <div className="two-column-checkboxes">
+            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Teachers'} onChange={this.handleCheck} />
+          </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend>Have you, your child, your student ever been harassed/bullied in school by</legend>
