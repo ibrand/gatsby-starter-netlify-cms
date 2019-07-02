@@ -32,9 +32,9 @@ class Resources extends React.Component {
           video_resources.map(({ node: post }, index) => (
             <li  className="resource" key={post.id}>
               <div className="video-text">
-              <a href={post.frontmatter.url} target="_blank" rel="noopener noreferrer"  key={post.id}>
+              <strong key={post.id}>
                 {post.frontmatter.title}
-              </a>
+              </strong>
               {post.frontmatter.description && <p>{post.frontmatter.description}</p>}
               </div>
               <iframe src={post.frontmatter.url}/>
