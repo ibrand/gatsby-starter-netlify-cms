@@ -206,7 +206,6 @@ export default class Index extends React.Component {
             <textarea name={'how situation was resolved'} onChange={this.handleChange} required={false} />
           </span>
         </fieldset>
-        <em>The following information is optional. If you consented to sharing your story, your information will remain anonymous.</em><br/>
         <fieldset className="fieldset">
           <legend>Contact Information</legend>
           <label>Name</label>
