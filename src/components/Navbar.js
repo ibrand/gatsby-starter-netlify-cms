@@ -12,7 +12,7 @@ const Navbar = ({ navbarActiveClass }) => (
         <Link className="list-header" to="/">
           DRUM
         </Link>
-        <p>End Institutional Bullying</p>
+        <p>End Institutional Bullying in Schools</p>
       </li>
       <li>
         <Link to="/about">
