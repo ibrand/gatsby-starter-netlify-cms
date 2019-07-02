@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 import { Link } from "gatsby";
 
-const Header = ({ navbarActiveClass, toggleHamburger }) => (
+const Header = ({ navbarActiveClass, toggleNav }) => (
   <header className="header">
     <Link to="/" title="Logo">
       <p>End Institutional Bullying</p>
@@ -11,7 +11,7 @@ const Header = ({ navbarActiveClass, toggleHamburger }) => (
     <div
       className={`hamburger-menu ${navbarActiveClass}`}
       data-target="navMenu"
-      onClick={() => toggleHamburger()}
+      onClick={() => toggleNav()}
     >
       <div className={`bar1`} />
       <div className={`bar2`} />
@@ -22,7 +22,7 @@ const Header = ({ navbarActiveClass, toggleHamburger }) => (
 
 Header.propTypes = {
   navbarActiveClass: PropTypes.string.isRequired,
-  toggleHamburger: PropTypes.func.isRequired
+  toggleNav: PropTypes.func.isRequired
 }
 
 export default Header;

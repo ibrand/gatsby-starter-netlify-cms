@@ -10,13 +10,14 @@ import {graphql, StaticQuery} from "gatsby";
 const Layout = class extends React.Component {
   constructor(props) {
     super(props);
+    this.navRef = React.createRef();
     this.state = {
       active: false,
-      navbarActiveClass: ""
+      navbarActiveClass: "",
     };
   }
 
-  toggleHamburger = () => {
+  toggleNav = () => {
     // toggle the active boolean in the state
     this.setState(
       {
@@ -89,8 +90,8 @@ const Layout = class extends React.Component {
             <meta property="og:image" content="/img/og-image.jpg"/>
           </Helmet>
           <div className="site">
-            <Navbar navbarActiveClass={this.state.navbarActiveClass} />
-            <Header navbarActiveClass={this.state.navbarActiveClass} toggleHamburger={this.toggleHamburger} />
+            <span ref={this.navRef}><Navbar navbarActiveClass={this.state.navbarActiveClass} navRef={this.navRef} toggleNav={this.toggleNav} /></span>
+            <Header navbarActiveClass={this.state.navbarActiveClass} toggleNav={this.toggleNav} />
             <div className="site-content">{children}</div>
             <Footer/>
           </div>
