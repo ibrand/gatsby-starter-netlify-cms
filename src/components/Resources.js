@@ -37,11 +37,7 @@ class Resources extends React.Component {
               </a>
               {post.frontmatter.description && <p>{post.frontmatter.description}</p>}
               </div>
-              <iframe
-                width="315"
-                height="315"
-                src={post.frontmatter.url}
-              />
+              <iframe src={post.frontmatter.url}/>
             </li>
           ))
           }
