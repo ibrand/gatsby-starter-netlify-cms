@@ -17,8 +17,7 @@ class Stories extends React.Component {
                     className="title has-text-primary is-size-4"
                     to={post.fields.slug}
                   >
-                    <h2>{post.frontmatter.title}</h2>
-                    <p>{post.excerpt}</p>
+                    <h2>{post.excerpt}</h2>
                   </Link>
               </div>
             </div>
@@ -56,6 +55,7 @@ export default () => (
               fields {
                 slug
               }
+              html
               frontmatter {
                 title
                 templateKey
