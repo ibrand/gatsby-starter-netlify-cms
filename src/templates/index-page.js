@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 import Img from "gatsby-image";
 
 export const IndexPageTemplate = ({
-  heading,
   description,
   bannerImgSizes
 }) => (
@@ -18,7 +17,7 @@ export const IndexPageTemplate = ({
       />
     </div>
     <div className="container">
-      <h1 className="title">{heading}</h1>
+      <h1 className="title">What is Institutional Bullying?</h1>
       <div className="flex-container">
         <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: description}}></span>
         <Link className="read-more btn flex-item" to="/about">
@@ -42,14 +41,13 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  const { html: description} = data.markdownRemark
   const { sizes: bannerImgSizes } = data.bannerImg.childImageSharp
 
   return (
     <Layout>
       <IndexPageTemplate
         heading={frontmatter.heading}
-        description={description}
+        description={frontmatter.description}
         bannerImgSizes={bannerImgSizes}
       />
     </Layout>
@@ -59,7 +57,6 @@ const IndexPage = ({ data }) => {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      html: PropTypes.string,
       frontmatter: PropTypes.object,
     }),
     bannerImgSizes: PropTypes.object
@@ -71,9 +68,8 @@ export default IndexPage
 export const pageQuery = graphql`
   query IndexPageTemplate($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      html
       frontmatter {
-        heading
+        description
       }
     },
      bannerImg: file(relativePath: { eq: "homepage-banner.png" }) {

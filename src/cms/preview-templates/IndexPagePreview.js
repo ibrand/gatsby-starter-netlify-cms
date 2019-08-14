@@ -4,12 +4,15 @@ import { IndexPageTemplate } from '../../templates/index-page'
 
 const IndexPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
-  
+
+  const image = '../../img/homepage-banner.png'
+  const srcSet = getAsset(image)
   if (data) {
+  console.log('data', data)
     return (
       <IndexPageTemplate
-        heading={data.heading}
         description={data.description}
+        bannerImgSizes={srcSet}
       />
     )
   } else {
