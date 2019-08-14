@@ -2,17 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { IndexPageTemplate } from '../../templates/index-page'
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const IndexPagePreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS()
 
-  const image = '../../img/homepage-banner.png'
-  const srcSet = getAsset(image)
   if (data) {
-  console.log('data', data)
     return (
       <IndexPageTemplate
         description={data.description}
-        bannerImgSizes={srcSet}
       />
     )
   } else {

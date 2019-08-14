@@ -10,12 +10,12 @@ export const IndexPageTemplate = ({
   bannerImgSizes
 }) => (
   <div className="homepage">
-    <div className="banner-wrapper">
+    { bannerImgSizes ? <div className="banner-wrapper">
       <Img
         sizes={bannerImgSizes}
         alt="Banner with drawing of protestors in it"
       />
-    </div>
+    </div> : <div className="preview-padding"></div>}
     <div className="container">
       <h1 className="title">What is Institutional Bullying?</h1>
       <div className="flex-container">
