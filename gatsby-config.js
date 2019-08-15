@@ -2,9 +2,9 @@ var proxy = require("http-proxy-middleware")
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'End Institutional Bullying in Schools',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Institutional bullying is a framework to expand the definition of bullying in schools beyond student to student interactions. It refers to the way the bullying of young people, parents, and even teachers are perpetrated, reinforced, and or normalized by the education system and those in positions of power in our schools. This can happen either by being complicit through inaction or explicitly engaging in harmful and exclusionary practices. Students, parents, and teachers can be bullied by School Resource Officers/School Safety Agents, Police, Principals, Deans, and other Teachers but these interactions are rarely addressed even though it can have the same or even worse impacts on those being bullied.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
