@@ -48,9 +48,7 @@ const Story = ({ data }) => {
 }
 
 function htmlToString(inputHtml) {
-  var div = document.createElement("div");
-  div.innerHTML = inputHtml;
-  return div.textContent || div.innerText || "";
+  return inputHtml.replace(/<[^>]+>/g, '');
 }
 
 function truncate(input, lengthOfOutput) {
