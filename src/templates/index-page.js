@@ -72,7 +72,7 @@ export const pageQuery = graphql`
         description
       }
     },
-     bannerImg: file(relativePath: { eq: "homepage/banner.png" }) {
+     bannerImg: file(absolutePath: { regex: "/banner.png/" }) {
         childImageSharp {
           sizes(maxHeight: 750) {
             ...GatsbyImageSharpSizes

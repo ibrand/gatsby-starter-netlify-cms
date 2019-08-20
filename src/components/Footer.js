@@ -1,9 +1,9 @@
 import React from 'react'
 
-import logo from '../img/footer/DRUMLogo.png'
-import facebook from '../img/footer/facebook.svg'
-import instagram from '../img/footer/instagram.svg'
-import twitter from '../img/footer/twitter.svg'
+import logo from '../assets/footer/DRUMLogo.png'
+import facebook from '../assets/footer/facebook.svg'
+import instagram from '../assets/footer/instagram.svg'
+import twitter from '../assets/footer/twitter.svg'
 
 const Footer = class extends React.Component {
   render() {

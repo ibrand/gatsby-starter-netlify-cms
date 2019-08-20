@@ -23,7 +23,7 @@ export default class GalleryPage extends React.Component {
           query GalleryPageTemplate {
             GalleryImgs: allFile(
               sort: { order: ASC, fields: [absolutePath] }
-              filter: { relativePath: { regex: "/(jpg|JPG|png|PNG)/" }, relativeDirectory: {eq: "uploads"} }
+              filter: { relativePath: { regex: "/(jpg|JPG|png|PNG)/" }, sourceInstanceName: { eq: "images" } }
             ) {
               edges {
                 node {

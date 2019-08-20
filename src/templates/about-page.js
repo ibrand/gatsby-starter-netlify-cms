@@ -61,7 +61,7 @@ export const aboutPageQuery = graphql`
         description
       }
     }
-    bannerImg: file(relativePath: { eq: "about/group.png" }) {
+    bannerImg: file(absolutePath: { regex: "/group.png/" }) {
       childImageSharp {
         sizes(maxHeight: 350) {
           ...GatsbyImageSharpSizes
