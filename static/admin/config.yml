@@ -34,7 +34,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: gallery
     label: "Gallery Image" # Used in the UI, ie.: "New Post"
-    folder: "src/img/gallery" # The path to the folder where the documents are stored
+    folder: "src/img" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string"}
