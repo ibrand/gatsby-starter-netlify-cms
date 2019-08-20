@@ -11,12 +11,12 @@ export default class GalleryPage extends React.Component {
     super(props);
     this.state = {
       showLightbox: false,
-      selectedImageSizes: null,
+      selectedImage: '',
     }
   }
 
   render() {
-    const { selectedImageSizes, showLightbox } = this.state;
+    const { selectedImage, showLightbox } = this.state;
     return (
       <StaticQuery
         query={graphql`
@@ -30,7 +30,7 @@ export default class GalleryPage extends React.Component {
                   relativePath
                   name
                   childImageSharp {
-                    sizes(maxWidth: 850, maxHeight: 1024) {
+                    sizes(maxHeight: 850) {
                       ...GatsbyImageSharpSizes
                     } 
                   }
@@ -53,7 +53,7 @@ export default class GalleryPage extends React.Component {
                       <div
                         className="gallery-img"
                         key={i}
-                        onClick={() => this.setState({ showLightbox: true, selectedImageSizes: imageSizes })}
+                        onClick={() => this.setState({ showLightbox: true, selectedImage: image.node.childImageSharp.sizes.src })}
                       >
                         <Img
                           alt="End institutional bullying gallery image"
@@ -69,9 +69,9 @@ export default class GalleryPage extends React.Component {
                     style={{ background: "hsla(0, 0%, 0%, 0.80)" }}
                   >
                     <DialogContent
-                      style={{ padding: "0px", width: "70vh" }}
+                      style={{ padding: "0px", width: "80vh", background: "transparent" }}
                     >
-                      <Img sizes={selectedImageSizes} />
+                      <img src={selectedImage} className="lightbox-img" />
                     </DialogContent>
                   </DialogOverlay>
                 )}
