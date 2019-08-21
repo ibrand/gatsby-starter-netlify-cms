@@ -16,7 +16,7 @@ class Resources extends React.Component {
           {toolkit_resources &&
           toolkit_resources.map(({ node: post }, index) => (
             <li  className="resource" key={post.id}>
-              <a href={post.relativePath} target="_blank" rel="noopener noreferrer"  key={post.id}>
+              <a href={post.absolutePath} target="_blank" rel="noopener noreferrer"  key={post.id}>
                 {post.name}
               </a>
             </li>
@@ -76,7 +76,7 @@ export default () => (
           edges {
             node {
               name
-              relativePath
+              absolutePath
             }
           }
         },
