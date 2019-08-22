@@ -16,8 +16,8 @@ class Resources extends React.Component {
           {toolkit_resources &&
           toolkit_resources.map(({ node: post }, index) => (
             <li  className="resource" key={post.id}>
-              <a href={post.absolutePath} target="_blank" rel="noopener noreferrer"  key={post.id}>
-                {post.name}
+              <a href={post.frontmatter.url} target="_blank" rel="noopener noreferrer"  key={post.id}>
+                {post.frontmatter.title}
               </a>
             </li>
           ))
@@ -69,14 +69,20 @@ export default () => (
   <StaticQuery
     query={graphql`
       query ResourcesQuery {
-        toolkit: allFile(
-          sort: { order: ASC, fields: [absolutePath] }
-          filter: { relativePath: { regex: "/(pdf|PDF)/" }, sourceInstanceName: { eq: "images" } }
+        toolkit: allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: { frontmatter: { templateKey: { eq: "resource" }, category: {eq: "toolkit"} } }
         ) {
           edges {
             node {
-              name
-              absolutePath
+              id
+              frontmatter {
+                title
+                description
+                url
+                date(formatString: "MMMM DD, YYYY")
+                category
+              }
             }
           }
         },

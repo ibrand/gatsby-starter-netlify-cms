@@ -39,8 +39,9 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "story"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "resource"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Url", name: "url", widget: "string"}
+      - {label: "Url", name: "url", required: false, widget: "string"}
       - {label: "Category", name: "category", options: ['toolkit', 'videos'], widget: "select"}
+      - {label: "Resource", name: "resource", required: false, widget: "file"}
