@@ -94,7 +94,6 @@ export default () => (
               id
               frontmatter {
                 title
-                description
                 url
                 date(formatString: "MMMM DD, YYYY")
                 category
