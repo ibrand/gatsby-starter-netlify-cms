@@ -14,13 +14,13 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: "Body text", name: "description", widget: "markdown"}
+          - {label: "Body text", name: "body", widget: "markdown"}
       - file: "src/pages/about/index.md"
         label: "About Page"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Body text", name: "description", widget: "markdown"}
+          - {label: "Body text", name: "body", widget: "markdown"}
   - name: "stories"
     label: "Stories" # Used in the UI
     preview_path: "{{slug}}"
