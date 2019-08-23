@@ -8,7 +8,7 @@ console.log(data);
   if (data) {
     return (
       <AboutPageTemplate
-        description={data.description}
+        html={data.body}
         bannerImgSizes={{'':''}}
       />
     )

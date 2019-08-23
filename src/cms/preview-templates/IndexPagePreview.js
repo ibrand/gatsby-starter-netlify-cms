@@ -8,7 +8,7 @@ const IndexPagePreview = ({ entry }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        description={data.description}
+        html={data.html}
       />
     )
   } else {
