@@ -8,7 +8,7 @@ const IndexPagePreview = ({ entry }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        html={data.html}
+        html={data.body}
       />
     )
   } else {
