@@ -16,7 +16,7 @@ class Resources extends React.Component {
           {toolkit_resources &&
           toolkit_resources.map(({ node: post }, index) => (
             <li  className="resource" key={post.id}>
-              <a href={post.frontmatter.url} target="_blank" rel="noopener noreferrer"  key={post.id}>
+              <a href={post.frontmatter.resource.publicURL} target="_blank" rel="noopener noreferrer"  key={post.id}>
                 {post.frontmatter.title}
               </a>
             </li>
@@ -56,8 +56,9 @@ Resources.propTypes = {
           frontmatter: PropTypes.shape({
             title: PropTypes.string.isRequired,
             description: PropTypes.string,
-            url: PropTypes.string.isRequired,
+            url: PropTypes.string,
             date: PropTypes.string.isRequired,
+            resource: PropTypes.string,
           }),
         }),
       })),
@@ -78,9 +79,11 @@ export default () => (
               id
               frontmatter {
                 title
-                url
                 date(formatString: "MMMM DD, YYYY")
                 category
+                resource {
+                  publicURL
+                }
               }
             }
           }
