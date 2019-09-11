@@ -4,11 +4,10 @@ import { AboutPageTemplate } from '../../templates/about-page'
 
 const AboutPagePreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS()
-console.log(data);
   if (data) {
     return (
       <AboutPageTemplate
-        description={data.description}
+        html={data.body}
         bannerImgSizes={{'':''}}
       />
     )

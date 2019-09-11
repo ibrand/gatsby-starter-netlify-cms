@@ -5,14 +5,14 @@ import Layout from '../components/Layout'
 import Img from "gatsby-image";
 
 export const AboutPageTemplate = ({
- description,
+ html,
  bannerImgSizes
 }) => {
   return (
     <section className="about">
       <div className="container">
         <h2 className="page-title">About the Campaign</h2>
-        <span dangerouslySetInnerHTML={{__html: description}}></span>
+        <span dangerouslySetInnerHTML={{__html: html}}></span>
       </div>
       <div className="image-wrapper">
         <Img
@@ -25,18 +25,17 @@ export const AboutPageTemplate = ({
 }
 
 AboutPageTemplate.propTypes = {
-  description: PropTypes.string,
+  html: PropTypes.string,
   bannerImgSizes: PropTypes.object
 }
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
   const { sizes: bannerImgSizes } = data.bannerImg.childImageSharp
 
   return (
     <Layout>
       <AboutPageTemplate
-        description={post.frontmatter.description}
+        html={data.markdownRemark.html}
         bannerImgSizes={bannerImgSizes}
       />
     </Layout>
@@ -46,7 +45,7 @@ const AboutPage = ({ data }) => {
 AboutPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
+      html: PropTypes.string
     }),
     bannerImgSizes: PropTypes.object
   }),
@@ -57,9 +56,7 @@ export default AboutPage
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        description
-      }
+      html
     }
     bannerImg: file(absolutePath: { regex: "/group.png/" }) {
       childImageSharp {

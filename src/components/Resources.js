@@ -16,10 +16,9 @@ class Resources extends React.Component {
           {toolkit_resources &&
           toolkit_resources.map(({ node: post }, index) => (
             <li  className="resource" key={post.id}>
-              <a href={post.frontmatter.url} target="_blank" rel="noopener noreferrer"  key={post.id}>
+              <a href={post.frontmatter.resource.publicURL} target="_blank" rel="noopener noreferrer"  key={post.id}>
                 {post.frontmatter.title}
               </a>
-              {post.frontmatter.description && <p>{post.frontmatter.description}</p>}
             </li>
           ))
           }
@@ -46,10 +45,6 @@ class Resources extends React.Component {
       </React.Fragment>
     )
   }
-
-  chooseBubbleSide(index) {
-    return index % 2 === 0 ? 'left bubble' : 'right bubble'
-  }
 }
 
 Resources.propTypes = {
@@ -61,8 +56,9 @@ Resources.propTypes = {
           frontmatter: PropTypes.shape({
             title: PropTypes.string.isRequired,
             description: PropTypes.string,
-            url: PropTypes.string.isRequired,
+            url: PropTypes.string,
             date: PropTypes.string.isRequired,
+            resource: PropTypes.string,
           }),
         }),
       })),
@@ -83,10 +79,11 @@ export default () => (
               id
               frontmatter {
                 title
-                description
-                url
                 date(formatString: "MMMM DD, YYYY")
                 category
+                resource {
+                  publicURL
+                }
               }
             }
           }
@@ -100,7 +97,6 @@ export default () => (
               id
               frontmatter {
                 title
-                description
                 url
                 date(formatString: "MMMM DD, YYYY")
                 category
