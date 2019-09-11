@@ -123,6 +123,7 @@ export default class Index extends React.Component {
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Parents'} onChange={this.handleCheck} />
           </div>
+          <br/>
           <strong>Teachers</strong>
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Teachers'} onChange={this.handleCheck} />

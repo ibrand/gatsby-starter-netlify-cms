@@ -48,6 +48,14 @@ const checkboxes = {
     {
       name: 'Abused by an authority figure in your school that caused you an injury',
       key: 8
+    },
+    {
+      name: 'Have been harassed by a teacher, SSA or Police for speaking up for myself',
+      key: 9
+    },
+    {
+      name: 'Have been harassed by a teacher/SSA/Police/School staff because of my race/ethnicity, religion, gender, class, immigration status, or sexual orientation',
+      key: 10
     }
   ],
   'Have you ever seen or experienced any of the following in your school - Parents' : [
@@ -72,12 +80,16 @@ const checkboxes = {
       key: 5
     },
     {
-      name: 'Feared going to school to pick up my Child because of my identity/status',
+      name: 'Feared going to school to pick up my Child because of my immigration status',
       key: 6
     },
     {
       name: 'Being told misleading or inaccurate information by the school',
       key: 7
+    },
+    {
+      name: 'Have been retaliated against by school staff for speaking up for my or my child’s rights in school',
+      key: 8
     }
   ],
   'Have you ever seen or experienced any of the following in your school - Teachers' : [
