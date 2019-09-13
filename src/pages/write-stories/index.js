@@ -209,13 +209,13 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend>Contact Information</legend>
-          <label>Name</label>
+          <label><span className="required-asterix">*</span> Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
           <label>Phone #</label>
           <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
           <label>School where incident occurred</label>
           <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
-          <label>Zipcode where incident occurred</label>
+          <label><span className="required-asterix">*</span> Zipcode where incident occurred</label>
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
@@ -234,10 +234,14 @@ export default class Index extends React.Component {
       Story,
       'Privacy Information' : privacyInformation,
       'Who Experienced This': whoExperiencedThis,
+      Name,
+      'Zipcode where incident occurred': zipcodeWhereIncidentOccurred,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
     const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
+    const requiredContactInfoIsFilledOut = Name && zipcodeWhereIncidentOccurred
+    const disableSubmit = !radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || !requiredContactInfoIsFilledOut
     return (
       <Layout>
         <section className="write-stories">
@@ -257,17 +261,14 @@ export default class Index extends React.Component {
                 {this.form()}
               </div>
               <button
-                disabled={!radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || isSubmitting}
+                disabled={disableSubmit}
                 className="button is-link"
                 type="submit"
               >
                 { isSubmitting ? "Submitting..." : "Submit Story" }
               </button>
               {
-                !radioButtonsAreFilledOut ||
-                !identityIsFilledOut ||
-                !Story ||
-                !Email ?
+                disableSubmit ?
                 <span className="required-text">There are still required fields to fill out</span> :
                 null
               }
