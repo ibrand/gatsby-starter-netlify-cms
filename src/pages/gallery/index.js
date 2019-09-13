@@ -83,7 +83,7 @@ export default class GalleryPage extends React.Component {
           </Layout>
         )}
       />
-    );
+    )
   }
 }
 

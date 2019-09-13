@@ -2,6 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import CheckboxContainer from "../../components/CheckboxContainer"
+import {graphql, StaticQuery} from "gatsby";
 
 function encode(data) {
   const formData = new FormData()
@@ -13,7 +14,7 @@ function encode(data) {
   return formData
 }
 
-export default class Index extends React.Component {
+export default class WriteStoriesPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = { isValidated: false }
@@ -243,39 +244,54 @@ export default class Index extends React.Component {
     const requiredContactInfoIsFilledOut = Name && zipcodeWhereIncidentOccurred
     const disableSubmit = !radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || !requiredContactInfoIsFilledOut
     return (
-      <Layout>
-        <section className="write-stories">
-          <div className="container">
-            <h2 className="page-title">Write Stories</h2>
-            <h3>YOU’RE NOT ALONE.</h3>
-            <p className="subtitle">By sharing your story, you change the way people talk about and understand bullying.</p>
-            <form
-              name="write-stories"
-              method="post"
-              action="/write-stories/thanks/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={this.handleSubmit}
-            >
-              <div className="form-container">
-                {this.form()}
-              </div>
-              <button
-                disabled={disableSubmit}
-                className="button is-link"
-                type="submit"
-              >
-                { isSubmitting ? "Submitting..." : "Submit Story" }
-              </button>
-              {
-                disableSubmit ?
-                <span className="required-text">There are still required fields to fill out</span> :
-                null
+      <StaticQuery
+        query={ graphql`
+          query {
+            markdownRemark(frontmatter: {
+              templateKey: {
+                eq: "write-stories-page"
               }
-            </form>
-          </div>
-        </section>
-      </Layout>
+            }) {
+              html
+            }
+          }`
+        }
+        render={data => (
+          <Layout>
+            <section className="write-stories">
+              <div className="container">
+                <h2 className="page-title">Write Stories</h2>
+                <h3>YOU’RE NOT ALONE.</h3>
+                <span className="subtitle" dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></span>
+                <form
+                  name="write-stories"
+                  method="post"
+                  action="/write-stories/thanks/"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={this.handleSubmit}
+                >
+                  <div className="form-container">
+                    {this.form()}
+                  </div>
+                  <button
+                    disabled={disableSubmit}
+                    className="button is-link"
+                    type="submit"
+                  >
+                    { isSubmitting ? "Submitting..." : "Submit Story" }
+                  </button>
+                  {
+                    disableSubmit ?
+                      <span className="required-text">There are still required fields to fill out</span> :
+                      null
+                  }
+                </form>
+              </div>
+            </section>
+          </Layout>
+        )}
+      />
     )
   }
 }
