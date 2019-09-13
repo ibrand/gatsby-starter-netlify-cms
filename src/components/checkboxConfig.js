@@ -68,7 +68,7 @@ const checkboxes = {
       key: 2
     },
     {
-      name: 'Not made aware of the resources available for my child',
+      name: 'Not made aware of the resource available for my child',
       key: 3
     },
     {

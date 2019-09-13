@@ -7,11 +7,11 @@ export const ResourceTemplate = () => {
   )
 }
 
-const resources = () => {
+const resource = () => {
   return (
     <Layout>
     </Layout>
   )
 }
 
-export default resources
+export default resource
