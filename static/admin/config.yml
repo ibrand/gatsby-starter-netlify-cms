@@ -43,5 +43,5 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Url", name: "url", required: false, widget: "string"}
-      - {label: "Category", name: "category", options: ['toolkit', 'videos'], widget: "select"}
+      - {label: "Category", name: "category", options: ['toolkit', 'videos', 'endorsers'], widget: "select"}
       - {label: "Resource", name: "resource", required: false, widget: "file"}
