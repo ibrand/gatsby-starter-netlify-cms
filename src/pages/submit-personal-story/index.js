@@ -63,7 +63,7 @@ export default class WriteStoriesPage extends React.Component {
     return(
       <React.Fragment>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="write-stories" />
+        <input type="hidden" name="form-name" value="submit-personal-story" />
         <div hidden>
           <label>
             Don’t fill this out:{' '}
@@ -249,7 +249,7 @@ export default class WriteStoriesPage extends React.Component {
           query {
             markdownRemark(frontmatter: {
               templateKey: {
-                eq: "write-stories-page"
+                eq: "submit-personal-story-page"
               }
             }) {
               html
@@ -258,15 +258,15 @@ export default class WriteStoriesPage extends React.Component {
         }
         render={data => (
           <Layout>
-            <section className="write-stories">
+            <section className="submit-personal-story">
               <div className="container">
                 <h2 className="page-title">Submit Personal Story</h2>
                 <h3>YOU’RE NOT ALONE.</h3>
                 <span className="subtitle" dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></span>
                 <form
-                  name="write-stories"
+                  name="submit-personal-story"
                   method="post"
-                  action="/write-stories/thanks/"
+                  action="/submit-personal-story/thanks/"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                   onSubmit={this.handleSubmit}
