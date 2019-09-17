@@ -21,6 +21,12 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Body text", name: "body", widget: "markdown"}
+      - file: "src/pages/submit-personal-story/index.md"
+        label: "Submit Personal Story Page"
+        name: "submit personal story"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "submit-personal-story-page"}
+          - {label: "Subtitle", name: "body", widget: "markdown"}
   - name: "stories"
     label: "Stories" # Used in the UI
     preview_path: "{{slug}}"
