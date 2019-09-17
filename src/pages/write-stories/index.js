@@ -2,6 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import CheckboxContainer from "../../components/CheckboxContainer"
+import {graphql, StaticQuery} from "gatsby";
 
 function encode(data) {
   const formData = new FormData()
@@ -13,7 +14,7 @@ function encode(data) {
   return formData
 }
 
-export default class Index extends React.Component {
+export default class WriteStoriesPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = { isValidated: false }
@@ -123,6 +124,7 @@ export default class Index extends React.Component {
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Parents'} onChange={this.handleCheck} />
           </div>
+          <br/>
           <strong>Teachers</strong>
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Teachers'} onChange={this.handleCheck} />
@@ -208,13 +210,13 @@ export default class Index extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend>Contact Information</legend>
-          <label>Name</label>
+          <label><span className="required-asterix">*</span> Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
           <label>Phone #</label>
           <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
           <label>School where incident occurred</label>
           <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
-          <label>Zipcode where incident occurred</label>
+          <label><span className="required-asterix">*</span> Zipcode where incident occurred</label>
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
@@ -233,47 +235,63 @@ export default class Index extends React.Component {
       Story,
       'Privacy Information' : privacyInformation,
       'Who Experienced This': whoExperiencedThis,
+      Name,
+      'Zipcode where incident occurred': zipcodeWhereIncidentOccurred,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
     const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
+    const requiredContactInfoIsFilledOut = Name && zipcodeWhereIncidentOccurred
+    const disableSubmit = !radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || !requiredContactInfoIsFilledOut
     return (
-      <Layout>
-        <section className="write-stories">
-          <div className="container">
-            <h2 className="page-title">Write Stories</h2>
-            <h3>YOU’RE NOT ALONE.</h3>
-            <p className="subtitle">By sharing your story, you change the way people talk about and understand bullying.</p>
-            <form
-              name="write-stories"
-              method="post"
-              action="/write-stories/thanks/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={this.handleSubmit}
-            >
-              <div className="form-container">
-                {this.form()}
-              </div>
-              <button
-                disabled={!radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || isSubmitting}
-                className="button is-link"
-                type="submit"
-              >
-                { isSubmitting ? "Submitting..." : "Submit Story" }
-              </button>
-              {
-                !radioButtonsAreFilledOut ||
-                !identityIsFilledOut ||
-                !Story ||
-                !Email ?
-                <span className="required-text">There are still required fields to fill out</span> :
-                null
+      <StaticQuery
+        query={ graphql`
+          query {
+            markdownRemark(frontmatter: {
+              templateKey: {
+                eq: "write-stories-page"
               }
-            </form>
-          </div>
-        </section>
-      </Layout>
+            }) {
+              html
+            }
+          }`
+        }
+        render={data => (
+          <Layout>
+            <section className="write-stories">
+              <div className="container">
+                <h2 className="page-title">Write Stories</h2>
+                <h3>YOU’RE NOT ALONE.</h3>
+                <span className="subtitle" dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></span>
+                <form
+                  name="write-stories"
+                  method="post"
+                  action="/write-stories/thanks/"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={this.handleSubmit}
+                >
+                  <div className="form-container">
+                    {this.form()}
+                  </div>
+                  <button
+                    disabled={disableSubmit}
+                    className="button is-link"
+                    type="submit"
+                  >
+                    { isSubmitting ? "Submitting..." : "Submit Story" }
+                  </button>
+                  {
+                    disableSubmit ?
+                      <span className="required-text">There are still required fields to fill out</span> :
+                      null
+                  }
+                </form>
+              </div>
+            </section>
+          </Layout>
+        )}
+      />
     )
   }
 }
