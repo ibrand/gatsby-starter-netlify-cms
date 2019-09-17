@@ -7,11 +7,11 @@ export const WriteStoriesTemplate = () => {
   )
 }
 
-const WriteStoriesPage = () => {
+const SubmitPersonalStoryPage = () => {
   return (
     <Layout>
     </Layout>
   )
 }
 
-export default WriteStoriesPage
+export default SubmitPersonalStoryPage
