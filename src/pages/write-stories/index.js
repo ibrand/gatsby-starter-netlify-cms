@@ -260,7 +260,7 @@ export default class WriteStoriesPage extends React.Component {
           <Layout>
             <section className="write-stories">
               <div className="container">
-                <h2 className="page-title">Write Stories</h2>
+                <h2 className="page-title">Submit Personal Story</h2>
                 <h3>YOU’RE NOT ALONE.</h3>
                 <span className="subtitle" dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></span>
                 <form

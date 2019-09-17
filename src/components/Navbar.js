@@ -26,7 +26,7 @@ const Navbar = ({ navbarActiveClass }) => (
       </li>
       <li>
         <Link to="/write-stories">
-          Write Stories
+          Submit Personal Story
         </Link>
       </li>
       <li>
