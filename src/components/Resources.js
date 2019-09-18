@@ -36,7 +36,7 @@ class Resources extends React.Component {
                   {post.frontmatter.title}
                 </strong>
               </div>
-              <iframe src={post.frontmatter.url}/>
+              <iframe title={post.frontmatter.title} src={post.frontmatter.url}/>
             </li>
           ))
           }
@@ -49,9 +49,7 @@ class Resources extends React.Component {
             {endorser_resources.map(({ node: post }, index) => (
               <li  className="resource" key={post.id}>
                 <div className="video-text">
-                  <strong key={post.id}>
-                    <a href={post.frontmatter.url}>{post.frontmatter.title}</a>
-                  </strong>
+                    <a key={post.id} href={post.frontmatter.url} target="_blank" rel="noopener noreferrer">{post.frontmatter.title}</a>
                 </div>
               </li>
             ))
