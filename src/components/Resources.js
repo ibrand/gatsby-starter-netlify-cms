@@ -30,13 +30,11 @@ class Resources extends React.Component {
           <h2>Videos:</h2>
           <ul>
             {video_resources.map(({ node: post }, index) => (
-            <li  className="resource" key={post.id}>
-              <div className="video-text">
-                <strong key={post.id}>
-                  {post.frontmatter.title}
-                </strong>
-              </div>
-              <iframe title={post.frontmatter.title} src={post.frontmatter.url}/>
+            <li className="video-resource" key={post.id}>
+              <strong className="video-text" key={post.id}>
+                {post.frontmatter.title}
+              </strong>
+              <iframe title={post.frontmatter.title} src={post.frontmatter.url} width="200px"/>
             </li>
           ))
           }
@@ -47,10 +45,8 @@ class Resources extends React.Component {
           <h2>Endorsers:</h2>
           <ul>
             {endorser_resources.map(({ node: post }, index) => (
-              <li  className="resource" key={post.id}>
-                <div className="video-text">
-                    <a key={post.id} href={post.frontmatter.url} target="_blank" rel="noopener noreferrer">{post.frontmatter.title}</a>
-                </div>
+              <li className="resource" key={post.id}>
+                <a key={post.id} href={post.frontmatter.url} target="_blank" rel="noopener noreferrer">{post.frontmatter.title}</a>
               </li>
             ))
             }
