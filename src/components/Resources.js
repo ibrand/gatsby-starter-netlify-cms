@@ -10,7 +10,7 @@ class Resources extends React.Component {
     const endorser_resources = endorsers.edges.length > 0 ? endorsers.edges : '';
 
     return (
-      <React.Fragment>
+      <div className="flex-container">
         {toolkit_resources &&
         <section className="resource-container">
           <h2>Toolkit:</h2>
@@ -52,7 +52,7 @@ class Resources extends React.Component {
             }
           </ul>
         </section>}
-      </React.Fragment>
+      </div>
     )
   }
 }
