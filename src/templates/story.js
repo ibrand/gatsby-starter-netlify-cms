@@ -13,7 +13,7 @@ export const StoryTemplate = ({
     <section className="post">
       {helmet || ''}
       <div className="container">
-        <h2 className="page-title">Institutional Bullying is...</h2>
+        <h2 className="page-title">Institutionalized Bullying is...</h2>
         {isPreview ? <div className="preview-padding"></div> : ''}
           <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
       </div>

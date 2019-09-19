@@ -41,7 +41,6 @@ export default class Index extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     const {
       name,
       phoneNumber,
@@ -55,7 +54,7 @@ export default class Index extends React.Component {
           <div className="container">
             <h2 className="page-title">Contact Us</h2>
             <p>
-              If you want more information about the campaign or want to conduct a training on Institutional Bullying please submit the contact form below.
+              If you want more information about the campaign or want to conduct a training on Institutionalized Bullying please submit the contact form below.
             </p>
               <form
                 name="contact"
