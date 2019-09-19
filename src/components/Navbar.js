@@ -10,9 +10,8 @@ const Navbar = ({ navbarActiveClass }) => (
     <ul>
       <li>
         <Link className="list-header" to="/">
-          DRUM
+          End Institutionalized Bullying in Schools
         </Link>
-        <p>End Institutionalized Bullying in Schools</p>
       </li>
       <li>
         <Link to="/about">
