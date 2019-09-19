@@ -49,7 +49,7 @@ const Navbar = ({ navbarActiveClass }) => (
           Contact
         </Link>
       </li>
-      <a href="https://drum.ourpowerbase.net/civicrm/contribute/transact?reset=1&id=13" className="donate-button">Donate</a>
+      <a href="https://drum.ourpowerbase.net/civicrm/contribute/transact?reset=1&id=13" target="_blank" rel="noopener noreferrer" className="donate-button">Donate</a>
     </ul>
   </nav>
 );
