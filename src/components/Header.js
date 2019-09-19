@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 const Header = ({ navbarActiveClass, toggleNav }) => (
   <header className="header">
     <Link to="/" title="Logo">
-      <p>End Institutional Bullying in Schools</p>
+      <p>End Institutionalized Bullying in Schools</p>
     </Link>
     {/* Hamburger menu */}
     <div

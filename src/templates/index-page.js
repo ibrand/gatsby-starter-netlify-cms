@@ -17,7 +17,7 @@ export const IndexPageTemplate = ({
       />
     </div> : <div className="preview-padding"></div>}
     <div className="container">
-      <h1 className="title">What is Institutional Bullying?</h1>
+      <h1 className="title">What is Institutionalized Bullying?</h1>
       <div className="flex-container">
         <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
         <Link className="read-more btn flex-item" to="/about">

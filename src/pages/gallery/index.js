@@ -59,7 +59,7 @@ export default class GalleryPage extends React.Component {
                         onClick={() => this.setState({ showLightbox: true, selectedImage: image.node.childImageSharp.sizes.src })}
                       >
                         <Img
-                          alt="End institutional bullying gallery image"
+                          alt="End institutionalized bullying gallery image"
                           sizes={imageSizes}
                         />
                       </div>

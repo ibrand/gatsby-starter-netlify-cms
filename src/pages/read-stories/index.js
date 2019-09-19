@@ -16,13 +16,13 @@ export const ReadStoriesPageTemplate = ({
         <Stories />
         <div className="image-container img-right">
           <Img
-            alt="End institutional bullying gallery image"
+            alt="End institutionalized bullying gallery image"
             sizes={readStoriesImgData[0].node.childImageSharp.sizes}
           />
         </div>
         <div className="image-container img-left">
           <Img
-            alt="End institutional bullying gallery image"
+            alt="End institutionalized bullying gallery image"
             sizes={readStoriesImgData[1].node.childImageSharp.sizes}
           />
         </div>

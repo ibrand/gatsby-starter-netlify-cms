@@ -74,7 +74,7 @@ export default class WriteStoriesPage extends React.Component {
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> Privacy information</legend>
           <p className="subtext">
-            We are working to make our schools better and reduce incidences of Institutional Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
+            We are working to make our schools better and reduce incidences of Institutionalized Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
             In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
           </p>
           <div className="radio-buttons">
@@ -221,7 +221,7 @@ export default class WriteStoriesPage extends React.Component {
         </fieldset>
         <fieldset className="fieldset">
           <legend>Upload a photo</legend>
-          <label>You can upload a photo to share your story with the prompt: “Institutional Bullying is….”</label>
+          <label>You can upload a photo to share your story with the prompt: “Institutionalized Bullying is….”</label>
           <input label={"Image upload"} name={"Image upload"} onChange={this.handleAttachment} type={'file'} />
         </fieldset>
       </React.Fragment>
