@@ -13,19 +13,33 @@ const ReadStoriesPageTemplate = class extends React.Component {
     this.state = {
       variableParentOverflow: 'scroll',
       variableChildOverflow: 'hidden',
+      touchScrollStartingValue: 0
     };
   }
 
   componentDidMount() {
+    window.addEventListener('touchstart', this.handleTouchScrollStart)
+    window.addEventListener('touchmove', this.handleTouchScrollMove)
     window.addEventListener('mousewheel', this.handleScroll)
   }
 
   componentWillUnmount() {
+    window.removeEventListener('touchstart', this.handleTouchScrollStart)
+    window.removeEventListener('touchmove', this.handleTouchScrollMove)
     window.removeEventListener('mousewheel', this.handleScroll)
   }
 
   handleScroll = (e) => {
     this.scrollContainerRef.current.scrollTop = this.scrollContainerRef.current.scrollTop + e.deltaY
+  }
+
+  handleTouchScrollStart = (e) => {
+    this.state.touchScrollStartingValue = e.touches[0].pageY
+  }
+
+  handleTouchScrollMove = (e) => {
+    let offset = this.state.touchScrollStartingValue - e.touches[0].pageY
+    this.scrollContainerRef.current.scrollTop = this.scrollContainerRef.current.scrollTop + offset
   }
 
   render() {
