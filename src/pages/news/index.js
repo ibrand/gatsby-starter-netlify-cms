@@ -36,7 +36,7 @@ const NewsPageTemplate = class extends React.Component {
 
   handleTouchScrollMove = (e) => {
     let offset = this.state.touchScrollValue - e.touches[0].pageY
-    let SLOW_SCROLL_FACTOR = 10;
+    let SLOW_SCROLL_FACTOR = 8;
     this.scrollContainerRef.current.scrollTop = this.scrollContainerRef.current.scrollTop + offset/ SLOW_SCROLL_FACTOR
   }
 
