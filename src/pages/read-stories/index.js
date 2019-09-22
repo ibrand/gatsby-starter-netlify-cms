@@ -6,30 +6,58 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
-export const ReadStoriesPageTemplate = ({
-  readStoriesImgData
-}) => (
-  <section className="read-stories">
-    <div className="container">
-      <h2 className="page-title">Read Stories</h2>
-      <div className="scroll-container">
-        <Stories />
-        <div className="image-container img-right">
-          <Img
-            alt="End institutionalized bullying gallery image"
-            sizes={readStoriesImgData[0].node.childImageSharp.sizes}
-          />
-        </div>
-        <div className="image-container img-left">
-          <Img
-            alt="End institutionalized bullying gallery image"
-            sizes={readStoriesImgData[1].node.childImageSharp.sizes}
-          />
+const ReadStoriesPageTemplate = class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.scrollContainerRef = React.createRef()
+    this.state = {
+      variableParentOverflow: 'scroll',
+      variableChildOverflow: 'hidden',
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('mousewheel', (e) => {
+      this.handleScroll(e)
+    })
+  }
+
+  handleScroll = (e) => {
+    this.scrollContainerRef.current.scrollTop = this.scrollContainerRef.current.scrollTop + e.deltaY
+  }
+
+  render() {
+    return (
+      <section
+        className="read-stories"
+        style={{overflow: this.state.variableParentOverflow}}
+      >
+      <div className="container">
+        <h2 className="page-title">Read Stories</h2>
+        <div
+          className="scroll-container"
+          style={{overflow: this.state.variableChildOverflow}}
+          ref={this.scrollContainerRef}
+        >
+          <Stories />
+          <div className="image-container img-right">
+            <Img
+              alt="End institutionalized bullying gallery image"
+              sizes={this.props.readStoriesImgData[0].node.childImageSharp.sizes}
+            />
+          </div>
+          <div className="image-container img-left">
+            <Img
+              alt="End institutionalized bullying gallery image"
+              sizes={this.props.readStoriesImgData[1].node.childImageSharp.sizes}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+    )
+  }
+}
 
 ReadStoriesPageTemplate.propTypes = {
   data: PropTypes.shape({
