@@ -17,9 +17,11 @@ const ReadStoriesPageTemplate = class extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('mousewheel', (e) => {
-      this.handleScroll(e)
-    })
+    window.addEventListener('mousewheel', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousewheel', this.handleScroll)
   }
 
   handleScroll = (e) => {
