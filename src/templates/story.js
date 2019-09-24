@@ -1,21 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Img from "gatsby-image";
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 export const StoryTemplate = ({
   html,
   helmet,
-  isPreview = false
+  isPreview = false,
+  imageSizes
 }) => {
   return (
     <section className="post">
       {helmet || ''}
+      {imageSizes ?
+        <span className="accompanying-img">
+            <Img
+              alt="End institutionalized bullying gallery image" fluid={imageSizes}
+              imgStyle={{height: 'auto', objectPosition: 'bottom'}}
+            />
+          </span> : ''}
       <div className="container">
         <h2 className="page-title">Institutionalized Bullying is...</h2>
         {isPreview ? <div className="preview-padding"></div> : ''}
-          <span className="subtitle flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
+          <span className="flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
       </div>
     </section>
   )
@@ -28,7 +37,7 @@ StoryTemplate.propTypes = {
 
 const Story = ({ data }) => {
   const { markdownRemark: post } = data
-
+console.log(post.frontmatter.image);
   return (
     <Layout>
       <StoryTemplate
@@ -42,6 +51,7 @@ const Story = ({ data }) => {
             />
           </Helmet>
         }
+        imageSizes={post.frontmatter.image.childImageSharp.fluid}
       />
     </Layout>
   )
@@ -73,6 +83,13 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

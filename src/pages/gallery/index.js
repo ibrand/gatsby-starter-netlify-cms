@@ -33,8 +33,8 @@ export default class GalleryPage extends React.Component {
                   relativePath
                   name
                   childImageSharp {
-                    sizes(maxHeight: 850) {
-                      ...GatsbyImageSharpSizes
+                    fluid {
+                      ...GatsbyImageSharpFluid
                     } 
                   }
                 }
@@ -51,16 +51,16 @@ export default class GalleryPage extends React.Component {
                 </h2>
                 <div className="grid">
                   {data.GalleryImgs.edges.map((image, i) => {
-                    const imageSizes = image.node.childImageSharp.sizes;
+                    const imageSizes = image.node.childImageSharp.fluid;
                     return (
                       <div
                         className="gallery-img"
                         key={i}
-                        onClick={() => this.setState({ showLightbox: true, selectedImage: image.node.childImageSharp.sizes.src })}
+                        onClick={() => this.setState({ showLightbox: true, selectedImage: image.node.childImageSharp.fluid.src })}
                       >
                         <Img
                           alt="End institutionalized bullying gallery image"
-                          sizes={imageSizes}
+                          fluid={imageSizes}
                         />
                       </div>
                     );

@@ -4,9 +4,7 @@ import { StoryTemplate } from '../../templates/story.js'
 
 const StoryPagePreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS()
-
   if (data) {
-    console.log(data);
     return (
       <StoryTemplate
         html={data.body}
