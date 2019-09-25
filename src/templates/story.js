@@ -24,7 +24,7 @@ export const StoryTemplate = ({
       <div className="container">
         <h2 className="page-title">Institutionalized Bullying is...</h2>
         {isPreview ? <div className="preview-padding"></div> : ''}
-          <span className="flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
+        <span className="flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
       </div>
     </section>
   )
@@ -37,7 +37,6 @@ StoryTemplate.propTypes = {
 
 const Story = ({ data }) => {
   const { markdownRemark: post } = data
-console.log(post.frontmatter.image);
   return (
     <Layout>
       <StoryTemplate
@@ -51,7 +50,7 @@ console.log(post.frontmatter.image);
             />
           </Helmet>
         }
-        imageSizes={post.frontmatter.image.childImageSharp.fluid}
+        imageSizes={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : ''}
       />
     </Layout>
   )
