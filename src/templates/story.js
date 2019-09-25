@@ -83,6 +83,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        who
+        date
+        location
         image {
           childImageSharp {
             fluid {
