@@ -9,13 +9,24 @@ export const StoryTemplate = ({
   html,
   helmet,
   isPreview = false,
-  imageSizes
+  imageSizes,
+  who,
+  location,
+  date
 }) => {
   return (
     <section className="post">
       {helmet || ''}
       <div className="container">
         <h2 className="page-title">Institutionalized Bullying is...</h2>
+        { who ? <h2 className="who">{who}</h2> : ''}
+        {location && date ?
+          <>
+          <h2 className="location-and-date" style={{display: "inline-block"}}>{location},</h2>
+          <h2 className="location-and-date" style={{display: "inline-block"}}>{date}</h2>
+          </> : ''}
+        { location && !date ? <h2 className="location">{location}</h2> : ''}
+        { date && !location ? <h2 className="date">{date}</h2> : ''}
         {imageSizes ?
           <span className="accompanying-img">
             <Img
@@ -51,6 +62,9 @@ console.log(post.frontmatter.image);
             />
           </Helmet>
         }
+        who={post.frontmatter.who}
+        location={post.frontmatter.location}
+        date={post.frontmatter.date}
         imageSizes={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : ''}
       />
     </Layout>
@@ -82,9 +96,9 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         who
         location
+        date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
             fluid {
