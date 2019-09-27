@@ -17,25 +17,22 @@ export const StoryTemplate = ({
   return (
     <section className="post">
       {helmet || ''}
-      <div className="container">
+      <div className="container flex-container">
         <h2 className="page-title">Institutionalized Bullying is...</h2>
-        { who ? <h2 className="who">{who}</h2> : ''}
-        {location && date ?
-          <>
-          <h2 className="location-and-date" style={{display: "inline-block"}}>{location},</h2>
-          <h2 className="location-and-date" style={{display: "inline-block"}}>{date}</h2>
-          </> : ''}
-        { location && !date ? <h2 className="location">{location}</h2> : ''}
-        { date && !location ? <h2 className="date">{date}</h2> : ''}
         {imageSizes ?
-          <span className="accompanying-img">
+          <span className="accompanying-img flex-item">
             <Img
               alt="End institutionalized bullying gallery image" fluid={imageSizes}
               imgStyle={{height: 'auto', objectPosition: 'bottom'}}
             />
           </span> : ''}
         {isPreview ? <div className="preview-padding"></div> : ''}
-        <span className="flex-item" dangerouslySetInnerHTML={{__html: html}}></span>
+        <div className={imageSizes ? "flex-container-column" : 'text-container'}>
+          { who ? <p className="story-info flex-item">{who}</p> : ''}
+          { date ? <p className="story-info flex-item">{date}</p> : ''}
+          { location ? <p className="story-info flex-item">{location}</p> : ''}
+          <div className="flex-item" dangerouslySetInnerHTML={{__html: html}}></div>
+        </div>
       </div>
     </section>
   )
