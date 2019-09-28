@@ -29,9 +29,9 @@ export const StoryTemplate = ({
         {isPreview ? <div className="preview-padding"></div> : ''}
         <div className={imageSizes ? "flex-container-column" : 'text-container'}>
           { who ? <p className="story-info flex-item">{who}</p> : ''}
-          { date ? <p className="story-info flex-item">{date}</p> : ''}
+          {/*{ date ? <p className="story-info flex-item">{date}</p> : ''}*/}
           { location ? <p className="story-info flex-item">{location}</p> : ''}
-          <div className="flex-item" dangerouslySetInnerHTML={{__html: html}}></div>
+          <div className="flex-item story-html" dangerouslySetInnerHTML={{__html: html}}></div>
         </div>
       </div>
     </section>
