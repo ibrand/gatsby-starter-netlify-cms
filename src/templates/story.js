@@ -59,10 +59,10 @@ console.log(post.frontmatter.image);
             />
           </Helmet>
         }
-        who={post.frontmatter.who}
-        location={post.frontmatter.location}
-        date={post.frontmatter.date}
-        imageSizes={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : ''}
+        // who={post.frontmatter.who}
+        // location={post.frontmatter.location}
+        // date={post.frontmatter.date}
+        // imageSizes={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : ''}
       />
     </Layout>
   )
@@ -87,22 +87,27 @@ Story.propTypes = {
 
 export default Story
 
+// Future frontmatter
+// frontmatter {
+//   who
+//   location
+//   date(formatString: "MMMM DD, YYYY")
+//   image {
+//     childImageSharp {
+//       fluid {
+//       ...GatsbyImageSharpFluid
+//       }
+//     }
+//   }
+// }
+
 export const pageQuery = graphql`
   query StoryByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
-        who
-        location
         date(formatString: "MMMM DD, YYYY")
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     }
   }
