@@ -2,23 +2,41 @@
   width: $container-width
   margin: auto
   padding: 20px 0px
-  display: flex
-  align-items: center
-  justify-content: space-between
+  ul
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    list-style: none
+    padding: 0px
+  li + li, .donate-button
+    display: inline-block
+    font-size: .9em
+    &:last-of-type
+      margin-right: 0px
   & a
     text-decoration: none
+    color: black
+    &:hover
+      text-decoration: underline
   & p
     font-family: $header-font
     color: black
     display: inline-block
+  .list-header
+    width: 100%
+    font-size: 1.6em
+    margin-bottom: 10px
+    a
+      font-family: $header-font
+  .homepage-link-text
+    display: none
+    h2
+      margin: 0px
+      width: 75%
 
 .hamburger-menu
-  display: inline-block
-  cursor: pointer
-  z-index: 1
-  transition: 0.5s /* 0.5 second transition effect to slide in the navbar */
-  &.is-active
-    margin-right: 300px
+  display: none
 
 .bar1, .bar2, .bar3
   width: 40px
@@ -41,13 +59,38 @@
   -webkit-transform: rotate(45deg) translate(-8px, -8px)
   transform: rotate(45deg) translate(-8px, -8px)
 
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 1050px)
+  body .site .header
+    li + li, .donate-button
+      font-size: 0.8em
+    //  margin: 0px 70px 10px 0px
+    //li:nth-child(5n), .donate-button
+    //  margin-right: 0px
+
+@media only screen and (max-width: 866px)
   body .site
     .header
-      width: $container-width-mobile
+      display: flex
+      justify-content: space-between
+      .hamburger-menu
+        display: inline-block
+        cursor: pointer
+        z-index: 1
+        transition: 0.5s /* 0.5 second transition effect to slide in the navbar */
+        &.is-active
+          margin-right: 300px
       .hamburger-menu.is-active
         margin-right: 0px
         z-index: 3
       .is-active
         .bar1, .bar2, .bar3
           background: white
+      .homepage-link-text
+        display: inline-block
+      .nav-items
+        display: none
+
+@media only screen and (max-width: 600px)
+  body .site
+    .header
+      width: $container-width-mobile
