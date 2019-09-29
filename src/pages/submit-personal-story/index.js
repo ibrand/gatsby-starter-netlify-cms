@@ -161,7 +161,7 @@ export default class WriteStoriesPage extends React.Component {
         </fieldset>
         <fieldset className="fieldset textbox-padding">
           <label><span className="required-asterix">*</span> Approximate Date of Incident</label>
-          <input label={"Approximate Date of Incident"} name={"Approximate Date of Incident"} onChange={this.handleChange} type={'text'} /><br/>
+          <input label={"Approximate Date of Incident"} name={"Approximate Date of Incident"} onChange={this.handleChange} type={'date'} /><br/>
           <span className="smaller-text">(If exact date is not known month and year is ok)</span>
           <label><span className="required-asterix">*</span> Zipcode where incident occurred</label>
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
