@@ -63,9 +63,6 @@
   body .site .header
     li + li, .donate-button
       font-size: 0.8em
-    //  margin: 0px 70px 10px 0px
-    //li:nth-child(5n), .donate-button
-    //  margin-right: 0px
 
 @media only screen and (max-width: 866px)
   body .site
@@ -80,11 +77,8 @@
         &.is-active
           margin-right: 300px
       .hamburger-menu.is-active
-        margin-right: 0px
+        margin-left: -70px
         z-index: 3
-      .is-active
-        .bar1, .bar2, .bar3
-          background: white
       .homepage-link-text
         display: inline-block
       .nav-items
@@ -94,3 +88,8 @@
   body .site
     .header
       width: $container-width-mobile
+      .hamburger-menu.is-active
+        margin: 0px
+      .is-active
+        .bar1, .bar2, .bar3
+          background: white
