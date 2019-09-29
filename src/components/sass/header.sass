@@ -74,11 +74,10 @@
         cursor: pointer
         z-index: 1
         transition: 0.5s /* 0.5 second transition effect to slide in the navbar */
-        &.is-active
-          margin-right: 300px
-      .hamburger-menu.is-active
-        margin-left: -70px
         z-index: 3
+      .is-active
+        .bar1, .bar2, .bar3
+          background: white
       .homepage-link-text
         display: inline-block
       .nav-items
@@ -88,8 +87,3 @@
   body .site
     .header
       width: $container-width-mobile
-      .hamburger-menu.is-active
-        margin: 0px
-      .is-active
-        .bar1, .bar2, .bar3
-          background: white
