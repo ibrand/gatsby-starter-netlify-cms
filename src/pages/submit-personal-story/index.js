@@ -239,11 +239,12 @@ export default class WriteStoriesPage extends React.Component {
       'Who Experienced This': whoExperiencedThis,
       Name,
       'Zipcode where incident occurred': zipcodeWhereIncidentOccurred,
+      'Approximate Date of Incident': approximateDateOfIncident,
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
     const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
-    const requiredContactInfoIsFilledOut = Name && zipcodeWhereIncidentOccurred
+    const requiredContactInfoIsFilledOut = Name && zipcodeWhereIncidentOccurred && approximateDateOfIncident
     const disableSubmit = !radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || !requiredContactInfoIsFilledOut
     return (
       <StaticQuery
