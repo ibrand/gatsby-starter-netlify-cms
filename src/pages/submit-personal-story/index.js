@@ -74,8 +74,7 @@ export default class WriteStoriesPage extends React.Component {
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> Privacy information</legend>
           <p className="subtext">
-            We are working to make our schools better and reduce incidences of Institutionalized Bullying. By submitting the survey, you agree for your responses to be compiled to produce a report of the overall survey results after a given period.<br/><br/>
-            In some situations, we may want to share an anonymous version of your submission. It may be included on this website in the “Read Stories” section or as examples for policy campaigns work.
+            As part of the Institutionalized Bullying Story Collection Campaign, we may want to share an anonymous version of your submission. We may include the location, date, and a general description of the person (i.e. "Parent of 11th grade student") as part of the story. It may be included on this website in the “Read Stories” section or as examples for a report or other campaign work.   If you submit a picture along with the story we may also include it with the story.
           </p>
           <div className="radio-buttons">
             <div className="radio-container">
@@ -100,13 +99,9 @@ export default class WriteStoriesPage extends React.Component {
             </div>
           </div>
         </fieldset>
-        <fieldset className="fieldset">
-          <legend><span className="required-asterix">*</span> What is your email?</legend>
-          <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'email'} />
-        </fieldset>
         <p>
           <em>Check all square boxes that apply</em><br/>
-          <span className="required-warning">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</span>
+          <span className="smaller-text">All fields marked with an asterisk (<span className="required-asterix">*</span>) are required</span>
         </p>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> I am a...</legend>
@@ -164,7 +159,13 @@ export default class WriteStoriesPage extends React.Component {
           </div>
           <textarea className="input" type={'text'} name={'Story'} onChange={this.handleChange} required={false} />
         </fieldset>
-        <em>The following information is optional.</em><br/>
+        <fieldset className="fieldset textbox-padding">
+          <label><span className="required-asterix">*</span> Approximate Date of Incident</label>
+          <input label={"Approximate Date of Incident"} name={"Approximate Date of Incident"} onChange={this.handleChange} type={'text'} /><br/>
+          <span className="smaller-text">(If exact date is not known month and year is ok)</span>
+          <label><span className="required-asterix">*</span> Zipcode where incident occurred</label>
+          <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
+        </fieldset>
         <fieldset className="fieldset">
           <legend>I believe the reason for the Harassment/bullying was due to my/their...</legend>
           <div className="two-column-checkboxes">
@@ -208,16 +209,17 @@ export default class WriteStoriesPage extends React.Component {
             <textarea name={'how situation was resolved'} onChange={this.handleChange} required={false} />
           </span>
         </fieldset>
-        <fieldset className="fieldset">
+        <fieldset className="fieldset textbox-padding">
           <legend>Contact Information</legend>
           <label><span className="required-asterix">*</span> Name</label>
           <input label={"Name"} name={"Name"} onChange={this.handleChange} type={'text'} />
-          <label>Phone #</label>
-          <input label={"Phone number"} name={"Phone number"} onChange={this.handleChange} type={'text'} />
+          <label><span className="required-asterix">*</span> Email</label>
+          <input label={"Email"} name={"Email"} onChange={this.handleChange} type={'email'} />
+          <p className="smaller-text"><i>The following information is optional:</i></p>
           <label>School where incident occurred</label>
           <input label={"School where incident occurred"} name={"School where incident occurred"} onChange={this.handleChange} type={'text'} />
-          <label><span className="required-asterix">*</span> Zipcode where incident occurred</label>
-          <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
+          <label>Contact phone #</label>
+          <input label={"Contact phone number"} name={"Contact phone number"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
           <legend>Upload a photo</legend>
