@@ -1,6 +1,6 @@
 ---
 templateKey: story
-title: Being blamed for needing medical attention.
+title: Ramisa
 date: 2018-12-12T20:10:11.303Z
 who: 11th Grade Student
 location: 'Queens, New York'
