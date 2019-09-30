@@ -28,9 +28,9 @@ export const StoryTemplate = ({
           </span> : ''}
         {isPreview ? <div className="preview-padding"></div> : ''}
         <div className={imageSizes ? "flex-container-column" : 'text-container'}>
-          { who ? <p className="story-info flex-item">{who}</p> : ''}
-          {/*{ date ? <p className="story-info flex-item">{date}</p> : ''}*/}
+          { date ? <p className="story-info flex-item">{date}</p> : ''}
           { location ? <p className="story-info flex-item">{location}</p> : ''}
+          { who ? <p className="story-info flex-item">{who}</p> : ''}
           <div className="flex-item story-html" dangerouslySetInnerHTML={{__html: html}}></div>
         </div>
       </div>
@@ -59,10 +59,10 @@ console.log(post.frontmatter.image);
             />
           </Helmet>
         }
-        // who={post.frontmatter.who}
-        // location={post.frontmatter.location}
-        // date={post.frontmatter.date}
-        // imageSizes={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : ''}
+        date={post.frontmatter.date ? post.frontmatter.date : ''}
+        location={post.frontmatter.location ? post.frontmatter.location : ''}
+        who={post.frontmatter.who ? post.frontmatter.who : ''}
+        imageSizes={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid : ''}
       />
     </Layout>
   )
@@ -89,9 +89,9 @@ export default Story
 
 // Future frontmatter
 // frontmatter {
-//   who
-//   location
 //   date(formatString: "MMMM DD, YYYY")
+//   location
+//   who
 //   image {
 //     childImageSharp {
 //       fluid {
@@ -108,6 +108,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        location
+        who
       }
     }
   }
