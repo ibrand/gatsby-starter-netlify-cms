@@ -87,20 +87,6 @@ Story.propTypes = {
 
 export default Story
 
-// Future frontmatter
-// frontmatter {
-//   date(formatString: "MMMM DD, YYYY")
-//   location
-//   who
-//   image {
-//     childImageSharp {
-//       fluid {
-//       ...GatsbyImageSharpFluid
-//       }
-//     }
-//   }
-// }
-
 export const pageQuery = graphql`
   query StoryByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
@@ -110,6 +96,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         location
         who
+        image {
+          childImageSharp {
+            fluid {
+            ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
