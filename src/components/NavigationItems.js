@@ -25,6 +25,11 @@ const NavigationItems = () => (
       </Link>
     </li>
     <li>
+      <Link to="/resources">
+        Resources
+      </Link>
+    </li>
+    <li>
       <Link to="/gallery">
         Gallery
       </Link>
@@ -32,11 +37,6 @@ const NavigationItems = () => (
     <li>
       <Link to="/news">
         Media Coverage
-      </Link>
-    </li>
-    <li>
-      <Link to="/resources">
-        Resources
       </Link>
     </li>
     <li>
