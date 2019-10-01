@@ -54,7 +54,7 @@ export default class Index extends React.Component {
           <div className="container">
             <h2 className="page-title">Contact Us</h2>
             <p>
-              If you want more information about the campaign or want to conduct a training on Institutionalized Bullying please submit the contact form below.
+              If you want more information about the campaign or want to conduct a training on Institutionalized Bullying please submit the contact form below or contact Syed  at Syed@drumnyc.org
             </p>
               <form
                 name="contact"
