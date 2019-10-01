@@ -167,7 +167,7 @@ export default class WriteStoriesPage extends React.Component {
           <input label={"Zipcode where incident occurred"} name={"Zipcode where incident occurred"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
-          <legend>I believe the reason for the Harassment/bullying was due to my/their...</legend>
+          <legend><span className="required-asterix">*</span> I believe the reason for the Harassment/bullying was due to my/their...</legend>
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
           </div>
@@ -175,10 +175,12 @@ export default class WriteStoriesPage extends React.Component {
           <input className='other-input' label={"Other: Reason for bullying"} name={"Other: Reason for bullying"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
-          <legend>What were the impacts of the experience you faced?</legend>
+          <legend><span className="required-asterix">*</span> What were the impacts of the experience you faced?</legend>
           <div className="two-column-checkboxes">
             <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
           </div>
+          <label className='other-label'>Other:</label>
+          <input className='other-input' label={"Other: Impacts of the experience"} name={"Other: Impacts of the experience"} onChange={this.handleChange} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
           <legend>Were you able to resolve the situation?</legend>
