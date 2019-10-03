@@ -1,5 +1,5 @@
 ---
-templateKey: resource
+templateKey: news
 title: >-
   A Clock is not a clock in the hands of Ahmed: Exposing the policies of
   Islamophobia, School to prison pipeline, and Institutionalized Bullying.
