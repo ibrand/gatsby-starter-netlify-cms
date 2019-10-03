@@ -17,15 +17,17 @@ function encode(data) {
 export default class WriteStoriesPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isValidated: false }
+
+    this.state = {}
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleCheck = e => {
-    this.setState({ [e.target.name]: e.target.checked })
+  handleOther = e => {
+    e.target.value ? this.setState( { [e.target.getAttribute('section')]: true } ) : this.setState( { [e.target.getAttribute('section')]: false } )
+    this.handleChange(e)
   }
 
   handleRadio  = (e) => {
@@ -34,6 +36,17 @@ export default class WriteStoriesPage extends React.Component {
 
   handleAttachment = e => {
     this.setState({ [e.target.name]: e.target.files[0] })
+  }
+
+  validateRequiredContainer = (isValid, sectionName, checkedItems) => {
+    this.setState(  { [sectionName]: isValid } )
+    this.handleCheckboxContainer(isValid, sectionName, checkedItems)
+  }
+
+  handleCheckboxContainer = (isValid, sectionName, checkedItems) => {
+    checkedItems.forEach( (val, key) => {
+      this.setState( { [key]: val })
+    })
   }
 
   handleSubmit = e => {
@@ -106,29 +119,29 @@ export default class WriteStoriesPage extends React.Component {
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> I am a...</legend>
           <div className="single-line-checkboxes">
-            <CheckboxContainer section={'I am a'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'I am a'} onChange={this.handleCheck} handleCheckboxContainer={this.handleCheckboxContainer} />
           </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend>Have you ever seen or experienced any of the following in your school</legend>
           <strong>Youth</strong>
           <div className="two-column-checkboxes">
-            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Youth'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Youth'} onChange={this.handleCheck} handleCheckboxContainer={this.handleCheckboxContainer} />
           </div>
           <strong>Parents</strong>
           <div className="two-column-checkboxes">
-            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Parents'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Parents'} onChange={this.handleCheck} handleCheckboxContainer={this.handleCheckboxContainer} />
           </div>
           <br/>
           <strong>Teachers</strong>
           <div className="two-column-checkboxes">
-            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Teachers'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'Have you ever seen or experienced any of the following in your school - Teachers'} onChange={this.handleCheck} handleCheckboxContainer={this.handleCheckboxContainer} />
           </div>
         </fieldset>
         <fieldset className="fieldset">
           <legend>Have you, your child, your student ever been harassed/bullied in school by</legend>
           <div className="two-column-checkboxes">
-            <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'Have you, your child, your student ever been harassed/bullied in school'} onChange={this.handleCheck} handleCheckboxContainer={this.handleCheckboxContainer} />
           </div>
           <label className='other-label'>Other:</label>
           <input className='other-input' label={"Other: Bullied by"} name={"Other: Bullied by"} onChange={this.handleChange} type={'text'} />
@@ -169,18 +182,18 @@ export default class WriteStoriesPage extends React.Component {
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> I believe the reason for the Harassment/bullying was due to my/their...</legend>
           <div className="two-column-checkboxes">
-            <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'I believe the reason for the Harassment/bullying was due to my/their...'} handleCheckboxContainer={this.validateRequiredContainer} />
           </div>
           <label className='other-label'>Other:</label>
-          <input className='other-input' label={"Other: Reason for bullying"} name={"Other: Reason for bullying"} onChange={this.handleChange} type={'text'} />
+          <input className='other-input' label={"Other: Reason for bullying"} section={'I believe the reason for the Harassment/bullying was due to my/their...'} name={"Other: Reason for bullying"} onChange={this.handleOther} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
           <legend><span className="required-asterix">*</span> What were the impacts of the experience you faced?</legend>
           <div className="two-column-checkboxes">
-            <CheckboxContainer section={'What were the impacts of the experience you faced'} onChange={this.handleCheck} />
+            <CheckboxContainer section={'What were the impacts of the experience you faced'} handleCheckboxContainer={this.validateRequiredContainer} />
           </div>
           <label className='other-label'>Other:</label>
-          <input className='other-input' label={"Other: Impacts of the experience"} name={"Other: Impacts of the experience"} onChange={this.handleChange} type={'text'} />
+          <input className='other-input' label={"Other: Impacts of the experience"} section={'What were the impacts of the experience you faced'} name={"Other: Impacts of the experience"} onChange={this.handleOther} type={'text'} />
         </fieldset>
         <fieldset className="fieldset">
           <legend>Were you able to resolve the situation?</legend>
@@ -235,6 +248,10 @@ export default class WriteStoriesPage extends React.Component {
   render() {
     const {
       'i-am-student' : iAmStudent, 'i-am-parent' : iAmParent, 'i-am-teacher' : iAmTeacher,
+      'I believe the reason for the Harassment/bullying was due to my/their...' : requiredSection1,
+      'What were the impacts of the experience you faced': requiredSection2,
+      'Other: Reason for bullying': requiredOther1,
+      'Other: Impacts of the experience': requiredOther2,
       Email,
       Story,
       'Privacy Information' : privacyInformation,
@@ -245,9 +262,11 @@ export default class WriteStoriesPage extends React.Component {
       isSubmitting
     } = this.state
     const identityIsFilledOut = iAmStudent || iAmParent || iAmTeacher
+    const requiredCheckboxesFilled = (requiredSection1 || requiredOther1) && (requiredSection2 || requiredOther2)
     const radioButtonsAreFilledOut = privacyInformation && whoExperiencedThis
     const requiredContactInfoIsFilledOut = Name && zipcodeWhereIncidentOccurred && approximateDateOfIncident
-    const disableSubmit = !radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || !requiredContactInfoIsFilledOut
+    const disableSubmit = !radioButtonsAreFilledOut || !identityIsFilledOut || !Story || !Email || !requiredContactInfoIsFilledOut || !requiredCheckboxesFilled
+
     return (
       <StaticQuery
         query={ graphql`
