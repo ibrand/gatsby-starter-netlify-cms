@@ -58,7 +58,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Category", name: "category", options: ['toolkit', 'videos', 'endorsers'], widget: "select", hint: "For toolkit resources, use the file upload to upload a pdf. For endorsers or videos, use the URL field to add the link"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Url", name: "url", required: false, widget: "string", hint: "If you're using a youtube link, make sure to use the embed link. It should start with youtube.com/embed/ and then have some random letters after it"}
+      - {label: "Url", name: "url", required: false, widget: "string", hint: "If you're using a youtube link, make sure to use the embed link. It should start with youtube.com/embed/ and then have some random letters after it",   pattern: ["^(https|http):\/\/", "Must begin with either http:// or https:// remember to copy and paste the full url!"]}
       - {label: "Resource", name: "resource", required: false, widget: "file", hint: "All resources need to be pdfs"}
   - name: "media coverage"
     label: "Media Coverage" # Used in the UI
@@ -70,4 +70,4 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Url", name: "url", widget: "string"}
+      - {label: "Url", name: "url", widget: "string",  pattern: ["^(https|http):\/\/", "Must begin with either http:// or https:// remember to copy and paste the full url!"]}
