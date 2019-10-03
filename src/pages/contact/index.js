@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import {graphql, StaticQuery} from "gatsby";
 
 function encode(data) {
   return Object.keys(data)
@@ -49,75 +50,86 @@ export default class Index extends React.Component {
       isSubmitting
     } = this.state
     return (
-      <Layout>
-        <section className="contact">
-          <div className="container">
-            <h2 className="page-title">Contact Us</h2>
-            <p>
-              If you want more information about the campaign or want to conduct a training on Institutionalized Bullying please submit the contact form below or contact Syed  at Syed@drumnyc.org
-            </p>
-              <form
-                name="contact"
-                method="post"
-                action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-              >
-                <div className="form-container">
-                  {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <div hidden>
-                    <label>
-                      Don’t fill this out:{' '}
-                      <input name="bot-field" onChange={this.handleChange} />
-                    </label>
-                  </div>
-                  <div className="fieldset">
-                    <label className="label" htmlFor={'name'}>
-                      Name
-                    </label>
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'name'}
-                      onChange={this.handleChange}
-                      id={'name'}
-                      required={true}
-                    />
-                  </div>
-                  <div className="fieldset">
-                    <label className="label" htmlFor={'phone-number'}>
-                      Phone #
-                    </label>
-                    <input
-                      className="input"
-                      type={'tel'}
-                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                      name={'phoneNumber'}
-                      onChange={this.handleChange}
-                      id={'phoneNumber'}
-                      required={true}
-                    />
-                    <span className="note">(Format: 123-456-7890)</span>
-                  </div>
-                  <div className="fieldset">
-                    <label className="label" htmlFor={'email'}>
-                      Email
-                    </label>
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
-                  </div>
-                  <div className="fieldset">
-                    <label className="label" htmlFor={'description'}>
-                      Description (What is the purpose of your inquiry)
-                    </label>
+      <StaticQuery
+        query={ graphql`
+          query {
+            markdownRemark(frontmatter: {
+              templateKey: {
+                eq: "contact-page"
+              }
+            }) {
+              html
+            }
+          }`
+        }
+        render={data => (
+          <Layout>
+            <section className="contact">
+              <div className="container">
+                <h2 className="page-title">Contact Us</h2>
+                  <span dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></span>
+                <form
+                  name="contact"
+                  method="post"
+                  action="/contact/thanks/"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={this.handleSubmit}
+                >
+                  <div className="form-container">
+                    {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div hidden>
+                      <label>
+                        Don’t fill this out:{' '}
+                        <input name="bot-field" onChange={this.handleChange} />
+                      </label>
+                    </div>
+                    <div className="fieldset">
+                      <label className="label" htmlFor={'name'}>
+                        Name
+                      </label>
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'name'}
+                        onChange={this.handleChange}
+                        id={'name'}
+                        required={true}
+                      />
+                    </div>
+                    <div className="fieldset">
+                      <label className="label" htmlFor={'phone-number'}>
+                        Phone #
+                      </label>
+                      <input
+                        className="input"
+                        type={'tel'}
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        name={'phoneNumber'}
+                        onChange={this.handleChange}
+                        id={'phoneNumber'}
+                        required={true}
+                      />
+                      <span className="note">(Format: 123-456-7890)</span>
+                    </div>
+                    <div className="fieldset">
+                      <label className="label" htmlFor={'email'}>
+                        Email
+                      </label>
+                      <input
+                        className="input"
+                        type={'email'}
+                        name={'email'}
+                        onChange={this.handleChange}
+                        id={'email'}
+                        required={true}
+                      />
+                    </div>
+                    <div className="fieldset">
+                      <label className="label" htmlFor={'description'}>
+                        Description (What is the purpose of your inquiry)
+                      </label>
                       <textarea
                         className="textarea"
                         name={'description'}
@@ -125,27 +137,29 @@ export default class Index extends React.Component {
                         id={'description'}
                         required={true}
                       />
+                    </div>
                   </div>
-                </div>
-                <button
-                  disabled={!name || !phoneNumber || !email || !description || isSubmitting}
-                  className="button is-link"
-                  type="submit"
-                >
-                  { isSubmitting ? "Sending..." : "Send" }
-                </button>
-                {
-                  !name ||
-                  !phoneNumber ||
-                  !email ||
-                  !description ?
-                    <span className="required-text">There are still required fields to fill out</span> :
-                    null
-                }
-              </form>
-          </div>
-        </section>
-      </Layout>
+                  <button
+                    disabled={!name || !phoneNumber || !email || !description || isSubmitting}
+                    className="button is-link"
+                    type="submit"
+                  >
+                    { isSubmitting ? "Sending..." : "Send" }
+                  </button>
+                  {
+                    !name ||
+                    !phoneNumber ||
+                    !email ||
+                    !description ?
+                      <span className="required-text">There are still required fields to fill out</span> :
+                      null
+                  }
+                </form>
+              </div>
+            </section>
+          </Layout>
+        )}
+      />
     )
   }
 }
